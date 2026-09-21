@@ -1,0 +1,42 @@
+name: skillbridge
+
+services:
+  neo4j:
+    image: neo4j:5.26
+    container_name: skillbridge-neo4j
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:-skillbridge}
+    ports:
+      - "${NEO4J_HTTP_PORT:-7474}:7474"   # HTTP(Browser / API)
+      - "${NEO4J_BOLT_PORT:-7687}:7687"    # Bolt(驱动连接)
+    volumes:
+      - neo4j_data:/data
+    healthcheck:
+      # 用镜像自带的 cypher-shell 真正执行一条查询,验证认证与查询链路
+      test: ["CMD-SHELL", "cypher-shell -a bolt://localhost:7687 -u neo4j -p ${NEO4J_PASSWORD:-skillbridge} 'RETURN 1'"]
+      interval: 5s
+      timeout: 10s
+      retries: 30
+      start_period: 30s
+
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: skillbridge-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-skillbridge}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-skillbridge}
+      POSTGRES_DB: ${POSTGRES_DB:-skillbridge}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-skillbridge} -d ${POSTGRES_DB:-skillbridge}"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 10s
+
+volumes:
+  neo4j_data:
+  pg_data:

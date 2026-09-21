@@ -4,7 +4,6 @@ __pycache__/
 *.egg-info/
 .venv/
 venv/
-.python-version
 .pytest_cache/
 .ruff_cache/
 .mypy_cache/
@@ -16,12 +15,15 @@ build/
 # 环境与密钥
 .env
 .env.*
+!.env.example
 *.pem
 *.key
 
-# 数据与向量库
-data/raw/
-data/processed/
+# 数据与向量库(保留目录结构,忽略内容)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
 *.neo4j-backup
 pgdata/
 chroma_db/

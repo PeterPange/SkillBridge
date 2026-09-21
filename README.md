@@ -25,21 +25,54 @@
 - **向量检索**:PostgreSQL + pgvector
 - **语言**:Python 3.11+
 
-## 项目结构(规划)
+## 项目结构
 
 ```text
 SkillBridge/
-├── prompts/            # 设计文档与大纲
-├── data/               # 岗位/技能/课程/员工数据
-├── skill_normalization/# 技能归一化模块
-├── knowledge_graph/    # Neo4j 图谱构建与查询
-├── profile/            # 员工画像与 Skill Gap
-├── recommendation/     # 课程推荐
-├── learning_path/      # 学习路径规划
-├── rag/                # 企业知识库 RAG
-├── agent/              # HR Training Agent (LangGraph)
-└── platform/           # HR 管理平台(员工端/HR端)
+├── prompts/              # 设计文档与大纲
+├── data/                 # 岗位/技能/课程/员工数据(阶段 1A)
+│   ├── raw/              # 外部数据源拉取的原始缓存
+│   └── processed/        # 标准化后的 JSON
+├── skill_normalization/  # 技能归一化模块(阶段 1B)
+├── knowledge_graph/      # Neo4j 图谱构建与查询(阶段 2A)
+├── profile/              # 员工画像与 Skill Gap(阶段 2B)
+├── recommendation/       # 课程推荐(阶段 3A)
+├── learning_path/        # 学习路径规划(阶段 3B)
+├── rag/                  # 企业知识库 RAG(阶段 4)
+├── agent/                # HR Training Agent(LangGraph,阶段 4)
+├── platform/             # HR 管理平台(占位,后续阶段)
+├── skillbridge/          # 共享核心:配置与数据库连接
+├── tests/                # 测试(含基础设施冒烟测试)
+├── docker-compose.yml    # Neo4j + PostgreSQL(pgvector),带健康检查
+├── pyproject.toml        # uv 管理的依赖与构建配置
+├── .env.example          # 环境变量模板
+├── Makefile              # make up / down / test
+└── uv.lock               # 锁定依赖
 ```
+
+## 快速开始
+
+依赖:[uv](https://docs.astral.sh/uv/)、Docker(含 compose 插件)。
+
+```bash
+# 1. 安装依赖(Python 3.11,由 .python-version 指定)
+uv sync
+
+# 2. (可选)配置环境变量,默认值与 docker-compose.yml 一致
+cp .env.example .env
+
+# 3. 启动 Neo4j + PostgreSQL,等待健康检查通过
+make up
+
+# 4. 运行测试(含数据库冒烟测试)
+make test
+
+# 停止服务(保留数据卷)
+make down
+```
+
+服务地址(默认):Neo4j Browser `http://localhost:7474`(bolt `:7687`),
+PostgreSQL `localhost:5432`。
 
 ## 开发方式
 
@@ -48,4 +81,5 @@ SkillBridge/
 
 ## 状态
 
-🚧 项目启动阶段,当前仅有设计大纲,见 `prompts/大纲.md`。
+✅ 阶段 0(项目骨架)完成:uv + Python 3.11、docker-compose(Neo4j + PostgreSQL/pgvector,
+带健康检查)、冒烟测试与 Makefile 就绪。业务模块按 `prompts/任务拆解.md` 逐阶段实现。
