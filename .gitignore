@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.python-version
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+htmlcov/
+.coverage
+dist/
+build/
+
+# 环境与密钥
+.env
+.env.*
+*.pem
+*.key
+
+# 数据与向量库
+data/raw/
+data/processed/
+*.neo4j-backup
+pgdata/
+chroma_db/
+
+# LangChain / LangGraph
+.langgraph_api/
+.langsmith/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node(前端 HR 平台如用到)
+node_modules/
+.next/
