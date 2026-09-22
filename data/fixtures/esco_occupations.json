@@ -1,0 +1,1601 @@
+{
+ "software developer": {
+  "search": {
+   "total": 490,
+   "offset": 0,
+   "limit": 10,
+   "text": "software developer",
+   "language": "en",
+   "type": [
+    "occupation"
+   ],
+   "_embedded": {
+    "results": [
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1",
+      "title": "software developer"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/57af9090-55b4-4911-b2d0-86db01c00b02",
+      "title": "embedded systems software developer"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/bb6198c4-1d3e-40b9-9cc4-ad2dd9d7c74b",
+      "title": "industrial mobile devices software developer"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/bd272aee-adc9-4a06-a15c-a73b4b4a46a7",
+      "title": "ICT application developer"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/10469d70-78a3-4650-9e29-d04de13c62c1",
+      "title": "embedded system designer"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/a7c1d23d-aeca-4bee-9a08-5993ed98b135",
+      "title": "ICT system developer"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/24161923-e3e6-4096-b377-f1ee8a7ea31b",
+      "title": "satellite engineer"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/04ba4d6c-957d-417f-bf63-5b9e015a9f86",
+      "title": "software analyst"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/866c7813-2c03-47d7-9bdc-192cfbace57c",
+      "title": "user interface developer"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/c40a2919-48a9-40ea-b506-1f34f693496d",
+      "title": "web developer"
+     }
+    ]
+   }
+  },
+  "detail": {
+   "uri": "http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1",
+   "title": "software developer",
+   "code": "2512.3",
+   "status": "released",
+   "description": {
+    "en": {
+     "literal": "Software developers implement or program all kinds of software systems based on specifications and designs by using programming languages, tools, and platforms.",
+     "mimetype": "plain/text"
+    }
+   },
+   "preferredLabel": {
+    "en": "software developer"
+   },
+   "_links": {
+    "hasEssentialSkill": [
+     {
+      "uri": "http://data.europa.eu/esco/skill/f28617ad-afdd-4041-814c-216153a38998",
+      "title": "analyse software specifications",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/f28617ad-afdd-4041-814c-216153a38998&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/2b7a79e5-84d8-4880-be66-3d9bb05bea17",
+      "title": "use software design patterns",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/2b7a79e5-84d8-4880-be66-3d9bb05bea17&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/4fabca9a-7435-4f33-b1da-3cdb00340fdc",
+      "title": "perform scientific research",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/4fabca9a-7435-4f33-b1da-3cdb00340fdc&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/797a4416-0b8d-44f3-8fcd-eb10bd0be6b4",
+      "title": "develop software prototype",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/797a4416-0b8d-44f3-8fcd-eb10bd0be6b4&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/925463a7-d51f-4d5b-9f79-4d28cf30acde",
+      "title": "integrated development environment software",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/925463a7-d51f-4d5b-9f79-4d28cf30acde&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/59ea80e1-463a-4dba-82c6-d0b6d577d532",
+      "title": "technical drawings",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/59ea80e1-463a-4dba-82c6-d0b6d577d532&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/72a74f69-5cf1-43c5-99b9-62a444578919",
+      "title": "engineering processes",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/72a74f69-5cf1-43c5-99b9-62a444578919&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/8b94aa1e-89c9-459d-b3b4-1dfab8dec2df",
+      "title": "use software libraries",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/8b94aa1e-89c9-459d-b3b4-1dfab8dec2df&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/04dfd9fb-e0cf-40f6-96c6-9d2280c4347e",
+      "title": "provide technical documentation",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/04dfd9fb-e0cf-40f6-96c6-9d2280c4347e&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/6a899482-8bcf-40ca-ae67-579a1cc467ab",
+      "title": "manage engineering project",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/6a899482-8bcf-40ca-ae67-579a1cc467ab&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/2522a6ce-3202-4ac8-9f5b-b9cb5a3a83a1",
+      "title": "debug software",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/2522a6ce-3202-4ac8-9f5b-b9cb5a3a83a1&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+      "title": "tools for software configuration management",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/9d2e926f-53d9-41f5-98f3-19dfaa687f3f&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/541561bc-510c-4a99-881c-2d8bf5a85462",
+      "title": "use technical drawing software",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/541561bc-510c-4a99-881c-2d8bf5a85462&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/be48353d-25c7-4f86-bea9-7b9e248fbc6e",
+      "title": "interpret technical requirements",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/be48353d-25c7-4f86-bea9-7b9e248fbc6e&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/172020d1-e151-445b-8173-e2a5fb16fe51",
+      "title": "utilise computer-aided software engineering tools",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/172020d1-e151-445b-8173-e2a5fb16fe51&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/209a5498-3449-4689-8ed9-bd08cab4fd78",
+      "title": "engineering principles",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/209a5498-3449-4689-8ed9-bd08cab4fd78&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/6014921e-1d25-4039-adc2-04852d61880e",
+      "title": "ICT debugging tools",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/6014921e-1d25-4039-adc2-04852d61880e&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/d9e5349e-8791-49c2-8ba4-839fdd1606c2",
+      "title": "define technical requirements",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/d9e5349e-8791-49c2-8ba4-839fdd1606c2&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/0b0335f3-0aa1-491e-895e-81fc8774a300",
+      "title": "develop automated migration methods",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/0b0335f3-0aa1-491e-895e-81fc8774a300&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/0e0c9c11-b39e-43cf-ba95-2fe646f5de64",
+      "title": "identify customer requirements",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/0e0c9c11-b39e-43cf-ba95-2fe646f5de64&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/7111b95d-0ce3-441a-9d92-4c75d05c4388",
+      "title": "project management",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/7111b95d-0ce3-441a-9d92-4c75d05c4388&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+      "title": "computer programming",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/21d2f96d-35f7-4e3f-9745-c533d2dd6e97&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/901105f8-3a08-453e-b1dc-23619e317fd3",
+      "title": "create flowchart diagram",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/901105f8-3a08-453e-b1dc-23619e317fd3&language=en"
+     }
+    ],
+    "hasOptionalSkill": [
+     {
+      "uri": "http://data.europa.eu/esco/skill/7d10fcb2-b368-48ab-996b-7c9fafcf68ed",
+      "title": "use automatic programming",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/7d10fcb2-b368-48ab-996b-7c9fafcf68ed&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/438ff259-d086-4004-acda-1ec3e1631bc6",
+      "title": "software anomalies",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/438ff259-d086-4004-acda-1ec3e1631bc6&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/5b9cde20-f1b9-4adc-bfb3-dbf70b14138d",
+      "title": "use object-oriented programming",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/5b9cde20-f1b9-4adc-bfb3-dbf70b14138d&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/4c016b68-4116-468c-9dc6-42710c239e4a",
+      "title": "C#",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/4c016b68-4116-468c-9dc6-42710c239e4a&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/993b1e23-f2de-4bd8-b33f-f86dde1c8e9d",
+      "title": "CoffeeScript",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/993b1e23-f2de-4bd8-b33f-f86dde1c8e9d&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/dcdd5ddf-82a6-4ac3-8edc-d4b23cae9a88",
+      "title": "VBScript",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/dcdd5ddf-82a6-4ac3-8edc-d4b23cae9a88&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/4350c38d-0fe9-4ca7-bab9-40ed7f72b04f",
+      "title": "PHP",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/4350c38d-0fe9-4ca7-bab9-40ed7f72b04f&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/a4d336a6-9ffd-402a-91cc-f359716ba4e0",
+      "title": "ML (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/a4d336a6-9ffd-402a-91cc-f359716ba4e0&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/6b6a9252-2ed7-4862-a02f-1578f4a532ea",
+      "title": "Eclipse (integrated development environment software)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/6b6a9252-2ed7-4862-a02f-1578f4a532ea&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/52cf3037-ab53-4806-85ed-7fd21ea7f6a1",
+      "title": "Groovy",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/52cf3037-ab53-4806-85ed-7fd21ea7f6a1&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/ffddfc7c-a9dd-449f-9e96-882dc447c8b6",
+      "title": "Scala",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/ffddfc7c-a9dd-449f-9e96-882dc447c8b6&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/9973a5a2-7822-4161-99e9-95c781eb63f8",
+      "title": "Objective-C",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/9973a5a2-7822-4161-99e9-95c781eb63f8&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/2c4e11ef-da18-4e19-816b-e6bc19e12424",
+      "title": "use logic programming",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/2c4e11ef-da18-4e19-816b-e6bc19e12424&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/0cd6dcf1-5778-42a5-b685-4d01ae4a4871",
+      "title": "Common Lisp",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/0cd6dcf1-5778-42a5-b685-4d01ae4a4871&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/eb0e5615-1575-4a86-a1a2-7d39595033c5",
+      "title": "ABAP",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/eb0e5615-1575-4a86-a1a2-7d39595033c5&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/c3a03c5a-c260-4c26-9b9a-873abb396f4d",
+      "title": "MATLAB",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/c3a03c5a-c260-4c26-9b9a-873abb396f4d&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/d56fc2b5-4b0a-4e7e-9bde-a33736f6ff18",
+      "title": "Scratch (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/d56fc2b5-4b0a-4e7e-9bde-a33736f6ff18&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/7814e88f-c133-4c3b-b27f-857afa145d42",
+      "title": "ICT security legislation",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/7814e88f-c133-4c3b-b27f-857afa145d42&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/def007fa-5fed-4a5f-91a2-b0d7e3db1be1",
+      "title": "COBOL",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/def007fa-5fed-4a5f-91a2-b0d7e3db1be1&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/fd33c66c-70c4-40e6-b87c-5495bd3bf26e",
+      "title": "design user interface",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/fd33c66c-70c4-40e6-b87c-5495bd3bf26e&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/0d168770-4d9c-4096-b048-a6577818d306",
+      "title": "Apache Maven",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/0d168770-4d9c-4096-b048-a6577818d306&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/13bdd41a-2a18-441f-96db-41252c519413",
+      "title": "Visual Studio .NET",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/13bdd41a-2a18-441f-96db-41252c519413&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/8c4c49d4-9708-433f-8ca7-bf2c5211ee49",
+      "title": "develop creative ideas",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/8c4c49d4-9708-433f-8ca7-bf2c5211ee49&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/6417a4cc-6f61-4459-a114-761a7fa0279d",
+      "title": "Puppet (tools for software configuration management)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/6417a4cc-6f61-4459-a114-761a7fa0279d&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/300d432b-f457-4cd3-9cb1-1858c7d14954",
+      "title": "OpenEdge Advanced Business Language",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/300d432b-f457-4cd3-9cb1-1858c7d14954&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/bb99af26-71ff-4dca-bde7-1eb1f6194426",
+      "title": "SAP R3",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/bb99af26-71ff-4dca-bde7-1eb1f6194426&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+      "title": "C++",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/56a7f561-1d55-43c9-9cd7-36a0a9bc6c50",
+      "title": "ASP.NET",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/56a7f561-1d55-43c9-9cd7-36a0a9bc6c50&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/867137fb-ff1b-4ca3-99f3-cb6969aa2c68",
+      "title": "TypeScript",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/867137fb-ff1b-4ca3-99f3-cb6969aa2c68&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/ccd0a1d9-afda-43d9-b901-96344886e14d",
+      "title": "Python (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/ccd0a1d9-afda-43d9-b901-96344886e14d&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/58d7a289-dafd-4363-833f-d1dc4140885e",
+      "title": "APL",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/58d7a289-dafd-4363-833f-d1dc4140885e&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/e8b89eb6-51e8-4c3a-babb-88b2e110376b",
+      "title": "Pascal (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/e8b89eb6-51e8-4c3a-babb-88b2e110376b&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/0de61385-de6d-4146-ba32-1cc1bc102220",
+      "title": "Lisp",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/0de61385-de6d-4146-ba32-1cc1bc102220&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/71746a0b-e58d-4dc4-ad03-bd84082eae21",
+      "title": "collect customer feedback on applications",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/71746a0b-e58d-4dc4-ad03-bd84082eae21&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/2bde42ae-e776-41c1-9ded-b07b30bfe985",
+      "title": "Prolog (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/2bde42ae-e776-41c1-9ded-b07b30bfe985&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/f5308e60-d763-4ead-be95-88c96fb3e02b",
+      "title": "adapt to changes in technological development plans",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/f5308e60-d763-4ead-be95-88c96fb3e02b&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/ed8de897-adbe-4f0e-b4d2-534953e64c72",
+      "title": "integrate system components",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/ed8de897-adbe-4f0e-b4d2-534953e64c72&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/8369ede5-4200-4a44-be2e-bc60ef959259",
+      "title": "Microsoft Visual C++",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/8369ede5-4200-4a44-be2e-bc60ef959259&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/f47a1998-0beb-43be-9f46-380aa4d183da",
+      "title": "Jenkins (tools for software configuration management)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/f47a1998-0beb-43be-9f46-380aa4d183da&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/b4dc6e4f-dc7d-445f-8ce2-d7b9d225e282",
+      "title": "AJAX",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/b4dc6e4f-dc7d-445f-8ce2-d7b9d225e282&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/020918ef-4b55-47c1-8430-ab7b8f6a7377",
+      "title": "migrate existing data",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/020918ef-4b55-47c1-8430-ab7b8f6a7377&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/6f8a40d6-f9ce-43ec-a72f-d4213a53f3ed",
+      "title": "Ansible",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/6f8a40d6-f9ce-43ec-a72f-d4213a53f3ed&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/69f0167e-75d9-46cf-847f-72a592880ebb",
+      "title": "STAF",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/69f0167e-75d9-46cf-847f-72a592880ebb&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/d31fab87-2a7d-485c-b699-2901ca294b15",
+      "title": "use functional programming",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/d31fab87-2a7d-485c-b699-2901ca294b15&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/0ccdfe98-f845-4598-84a1-3dca66e9d9a3",
+      "title": "Ruby (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/0ccdfe98-f845-4598-84a1-3dca66e9d9a3&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/013441c1-1f13-47e9-80c4-9a53e8e1bc05",
+      "title": "KDevelop",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/013441c1-1f13-47e9-80c4-9a53e8e1bc05&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/034c29fa-c3ba-45ea-b8f3-bf8e3705e386",
+      "title": "Erlang",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/034c29fa-c3ba-45ea-b8f3-bf8e3705e386&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/be80acfc-b6f2-4411-9b8d-b19d9cd2556a",
+      "title": "Swift (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/be80acfc-b6f2-4411-9b8d-b19d9cd2556a&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/449d119b-2d66-43a9-9230-7d27f16afbb6",
+      "title": "Xcode",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/449d119b-2d66-43a9-9230-7d27f16afbb6&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/8696aff0-18c0-4ba6-a4d0-9a21861b3e5e",
+      "title": "World Wide Web Consortium standards",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/8696aff0-18c0-4ba6-a4d0-9a21861b3e5e&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/51586df8-1c46-4b47-8583-773cb63bf00b",
+      "title": "R",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/51586df8-1c46-4b47-8583-773cb63bf00b&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/000f1d3d-220f-4789-9c0a-cc742521fb02",
+      "title": "Haskell",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/000f1d3d-220f-4789-9c0a-cc742521fb02&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/401eb8d8-6daa-4f8b-90ad-60afc71eb4f8",
+      "title": "Perl",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/401eb8d8-6daa-4f8b-90ad-60afc71eb4f8&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/c7451027-8249-405a-bb1b-342ff0f3fb3b",
+      "title": "Salt (tools for software configuration management)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/c7451027-8249-405a-bb1b-342ff0f3fb3b&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/42ed3bfb-1a01-4c8b-9758-fc6438865734",
+      "title": "Smalltalk (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/42ed3bfb-1a01-4c8b-9758-fc6438865734&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/25b291b5-8245-4d9d-b391-86a8a31d7109",
+      "title": "use concurrent programming",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/25b291b5-8245-4d9d-b391-86a8a31d7109&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/5be3d306-6cf1-4b49-aa1d-01651dd4ba4c",
+      "title": "object-oriented modelling",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/5be3d306-6cf1-4b49-aa1d-01651dd4ba4c&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/47b9bbcf-356c-4782-83a4-7f5a1b2b51a3",
+      "title": "Assembly (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/47b9bbcf-356c-4782-83a4-7f5a1b2b51a3&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+      "title": "JavaScript",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/3cd569a2-4f88-4c1e-9995-8dce8c5e51a7&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/8369c2d6-c100-4cf6-bd83-9668d8678433",
+      "title": "utilise machine learning",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/8369c2d6-c100-4cf6-bd83-9668d8678433&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/19a8293b-8e95-4de3-983f-77484079c389",
+      "title": "Java (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/19a8293b-8e95-4de3-983f-77484079c389&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/f049d050-12da-4e40-813a-2b5eb6df6b51",
+      "title": "Internet of Things",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/f049d050-12da-4e40-813a-2b5eb6df6b51&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/04f1b938-d4d4-4cb1-a863-982af76b9d93",
+      "title": "SAS language",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/04f1b938-d4d4-4cb1-a863-982af76b9d93&language=en"
+     }
+    ]
+   }
+  }
+ },
+ "data scientist": {
+  "search": {
+   "total": 188,
+   "offset": 0,
+   "limit": 10,
+   "text": "data scientist",
+   "language": "en",
+   "type": [
+    "occupation"
+   ],
+   "_embedded": {
+    "results": [
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/258e46f9-0075-4a2e-adae-1ff0477e0f30",
+      "title": "data scientist"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/68d973df-bf10-4bf7-9a1b-fbd9f604b9db",
+      "title": "bioinformatics scientist"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/bc659adc-f42c-4ef6-89fe-fd030033f446",
+      "title": "cosmologist"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/8606c0fd-c7cb-404d-887f-3a30ef7a81b4",
+      "title": "sensory scientist"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/1c862e14-80f8-4aa8-8f1c-fd2ca95b63ad",
+      "title": "meteorologist"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/ac8b3cd1-a127-4e6a-8208-5cfcf7111955",
+      "title": "statistician"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/11a6d0f6-e692-4774-aa5f-193b67d31022",
+      "title": "kinesiologist"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/57a12047-4f1e-40ed-add5-9736923f231b",
+      "title": "astronomer"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/439c52ae-23ce-4d1e-bea1-bac135497977",
+      "title": "hydrographic surveyor"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/b176e5d7-1f94-495c-907f-80a7f61aed59",
+      "title": "remote sensing technician"
+     }
+    ]
+   }
+  },
+  "detail": {
+   "uri": "http://data.europa.eu/esco/occupation/258e46f9-0075-4a2e-adae-1ff0477e0f30",
+   "title": "data scientist",
+   "code": "2511.3",
+   "status": "released",
+   "description": {
+    "en": {
+     "literal": "Data scientists find and interpret rich data sources, manage large amounts of data, merge data sources, ensure consistency of data-sets, and create visualisations to aid in understanding data. They build mathematical models using data, present and communicate data insights and findings to specialists and scientists in their team and if required, to a non-expert audience, and recommend ways to apply the data.",
+     "mimetype": "plain/text"
+    }
+   },
+   "preferredLabel": {
+    "en": "data scientist"
+   },
+   "_links": {
+    "hasEssentialSkill": [
+     {
+      "uri": "http://data.europa.eu/esco/skill/93aaf65c-5aad-4e6f-a7ba-ce9bf7c0e6e6",
+      "title": "information categorisation",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/93aaf65c-5aad-4e6f-a7ba-ce9bf7c0e6e6&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/b0a3bb25-a02f-43ed-ab1f-994fa66a424a",
+      "title": "online analytical processing",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/b0a3bb25-a02f-43ed-ab1f-994fa66a424a&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/6c08403c-a5bb-4868-b8c2-b7d039c0e511",
+      "title": "design database scheme",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/6c08403c-a5bb-4868-b8c2-b7d039c0e511&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/9cf681c7-89ec-470c-b651-7fe03786f586",
+      "title": "query languages",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/9cf681c7-89ec-470c-b651-7fe03786f586&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/07889c08-7220-47c8-96f7-6068fbea00dc",
+      "title": "normalise data",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/07889c08-7220-47c8-96f7-6068fbea00dc&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/348b74cd-49ce-4844-8bdf-ec188b497213",
+      "title": "visual presentation techniques",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/348b74cd-49ce-4844-8bdf-ec188b497213&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/25f0ea33-b4a2-4f31-b7b4-7d20e827b180",
+      "title": "data mining",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/25f0ea33-b4a2-4f31-b7b4-7d20e827b180&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/31c69100-b612-4a61-8db5-fd314318854c",
+      "title": "execute analytical mathematical calculations",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/31c69100-b612-4a61-8db5-fd314318854c&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/1e77e42a-181f-4b48-8e74-201ce50ffc29",
+      "title": "interpret current data",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/1e77e42a-181f-4b48-8e74-201ce50ffc29&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/4a193795-fa63-414e-9f2e-bfdb3924571e",
+      "title": "handle data samples",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/4a193795-fa63-414e-9f2e-bfdb3924571e&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/a80fb090-63f4-4b05-83a5-2f090deb7757",
+      "title": "manage data collection systems",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/a80fb090-63f4-4b05-83a5-2f090deb7757&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/505e4ef3-7ce4-437d-b7b4-5c608f71c258",
+      "title": "build recommender systems",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/505e4ef3-7ce4-437d-b7b4-5c608f71c258&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/50b100ea-74fd-4706-99db-3e4ca55e51b8",
+      "title": "perform data cleansing",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/50b100ea-74fd-4706-99db-3e4ca55e51b8&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/99207709-d076-4cce-ba38-e90d3bb28806",
+      "title": "resource description framework query language",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/99207709-d076-4cce-ba38-e90d3bb28806&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+      "title": "data models",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/713fb616-118e-40bc-9366-4a69879a49d5",
+      "title": "implement data quality processes",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/713fb616-118e-40bc-9366-4a69879a49d5&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/c3e36d05-8ae8-447f-bb2b-6f9409f85389",
+      "title": "deliver visual presentation of data",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/c3e36d05-8ae8-447f-bb2b-6f9409f85389&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/7ee4c2ea-b349-4bd2-81a3-ec31475d4833",
+      "title": "statistics",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/7ee4c2ea-b349-4bd2-81a3-ec31475d4833&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/2daec0e6-f0c1-43e8-8178-aedba99130ec",
+      "title": "establish data processes",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/2daec0e6-f0c1-43e8-8178-aedba99130ec&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/696e3b5b-8b61-45af-ae4c-3ab700f197ec",
+      "title": "information extraction",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/696e3b5b-8b61-45af-ae4c-3ab700f197ec&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/79e29b8b-47d1-470d-b7b1-32506bfe7d9a",
+      "title": "collect ICT data",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/79e29b8b-47d1-470d-b7b1-32506bfe7d9a&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/f9670490-8aa4-4540-b121-d440a8294aab",
+      "title": "develop data processing applications",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/f9670490-8aa4-4540-b121-d440a8294aab&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/c544a9f3-5945-4b54-afed-de0697852817",
+      "title": "report analysis results",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/c544a9f3-5945-4b54-afed-de0697852817&language=en"
+     }
+    ],
+    "hasOptionalSkill": [
+     {
+      "uri": "http://data.europa.eu/esco/skill/a57a54b6-2f2e-43e4-9621-b52f4a63cb08",
+      "title": "LDAP",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/a57a54b6-2f2e-43e4-9621-b52f4a63cb08&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/3f4dab51-572b-4e2c-85ef-3b4c3f7094e1",
+      "title": "XQuery",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/3f4dab51-572b-4e2c-85ef-3b4c3f7094e1&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/c5e8abde-d2ba-4e8e-a65e-720b71180666",
+      "title": "unstructured data",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/c5e8abde-d2ba-4e8e-a65e-720b71180666&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/46ec0033-3c71-415e-bcff-b065675ba2dc",
+      "title": "integrate ICT data",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/46ec0033-3c71-415e-bcff-b065675ba2dc&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/c7d24594-0c11-4b27-9039-fe0bb903da8e",
+      "title": "LINQ",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/c7d24594-0c11-4b27-9039-fe0bb903da8e&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/f597f772-24d3-4cec-813c-cf5a7027c794",
+      "title": "N1QL",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/f597f772-24d3-4cec-813c-cf5a7027c794&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/fbafa41f-cd05-4109-a649-8b44d306d779",
+      "title": "create data models",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/fbafa41f-cd05-4109-a649-8b44d306d779&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/9ff9db9d-d14b-426e-83f3-e7449af6c79f",
+      "title": "manage data",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/9ff9db9d-d14b-426e-83f3-e7449af6c79f&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/143769cb-b61e-47d8-a61e-eedfbec1016c",
+      "title": "business intelligence",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/143769cb-b61e-47d8-a61e-eedfbec1016c&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/5da8018b-ae85-4cde-ad93-0394369018f3",
+      "title": "SPARQL",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/5da8018b-ae85-4cde-ad93-0394369018f3&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/4216e465-7baa-4884-a241-54b197bb9278",
+      "title": "perform data mining",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/4216e465-7baa-4884-a241-54b197bb9278&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/03a74eee-2dc6-4147-8667-5cdeb65f122d",
+      "title": "manage ICT data classification",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/03a74eee-2dc6-4147-8667-5cdeb65f122d&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/1b7c716e-af95-4cda-a42f-6479c8b139f5",
+      "title": "MDX",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/1b7c716e-af95-4cda-a42f-6479c8b139f5&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/4d85b881-e490-4b4c-897a-2faa4ef53956",
+      "title": "manage ICT data architecture",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/4d85b881-e490-4b4c-897a-2faa4ef53956&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/cc7370dd-69fa-4c67-a96f-d4d135d38700",
+      "title": "data quality assessment",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/cc7370dd-69fa-4c67-a96f-d4d135d38700&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/54c9c155-9293-4329-8ed2-2e76e8b519d4",
+      "title": "define data quality criteria",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/54c9c155-9293-4329-8ed2-2e76e8b519d4&language=en"
+     }
+    ]
+   }
+  }
+ },
+ "database developer": {
+  "search": {
+   "total": 446,
+   "offset": 0,
+   "limit": 10,
+   "text": "database developer",
+   "language": "en",
+   "type": [
+    "occupation"
+   ],
+   "_embedded": {
+    "results": [
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/b11e1742-5e28-4270-b081-b0193d85ee7d",
+      "title": "database developer"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/3d190639-90f8-4402-b1b3-a104a17e0d67",
+      "title": "database integrator"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/b9711647-463f-4991-a858-d5de66ff2f83",
+      "title": "property developer"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/8c57af09-719c-42b3-be40-6ed4946236cc",
+      "title": "database administrator"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/866c7813-2c03-47d7-9bdc-192cfbace57c",
+      "title": "user interface developer"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/a7c1d23d-aeca-4bee-9a08-5993ed98b135",
+      "title": "ICT system developer"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/8d9ec84d-cf2d-4179-87bc-335cda54a427",
+      "title": "database designer"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1",
+      "title": "software developer"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/9ebaf3f0-0be0-47b7-b2b1-b3b04130fa81",
+      "title": "digital games developer"
+     },
+     {
+      "className": "Occupation",
+      "uri": "http://data.europa.eu/esco/occupation/57af9090-55b4-4911-b2d0-86db01c00b02",
+      "title": "embedded systems software developer"
+     }
+    ]
+   }
+  },
+  "detail": {
+   "uri": "http://data.europa.eu/esco/occupation/b11e1742-5e28-4270-b081-b0193d85ee7d",
+   "title": "database developer",
+   "code": "2521.3",
+   "status": "released",
+   "description": {
+    "en": {
+     "literal": "Database developers program, implement and coordinate changes to computer databases based on their expertise of database management systems.",
+     "mimetype": "plain/text"
+    }
+   },
+   "preferredLabel": {
+    "en": "database developer"
+   },
+   "_links": {
+    "hasEssentialSkill": [
+     {
+      "uri": "http://data.europa.eu/esco/skill/a7f0fbe0-c546-4f30-8e41-34a58c64567e",
+      "title": "data storage",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/a7f0fbe0-c546-4f30-8e41-34a58c64567e&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/85c11255-469f-41bd-a6d1-382bc4a87783",
+      "title": "interpret technical texts",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/85c11255-469f-41bd-a6d1-382bc4a87783&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/9ba8fd27-275d-4bad-8c48-f668aa99a578",
+      "title": "balance database resources",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/9ba8fd27-275d-4bad-8c48-f668aa99a578&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/71746a0b-e58d-4dc4-ad03-bd84082eae21",
+      "title": "collect customer feedback on applications",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/71746a0b-e58d-4dc4-ad03-bd84082eae21&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/99207709-d076-4cce-ba38-e90d3bb28806",
+      "title": "resource description framework query language",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/99207709-d076-4cce-ba38-e90d3bb28806&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/86d2e2ea-1ba2-4aa6-b465-8a1f9abc81b8",
+      "title": "apply information security policies",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/86d2e2ea-1ba2-4aa6-b465-8a1f9abc81b8&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/e2fb1ee4-fbf9-4690-b677-3e6ff7cfdc48",
+      "title": "test ICT queries",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/e2fb1ee4-fbf9-4690-b677-3e6ff7cfdc48&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/9cf681c7-89ec-470c-b651-7fe03786f586",
+      "title": "query languages",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/9cf681c7-89ec-470c-b651-7fe03786f586&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/e207163b-7963-4c3e-9494-7a4bb000211b",
+      "title": "estimate duration of work",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/e207163b-7963-4c3e-9494-7a4bb000211b&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/cf3e976d-2c3e-495c-a874-f9e8a66d3b48",
+      "title": "perform backups",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/cf3e976d-2c3e-495c-a874-f9e8a66d3b48&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/9d0d89be-bffa-4393-b6f6-8d05bea49051",
+      "title": "data extraction, transformation and loading tools",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/9d0d89be-bffa-4393-b6f6-8d05bea49051&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/0e0c9c11-b39e-43cf-ba95-2fe646f5de64",
+      "title": "identify customer requirements",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/0e0c9c11-b39e-43cf-ba95-2fe646f5de64&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/fbafa41f-cd05-4109-a649-8b44d306d779",
+      "title": "create data models",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/fbafa41f-cd05-4109-a649-8b44d306d779&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/ab1e97ed-2319-4293-a8b7-072d2648822f",
+      "title": "database management systems",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/ab1e97ed-2319-4293-a8b7-072d2648822f&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/64db87c7-2360-4e20-88d3-d222402e477c",
+      "title": "write database documentation",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/64db87c7-2360-4e20-88d3-d222402e477c&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/c544a9f3-5945-4b54-afed-de0697852817",
+      "title": "report analysis results",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/c544a9f3-5945-4b54-afed-de0697852817&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/9ef0f3a0-9ce2-4ef1-a987-0366b5cb2dbe",
+      "title": "database development tools",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/9ef0f3a0-9ce2-4ef1-a987-0366b5cb2dbe&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/cc7370dd-69fa-4c67-a96f-d4d135d38700",
+      "title": "data quality assessment",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/cc7370dd-69fa-4c67-a96f-d4d135d38700&language=en"
+     }
+    ],
+    "hasOptionalSkill": [
+     {
+      "uri": "http://data.europa.eu/esco/skill/5da8018b-ae85-4cde-ad93-0394369018f3",
+      "title": "SPARQL",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/5da8018b-ae85-4cde-ad93-0394369018f3&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/0ccdfe98-f845-4598-84a1-3dca66e9d9a3",
+      "title": "Ruby (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/0ccdfe98-f845-4598-84a1-3dca66e9d9a3&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/14fdac88-6d4a-4e47-9df5-02c6d1e86fdd",
+      "title": "IBM InfoSphere DataStage",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/14fdac88-6d4a-4e47-9df5-02c6d1e86fdd&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/c3a03c5a-c260-4c26-9b9a-873abb396f4d",
+      "title": "MATLAB",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/c3a03c5a-c260-4c26-9b9a-873abb396f4d&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/4c016b68-4116-468c-9dc6-42710c239e4a",
+      "title": "C#",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/4c016b68-4116-468c-9dc6-42710c239e4a&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/51586df8-1c46-4b47-8583-773cb63bf00b",
+      "title": "R",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/51586df8-1c46-4b47-8583-773cb63bf00b&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/d56fc2b5-4b0a-4e7e-9bde-a33736f6ff18",
+      "title": "Scratch (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/d56fc2b5-4b0a-4e7e-9bde-a33736f6ff18&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/97bdd757-29d4-4126-92a6-07608825aa3b",
+      "title": "QlikView Expressor",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/97bdd757-29d4-4126-92a6-07608825aa3b&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/300d432b-f457-4cd3-9cb1-1858c7d14954",
+      "title": "OpenEdge Advanced Business Language",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/300d432b-f457-4cd3-9cb1-1858c7d14954&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/58d7a289-dafd-4363-833f-d1dc4140885e",
+      "title": "APL",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/58d7a289-dafd-4363-833f-d1dc4140885e&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/03b9b491-fc9b-4868-914a-bf7cd47b5041",
+      "title": "create solutions to problems",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/03b9b491-fc9b-4868-914a-bf7cd47b5041&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/52cf3037-ab53-4806-85ed-7fd21ea7f6a1",
+      "title": "Groovy",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/52cf3037-ab53-4806-85ed-7fd21ea7f6a1&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/3f4dab51-572b-4e2c-85ef-3b4c3f7094e1",
+      "title": "XQuery",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/3f4dab51-572b-4e2c-85ef-3b4c3f7094e1&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/3d03c40c-1b83-4793-8902-2523f40af59e",
+      "title": "Microsoft Access",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/3d03c40c-1b83-4793-8902-2523f40af59e&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/993b1e23-f2de-4bd8-b33f-f86dde1c8e9d",
+      "title": "CoffeeScript",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/993b1e23-f2de-4bd8-b33f-f86dde1c8e9d&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/7e1f9657-ab4e-407c-842f-b846197060e3",
+      "title": "execute ICT audits",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/7e1f9657-ab4e-407c-842f-b846197060e3&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/867137fb-ff1b-4ca3-99f3-cb6969aa2c68",
+      "title": "TypeScript",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/867137fb-ff1b-4ca3-99f3-cb6969aa2c68&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/47b9bbcf-356c-4782-83a4-7f5a1b2b51a3",
+      "title": "Assembly (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/47b9bbcf-356c-4782-83a4-7f5a1b2b51a3&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/23900e3d-06fa-424c-a5dc-c0ea42edde1e",
+      "title": "Oracle Warehouse Builder",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/23900e3d-06fa-424c-a5dc-c0ea42edde1e&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/000f1d3d-220f-4789-9c0a-cc742521fb02",
+      "title": "Haskell",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/000f1d3d-220f-4789-9c0a-cc742521fb02&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/c062bab3-3ea0-4291-9220-a2d8fef4bead",
+      "title": "SQL Server",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/c062bab3-3ea0-4291-9220-a2d8fef4bead&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/de9f85ba-e77f-48fd-8c66-f5ebaf32d655",
+      "title": "Oracle Relational Database",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/de9f85ba-e77f-48fd-8c66-f5ebaf32d655&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/ffddfc7c-a9dd-449f-9e96-882dc447c8b6",
+      "title": "Scala",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/ffddfc7c-a9dd-449f-9e96-882dc447c8b6&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/f597f772-24d3-4cec-813c-cf5a7027c794",
+      "title": "N1QL",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/f597f772-24d3-4cec-813c-cf5a7027c794&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/b9f16465-56a9-426b-a047-0f9f1f95ec92",
+      "title": "address problems critically",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/b9f16465-56a9-426b-a047-0f9f1f95ec92&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/b4dc6e4f-dc7d-445f-8ce2-d7b9d225e282",
+      "title": "AJAX",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/b4dc6e4f-dc7d-445f-8ce2-d7b9d225e282&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/a57a54b6-2f2e-43e4-9621-b52f4a63cb08",
+      "title": "LDAP",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/a57a54b6-2f2e-43e4-9621-b52f4a63cb08&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/42ed3bfb-1a01-4c8b-9758-fc6438865734",
+      "title": "Smalltalk (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/42ed3bfb-1a01-4c8b-9758-fc6438865734&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/41bf7ede-fc84-4a57-8c89-b548d11b0ba1",
+      "title": "manage business knowledge",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/41bf7ede-fc84-4a57-8c89-b548d11b0ba1&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/56a7f561-1d55-43c9-9cd7-36a0a9bc6c50",
+      "title": "ASP.NET",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/56a7f561-1d55-43c9-9cd7-36a0a9bc6c50&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/ed8de897-adbe-4f0e-b4d2-534953e64c72",
+      "title": "integrate system components",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/ed8de897-adbe-4f0e-b4d2-534953e64c72&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/be80acfc-b6f2-4411-9b8d-b19d9cd2556a",
+      "title": "Swift (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/be80acfc-b6f2-4411-9b8d-b19d9cd2556a&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/13bdd41a-2a18-441f-96db-41252c519413",
+      "title": "Visual Studio .NET",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/13bdd41a-2a18-441f-96db-41252c519413&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/8369ede5-4200-4a44-be2e-bc60ef959259",
+      "title": "Microsoft Visual C++",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/8369ede5-4200-4a44-be2e-bc60ef959259&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/dcdd5ddf-82a6-4ac3-8edc-d4b23cae9a88",
+      "title": "VBScript",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/dcdd5ddf-82a6-4ac3-8edc-d4b23cae9a88&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/42c3287f-5e50-4559-a2d1-2000c70e0aab",
+      "title": "Pentaho Data Integration",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/42c3287f-5e50-4559-a2d1-2000c70e0aab&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f",
+      "title": "C++",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/b633eb55-8f1f-4ae6-ab4c-2022ffe2cb7f&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/0f00f63f-3ab4-4057-b92f-500584b51757",
+      "title": "Informatica PowerCenter",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/0f00f63f-3ab4-4057-b92f-500584b51757&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/a8d07b5a-c1a1-42c6-9d53-db9c7a2ca996",
+      "title": "PostgreSQL",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/a8d07b5a-c1a1-42c6-9d53-db9c7a2ca996&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/4216e465-7baa-4884-a241-54b197bb9278",
+      "title": "perform data mining",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/4216e465-7baa-4884-a241-54b197bb9278&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/e043aeeb-78f5-4049-afbf-12bba52225bc",
+      "title": "hardware architectures",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/e043aeeb-78f5-4049-afbf-12bba52225bc&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/3af687cb-8c7a-46ea-a730-32dbaed040c6",
+      "title": "Oracle Data Integrator",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/3af687cb-8c7a-46ea-a730-32dbaed040c6&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/ee3b1553-2dc5-434b-8dcf-4ae3a40b3a48",
+      "title": "verify formal ICT specifications",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/ee3b1553-2dc5-434b-8dcf-4ae3a40b3a48&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/d9eaf831-9348-4330-a83e-b7c099cdc8f6",
+      "title": "Teradata Database",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/d9eaf831-9348-4330-a83e-b7c099cdc8f6&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/bb99af26-71ff-4dca-bde7-1eb1f6194426",
+      "title": "SAP R3",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/bb99af26-71ff-4dca-bde7-1eb1f6194426&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/9973a5a2-7822-4161-99e9-95c781eb63f8",
+      "title": "Objective-C",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/9973a5a2-7822-4161-99e9-95c781eb63f8&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/c5ed451b-ef39-47a3-aee7-8f5be0aa8431",
+      "title": "CA Datacom/DB",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/c5ed451b-ef39-47a3-aee7-8f5be0aa8431&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/19a8293b-8e95-4de3-983f-77484079c389",
+      "title": "Java (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/19a8293b-8e95-4de3-983f-77484079c389&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/ea412de3-9d7a-4943-8d8c-c6d3c7495d0e",
+      "title": "execute integration testing",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/ea412de3-9d7a-4943-8d8c-c6d3c7495d0e&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/43ec6db6-33f7-449b-a566-5779a7e8997a",
+      "title": "OpenEdge Database",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/43ec6db6-33f7-449b-a566-5779a7e8997a&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/913e7e83-b8f8-4574-b1ca-1b38f3fd974a",
+      "title": "execute software tests",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/913e7e83-b8f8-4574-b1ca-1b38f3fd974a&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/4da171e5-779c-4983-a76f-91c16751e99f",
+      "title": "MySQL",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/4da171e5-779c-4983-a76f-91c16751e99f&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/fe1c2b32-7fe9-4668-affa-07ff658a68cf",
+      "title": "identify ICT security risks",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/fe1c2b32-7fe9-4668-affa-07ff658a68cf&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/31c69100-b612-4a61-8db5-fd314318854c",
+      "title": "execute analytical mathematical calculations",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/31c69100-b612-4a61-8db5-fd314318854c&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/84251cb1-babf-4d17-a3cd-baa642c24c8d",
+      "title": "IBM Informix",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/84251cb1-babf-4d17-a3cd-baa642c24c8d&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/a4d336a6-9ffd-402a-91cc-f359716ba4e0",
+      "title": "ML (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/a4d336a6-9ffd-402a-91cc-f359716ba4e0&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/04f1b938-d4d4-4cb1-a863-982af76b9d93",
+      "title": "SAS language",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/04f1b938-d4d4-4cb1-a863-982af76b9d93&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/4959697d-3a24-4f46-af0c-b752318e6c54",
+      "title": "ObjectStore",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/4959697d-3a24-4f46-af0c-b752318e6c54&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+      "title": "JavaScript",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/3cd569a2-4f88-4c1e-9995-8dce8c5e51a7&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+      "title": "computer programming",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/21d2f96d-35f7-4e3f-9745-c533d2dd6e97&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+      "title": "SQL Server Integration Services",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/6f7512ab-d46d-402a-8c30-a8878d7c1f88&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/e8b89eb6-51e8-4c3a-babb-88b2e110376b",
+      "title": "Pascal (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/e8b89eb6-51e8-4c3a-babb-88b2e110376b&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/b8eb2517-37d8-43e6-9856-9c29d5c51fde",
+      "title": "Filemaker (database management systems)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/b8eb2517-37d8-43e6-9856-9c29d5c51fde&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/3cee858e-79e8-4a4b-b99f-93c7f735d58b",
+      "title": "DB2",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/3cee858e-79e8-4a4b-b99f-93c7f735d58b&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/def007fa-5fed-4a5f-91a2-b0d7e3db1be1",
+      "title": "COBOL",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/def007fa-5fed-4a5f-91a2-b0d7e3db1be1&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/401eb8d8-6daa-4f8b-90ad-60afc71eb4f8",
+      "title": "Perl",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/401eb8d8-6daa-4f8b-90ad-60afc71eb4f8&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/2b7a79e5-84d8-4880-be66-3d9bb05bea17",
+      "title": "use software design patterns",
+      "skillType": "http://data.europa.eu/esco/skill-type/skill",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/2b7a79e5-84d8-4880-be66-3d9bb05bea17&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/ccd0a1d9-afda-43d9-b901-96344886e14d",
+      "title": "Python (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/ccd0a1d9-afda-43d9-b901-96344886e14d&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/1b7c716e-af95-4cda-a42f-6479c8b139f5",
+      "title": "MDX",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/1b7c716e-af95-4cda-a42f-6479c8b139f5&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/f8e3425c-fe44-4ffb-bafe-0e20d91dadf4",
+      "title": "SAP Data Services",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/f8e3425c-fe44-4ffb-bafe-0e20d91dadf4&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/034c29fa-c3ba-45ea-b8f3-bf8e3705e386",
+      "title": "Erlang",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/034c29fa-c3ba-45ea-b8f3-bf8e3705e386&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/f88002a8-6355-4d33-9496-285c166ff375",
+      "title": "ICT power consumption",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/f88002a8-6355-4d33-9496-285c166ff375&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/d0c6d77e-cb25-4770-bf77-2073fc5f7523",
+      "title": "ICT infrastructure",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/d0c6d77e-cb25-4770-bf77-2073fc5f7523&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/2bde42ae-e776-41c1-9ded-b07b30bfe985",
+      "title": "Prolog (computer programming)",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/2bde42ae-e776-41c1-9ded-b07b30bfe985&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/4350c38d-0fe9-4ca7-bab9-40ed7f72b04f",
+      "title": "PHP",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/4350c38d-0fe9-4ca7-bab9-40ed7f72b04f&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/0de61385-de6d-4146-ba32-1cc1bc102220",
+      "title": "Lisp",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/0de61385-de6d-4146-ba32-1cc1bc102220&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/eb0e5615-1575-4a86-a1a2-7d39595033c5",
+      "title": "ABAP",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/eb0e5615-1575-4a86-a1a2-7d39595033c5&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/81b082fb-9a00-4660-976a-10c985979100",
+      "title": "IBM InfoSphere Information Server",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/81b082fb-9a00-4660-976a-10c985979100&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/c7d24594-0c11-4b27-9039-fe0bb903da8e",
+      "title": "LINQ",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/c7d24594-0c11-4b27-9039-fe0bb903da8e&language=en"
+     },
+     {
+      "uri": "http://data.europa.eu/esco/skill/0cd6dcf1-5778-42a5-b685-4d01ae4a4871",
+      "title": "Common Lisp",
+      "skillType": "http://data.europa.eu/esco/skill-type/knowledge",
+      "href": "https://ec.europa.eu/esco/api/resource/skill?uri=http://data.europa.eu/esco/skill/0cd6dcf1-5778-42a5-b685-4d01ae4a4871&language=en"
+     }
+    ]
+   }
+  }
+ }
+}

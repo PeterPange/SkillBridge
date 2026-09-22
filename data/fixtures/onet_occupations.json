@@ -1,0 +1,960 @@
+{
+ "15-1252.00": {
+  "code": "15-1252.00",
+  "report": "details",
+  "display": "full",
+  "occupation": {
+   "title": "Software Developers",
+   "description": "Research, design, and develop computer and network software or specialized utility programs. Analyze user needs and develop software solutions, applying principles and techniques of computer science, engineering, and mathematical analysis. Update software or enhance existing software capabilities. May work with computer hardware engineers to integrate hardware and software across computer systems.",
+   "job_zone": 4
+  },
+  "tasks": [
+   {
+    "task_id": 1,
+    "task": "Analyze user needs and software requirements to determine feasibility of design within time and cost constraints.",
+    "importance": 4.5,
+    "frequency": 4.3
+   },
+   {
+    "task_id": 2,
+    "task": "Design, develop, and modify software systems, using scientific analysis and mathematical models to predict and measure outcome and consequences of design.",
+    "importance": 4.4,
+    "frequency": 4.1
+   },
+   {
+    "task_id": 3,
+    "task": "Modify existing software to correct errors, allow it to adapt to new hardware, or to improve interfaces and performance.",
+    "importance": 4.3,
+    "frequency": 4.4
+   },
+   {
+    "task_id": 4,
+    "task": "Develop and direct software system testing and validation procedures, programming, and documentation.",
+    "importance": 4.1,
+    "frequency": 4.0
+   },
+   {
+    "task_id": 5,
+    "task": "Confer with systems analysts, engineers, programmers, and others to design applications and to obtain information on project limitations and capabilities, performance requirements, and interfaces.",
+    "importance": 4.0,
+    "frequency": 4.0
+   }
+  ],
+  "skills": [
+   {
+    "element_id": "2.A.1.a",
+    "element_name": "Programming",
+    "scale_id": "IM",
+    "data_value": 4.5,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 4.4,
+    "upper_ci_bound": 4.6,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.A.1.b",
+    "element_name": "Complex Problem Solving",
+    "scale_id": "IM",
+    "data_value": 4.2,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 4.1,
+    "upper_ci_bound": 4.3,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.A.1.c",
+    "element_name": "Critical Thinking",
+    "scale_id": "IM",
+    "data_value": 4.2,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 4.1,
+    "upper_ci_bound": 4.3,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.A.1.e",
+    "element_name": "Active Listening",
+    "scale_id": "IM",
+    "data_value": 4.0,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 3.9,
+    "upper_ci_bound": 4.1,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.A.1.f",
+    "element_name": "Reading Comprehension",
+    "scale_id": "IM",
+    "data_value": 4.0,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 3.9,
+    "upper_ci_bound": 4.1,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.A.1.h",
+    "element_name": "Systems Analysis",
+    "scale_id": "IM",
+    "data_value": 3.9,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 3.8,
+    "upper_ci_bound": 4.0,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.A.1.i",
+    "element_name": "Judgment and Decision Making",
+    "scale_id": "IM",
+    "data_value": 3.8,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 3.7,
+    "upper_ci_bound": 3.9,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.A.1.g",
+    "element_name": "Writing",
+    "scale_id": "IM",
+    "data_value": 3.7,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 3.6,
+    "upper_ci_bound": 3.8,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.A.1.j",
+    "element_name": "Systems Evaluation",
+    "scale_id": "IM",
+    "data_value": 3.5,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 3.4,
+    "upper_ci_bound": 3.6,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.A.1.d",
+    "element_name": "Operations Analysis",
+    "scale_id": "IM",
+    "data_value": 3.6,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 3.5,
+    "upper_ci_bound": 3.7,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   }
+  ],
+  "technology_skills": [
+   {
+    "category": {
+     "element_id": "4.3",
+     "element_name": "Programming languages"
+    },
+    "example": [
+     {
+      "element_id": "4.3.1",
+      "element_name": "Python"
+     },
+     {
+      "element_id": "4.3.2",
+      "element_name": "Java"
+     },
+     {
+      "element_id": "4.3.3",
+      "element_name": "C++"
+     },
+     {
+      "element_id": "4.3.4",
+      "element_name": "JavaScript"
+     },
+     {
+      "element_id": "4.3.5",
+      "element_name": "C#"
+     },
+     {
+      "element_id": "4.3.6",
+      "element_name": "TypeScript"
+     },
+     {
+      "element_id": "4.3.7",
+      "element_name": "Go"
+     },
+     {
+      "element_id": "4.3.8",
+      "element_name": "R"
+     },
+     {
+      "element_id": "4.3.9",
+      "element_name": "Scala"
+     }
+    ]
+   },
+   {
+    "category": {
+     "element_id": "4.2",
+     "element_name": "Development environment"
+    },
+    "example": [
+     {
+      "element_id": "4.2.1",
+      "element_name": "Git"
+     },
+     {
+      "element_id": "4.2.2",
+      "element_name": "GitHub"
+     },
+     {
+      "element_id": "4.2.3",
+      "element_name": "Docker"
+     },
+     {
+      "element_id": "4.2.4",
+      "element_name": "Kubernetes"
+     },
+     {
+      "element_id": "4.2.5",
+      "element_name": "Jenkins"
+     },
+     {
+      "element_id": "4.2.6",
+      "element_name": "Ansible"
+     },
+     {
+      "element_id": "4.2.7",
+      "element_name": "Terraform"
+     }
+    ]
+   },
+   {
+    "category": {
+     "element_id": "4.4",
+     "element_name": "Web platform development software"
+    },
+    "example": [
+     {
+      "element_id": "4.4.1",
+      "element_name": "REST APIs"
+     },
+     {
+      "element_id": "4.4.2",
+      "element_name": "JSON"
+     },
+     {
+      "element_id": "4.4.3",
+      "element_name": "HTML"
+     },
+     {
+      "element_id": "4.4.4",
+      "element_name": "CSS"
+     },
+     {
+      "element_id": "4.4.5",
+      "element_name": "Node.js"
+     }
+    ]
+   },
+   {
+    "category": {
+     "element_id": "4.5",
+     "element_name": "Data base management system software"
+    },
+    "example": [
+     {
+      "element_id": "4.5.1",
+      "element_name": "SQL"
+     },
+     {
+      "element_id": "4.5.2",
+      "element_name": "PostgreSQL"
+     },
+     {
+      "element_id": "4.5.3",
+      "element_name": "MySQL"
+     },
+     {
+      "element_id": "4.5.4",
+      "element_name": "Oracle Database"
+     },
+     {
+      "element_id": "4.5.5",
+      "element_name": "MongoDB"
+     }
+    ]
+   },
+   {
+    "category": {
+     "element_id": "4.6",
+     "element_name": "Cloud computing software"
+    },
+    "example": [
+     {
+      "element_id": "4.6.1",
+      "element_name": "Microsoft Azure"
+     },
+     {
+      "element_id": "4.6.2",
+      "element_name": "Amazon Web Services"
+     },
+     {
+      "element_id": "4.6.3",
+      "element_name": "Google Cloud Platform"
+     }
+    ]
+   },
+   {
+    "category": {
+     "element_id": "4.7",
+     "element_name": "Operating system software"
+    },
+    "example": [
+     {
+      "element_id": "4.7.1",
+      "element_name": "Linux"
+     },
+     {
+      "element_id": "4.7.2",
+      "element_name": "Windows Server"
+     }
+    ]
+   },
+   {
+    "category": {
+     "element_id": "4.8",
+     "element_name": "Object oriented development software"
+    },
+    "example": [
+     {
+      "element_id": "4.8.1",
+      "element_name": "Spring Framework"
+     },
+     {
+      "element_id": "4.8.2",
+      "element_name": "Hibernate"
+     },
+     {
+      "element_id": "4.8.3",
+      "element_name": "React"
+     }
+    ]
+   }
+  ]
+ },
+ "15-2051.00": {
+  "code": "15-2051.00",
+  "report": "details",
+  "display": "full",
+  "occupation": {
+   "title": "Data Scientists",
+   "description": "Develop and implement a set of techniques or analytics applications to transform raw data into meaningful information using data-oriented programming languages and visualization software. Apply expertise in statistics, machine learning, and other data science disciplines to identify trends, solve problems, and extract value from data.",
+   "job_zone": 5
+  },
+  "tasks": [
+   {
+    "task_id": 1,
+    "task": "Analyze and interpret complex data sets to identify patterns, trends, and relationships.",
+    "importance": 4.6,
+    "frequency": 4.5
+   },
+   {
+    "task_id": 2,
+    "task": "Build predictive models and machine-learning algorithms to analyze data and make recommendations.",
+    "importance": 4.5,
+    "frequency": 4.2
+   },
+   {
+    "task_id": 3,
+    "task": "Clean and preprocess structured and unstructured data to ensure quality and usability.",
+    "importance": 4.3,
+    "frequency": 4.4
+   },
+   {
+    "task_id": 4,
+    "task": "Visualize and communicate data findings to technical and business stakeholders.",
+    "importance": 4.1,
+    "frequency": 3.9
+   },
+   {
+    "task_id": 5,
+    "task": "Collaborate with software engineers and product managers to deploy models into production environments.",
+    "importance": 3.8,
+    "frequency": 3.6
+   }
+  ],
+  "skills": [
+   {
+    "element_id": "2.A.1.b",
+    "element_name": "Complex Problem Solving",
+    "scale_id": "IM",
+    "data_value": 4.2,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 4.1,
+    "upper_ci_bound": 4.3,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.A.1.c",
+    "element_name": "Critical Thinking",
+    "scale_id": "IM",
+    "data_value": 4.1,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 4.0,
+    "upper_ci_bound": 4.2,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.B.2.a",
+    "element_name": "Mathematics",
+    "scale_id": "IM",
+    "data_value": 4.2,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 4.1,
+    "upper_ci_bound": 4.3,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.A.1.a",
+    "element_name": "Programming",
+    "scale_id": "IM",
+    "data_value": 4.0,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 3.9,
+    "upper_ci_bound": 4.1,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.B.2.b",
+    "element_name": "Science",
+    "scale_id": "IM",
+    "data_value": 3.9,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 3.8,
+    "upper_ci_bound": 4.0,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.C.3.a",
+    "element_name": "Active Learning",
+    "scale_id": "IM",
+    "data_value": 3.9,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 3.8,
+    "upper_ci_bound": 4.0,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.A.1.f",
+    "element_name": "Reading Comprehension",
+    "scale_id": "IM",
+    "data_value": 3.8,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 3.7,
+    "upper_ci_bound": 3.9,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.A.1.h",
+    "element_name": "Systems Analysis",
+    "scale_id": "IM",
+    "data_value": 3.6,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 3.5,
+    "upper_ci_bound": 3.7,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   }
+  ],
+  "technology_skills": [
+   {
+    "category": {
+     "element_id": "4.3",
+     "element_name": "Programming languages"
+    },
+    "example": [
+     {
+      "element_id": "4.3.1",
+      "element_name": "Python"
+     },
+     {
+      "element_id": "4.3.2",
+      "element_name": "R"
+     },
+     {
+      "element_id": "4.3.3",
+      "element_name": "SQL"
+     },
+     {
+      "element_id": "4.3.4",
+      "element_name": "Julia"
+     },
+     {
+      "element_id": "4.3.5",
+      "element_name": "Scala"
+     }
+    ]
+   },
+   {
+    "category": {
+     "element_id": "4.9",
+     "element_name": "Machine learning software"
+    },
+    "example": [
+     {
+      "element_id": "4.9.1",
+      "element_name": "TensorFlow"
+     },
+     {
+      "element_id": "4.9.2",
+      "element_name": "PyTorch"
+     },
+     {
+      "element_id": "4.9.3",
+      "element_name": "scikit-learn"
+     },
+     {
+      "element_id": "4.9.4",
+      "element_name": "XGBoost"
+     },
+     {
+      "element_id": "4.9.5",
+      "element_name": "MLflow"
+     }
+    ]
+   },
+   {
+    "category": {
+     "element_id": "4.5",
+     "element_name": "Data base management system software"
+    },
+    "example": [
+     {
+      "element_id": "4.5.1",
+      "element_name": "SQL"
+     },
+     {
+      "element_id": "4.5.2",
+      "element_name": "PostgreSQL"
+     },
+     {
+      "element_id": "4.5.3",
+      "element_name": "MongoDB"
+     },
+     {
+      "element_id": "4.5.4",
+      "element_name": "Cassandra"
+     }
+    ]
+   },
+   {
+    "category": {
+     "element_id": "4.6",
+     "element_name": "Cloud computing software"
+    },
+    "example": [
+     {
+      "element_id": "4.6.1",
+      "element_name": "Microsoft Azure"
+     },
+     {
+      "element_id": "4.6.2",
+      "element_name": "Amazon Web Services"
+     },
+     {
+      "element_id": "4.6.3",
+      "element_name": "Databricks"
+     }
+    ]
+   },
+   {
+    "category": {
+     "element_id": "4.10",
+     "element_name": "Data science and analytics software"
+    },
+    "example": [
+     {
+      "element_id": "4.10.1",
+      "element_name": "Apache Spark"
+     },
+     {
+      "element_id": "4.10.2",
+      "element_name": "Jupyter"
+     },
+     {
+      "element_id": "4.10.3",
+      "element_name": "Tableau"
+     },
+     {
+      "element_id": "4.10.4",
+      "element_name": "Power BI"
+     },
+     {
+      "element_id": "4.10.5",
+      "element_name": "Hadoop"
+     }
+    ]
+   },
+   {
+    "category": {
+     "element_id": "4.2",
+     "element_name": "Development environment"
+    },
+    "example": [
+     {
+      "element_id": "4.2.1",
+      "element_name": "Git"
+     },
+     {
+      "element_id": "4.2.2",
+      "element_name": "Docker"
+     },
+     {
+      "element_id": "4.2.3",
+      "element_name": "Kubernetes"
+     }
+    ]
+   }
+  ]
+ },
+ "15-1244.00": {
+  "code": "15-1244.00",
+  "report": "details",
+  "display": "full",
+  "occupation": {
+   "title": "Network and Computer Systems Administrators",
+   "description": "Install, configure, maintain, and support an organization's local area networks (LANs), wide area networks (WANs), network segments, servers, and cloud infrastructure. Perform system monitoring, automation, and security management to ensure high availability of systems and applications.",
+   "job_zone": 3
+  },
+  "tasks": [
+   {
+    "task_id": 1,
+    "task": "Administer, troubleshoot, and monitor networks, servers, and cloud infrastructure to ensure high availability.",
+    "importance": 4.6,
+    "frequency": 4.6
+   },
+   {
+    "task_id": 2,
+    "task": "Deploy and configure servers, containers, and orchestration platforms such as Kubernetes.",
+    "importance": 4.2,
+    "frequency": 4.0
+   },
+   {
+    "task_id": 3,
+    "task": "Automate infrastructure provisioning and deployment with CI/CD pipelines and configuration management tools.",
+    "importance": 4.0,
+    "frequency": 3.9
+   },
+   {
+    "task_id": 4,
+    "task": "Back up network data and system configurations, and plan for disaster recovery.",
+    "importance": 3.9,
+    "frequency": 3.8
+   },
+   {
+    "task_id": 5,
+    "task": "Gather and analyze performance metrics to optimize systems and capacity.",
+    "importance": 3.8,
+    "frequency": 3.7
+   }
+  ],
+  "skills": [
+   {
+    "element_id": "2.A.1.d",
+    "element_name": "Operations Analysis",
+    "scale_id": "IM",
+    "data_value": 3.8,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 3.7,
+    "upper_ci_bound": 3.9,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.A.1.b",
+    "element_name": "Complex Problem Solving",
+    "scale_id": "IM",
+    "data_value": 3.7,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 3.6,
+    "upper_ci_bound": 3.8,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.A.1.c",
+    "element_name": "Critical Thinking",
+    "scale_id": "IM",
+    "data_value": 3.7,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 3.6,
+    "upper_ci_bound": 3.8,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.A.1.k",
+    "element_name": "Monitoring",
+    "scale_id": "IM",
+    "data_value": 3.9,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 3.8,
+    "upper_ci_bound": 4.0,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.A.1.e",
+    "element_name": "Active Listening",
+    "scale_id": "IM",
+    "data_value": 3.5,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 3.4,
+    "upper_ci_bound": 3.6,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   },
+   {
+    "element_id": "2.A.1.f",
+    "element_name": "Reading Comprehension",
+    "scale_id": "IM",
+    "data_value": 3.5,
+    "n": 33,
+    "standard_error": 0.05,
+    "lower_ci_bound": 3.4,
+    "upper_ci_bound": 3.6,
+    "recommend_suppress": false,
+    "not_relevant": false,
+    "date_updated": "2024-01-01",
+    "domain_source": "Analyst"
+   }
+  ],
+  "technology_skills": [
+   {
+    "category": {
+     "element_id": "4.7",
+     "element_name": "Operating system software"
+    },
+    "example": [
+     {
+      "element_id": "4.7.1",
+      "element_name": "Linux"
+     },
+     {
+      "element_id": "4.7.2",
+      "element_name": "Windows Server"
+     },
+     {
+      "element_id": "4.7.3",
+      "element_name": "Ubuntu"
+     },
+     {
+      "element_id": "4.7.4",
+      "element_name": "Red Hat Enterprise Linux"
+     }
+    ]
+   },
+   {
+    "category": {
+     "element_id": "4.2",
+     "element_name": "Development environment"
+    },
+    "example": [
+     {
+      "element_id": "4.2.1",
+      "element_name": "Docker"
+     },
+     {
+      "element_id": "4.2.2",
+      "element_name": "Kubernetes"
+     },
+     {
+      "element_id": "4.2.3",
+      "element_name": "Jenkins"
+     },
+     {
+      "element_id": "4.2.4",
+      "element_name": "Ansible"
+     },
+     {
+      "element_id": "4.2.5",
+      "element_name": "Terraform"
+     },
+     {
+      "element_id": "4.2.6",
+      "element_name": "Git"
+     }
+    ]
+   },
+   {
+    "category": {
+     "element_id": "4.11",
+     "element_name": "Network monitoring software"
+    },
+    "example": [
+     {
+      "element_id": "4.11.1",
+      "element_name": "Prometheus"
+     },
+     {
+      "element_id": "4.11.2",
+      "element_name": "Grafana"
+     },
+     {
+      "element_id": "4.11.3",
+      "element_name": "Nagios"
+     },
+     {
+      "element_id": "4.11.4",
+      "element_name": "Zabbix"
+     },
+     {
+      "element_id": "4.11.5",
+      "element_name": "Datadog"
+     },
+     {
+      "element_id": "4.11.6",
+      "element_name": "Azure Monitor"
+     }
+    ]
+   },
+   {
+    "category": {
+     "element_id": "4.6",
+     "element_name": "Cloud computing software"
+    },
+    "example": [
+     {
+      "element_id": "4.6.1",
+      "element_name": "Microsoft Azure"
+     },
+     {
+      "element_id": "4.6.2",
+      "element_name": "Amazon Web Services"
+     },
+     {
+      "element_id": "4.6.3",
+      "element_name": "Google Cloud Platform"
+     }
+    ]
+   },
+   {
+    "category": {
+     "element_id": "4.3",
+     "element_name": "Programming languages"
+    },
+    "example": [
+     {
+      "element_id": "4.3.1",
+      "element_name": "Python"
+     },
+     {
+      "element_id": "4.3.2",
+      "element_name": "Bash"
+     },
+     {
+      "element_id": "4.3.3",
+      "element_name": "PowerShell"
+     }
+    ]
+   },
+   {
+    "category": {
+     "element_id": "4.5",
+     "element_name": "Data base management system software"
+    },
+    "example": [
+     {
+      "element_id": "4.5.1",
+      "element_name": "SQL"
+     },
+     {
+      "element_id": "4.5.2",
+      "element_name": "PostgreSQL"
+     }
+    ]
+   }
+  ]
+ }
+}
