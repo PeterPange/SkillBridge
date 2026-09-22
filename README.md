@@ -23,6 +23,7 @@
 - **Agent 编排**:LangGraph
 - **知识图谱**:Neo4j
 - **向量检索**:PostgreSQL + pgvector
+- **技能归一化**:sentence-transformers(本地多语言 Embedding,离线自动降级)
 - **语言**:Python 3.11+
 
 ## 项目结构
@@ -83,3 +84,14 @@ PostgreSQL `localhost:5432`。
 
 ✅ 阶段 0(项目骨架)完成:uv + Python 3.11、docker-compose(Neo4j + PostgreSQL/pgvector,
 带健康检查)、冒烟测试与 Makefile 就绪。业务模块按 `prompts/任务拆解.md` 逐阶段实现。
+
+✅ 阶段 1B(技能归一化)完成:`skill_normalization/` 实现
+文本标准化(大小写/全半角/标点/中英文别名表与同义词表)、Embedding 相似度匹配
+(sentence-transformers 本地多语言模型,未安装或无网络时自动降级词面匹配)、
+LLM 语义校验(可选开关,无 API key 自动跳过)与统一 skill_id 映射表输出。
+GenAI / Generative AI / 生成式AI 等输入全部归一到同一 `SKILL_004`。
+
+```bash
+# 批量归一化并输出映射表(默认 data/processed/skill_id_map.json)
+python -m skill_normalization "GenAI" "生成式AI" --no-llm
+```

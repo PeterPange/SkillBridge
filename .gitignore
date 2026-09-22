@@ -40,6 +40,9 @@ chroma_db/
 .vscode/
 *.swp
 
+# pi / emdash 会话产物
+.pi/
+
 # OS
 .DS_Store
 Thumbs.db

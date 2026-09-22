@@ -9,6 +9,11 @@ dependencies = [
     "psycopg[binary]>=3.2",
     "pgvector>=0.3",
     "python-dotenv>=1.0",
+    # 技能归一化:本地 Embedding 模型(阶段 1B)。
+    # 未安装时 skill_normalization 自动降级为词面相似度,不影响其余模块。
+    "sentence-transformers>=3.0",
+    # torch 为 sentence-transformers 的推理后端,显式声明以便固定 CPU 轮子来源。
+    "torch>=2.2",
 ]
 
 [dependency-groups]
@@ -38,3 +43,13 @@ packages = [
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-ra"
+
+# torch 仅用于 sentence-transformers 的 CPU 推理,固定从 PyTorch 官方 CPU 索引
+# 安装,避免拉取数 GB 的 NVIDIA CUDA 依赖。
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]
