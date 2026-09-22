@@ -44,6 +44,9 @@ packages = [
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-ra"
+# 顶层包 profile/ 与标准库 profile 模块同名，把仓库根插入 sys.path 首位，
+# 保证测试导入的是本地 profile 包而不是标准库性能分析器。
+pythonpath = ["."]
 
 # torch 仅用于 sentence-transformers 的 CPU 推理,固定从 PyTorch 官方 CPU 索引
 # 安装,避免拉取数 GB 的 NVIDIA CUDA 依赖。

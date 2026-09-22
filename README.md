@@ -119,3 +119,17 @@ GenAI / Generative AI / 生成式AI 等输入全部归一到同一 `SKILL_004`�
 # 批量归一化并输出映射表(默认 data/processed/skill_id_map.json)
 python -m skill_normalization "GenAI" "生成式AI" --no-llm
 ```
+
+✅ 阶段 2B(画像与 Skill Gap)完成:`profile/` 实现员工画像
+(技能等级 0-4 + 四类 Evidence:技能考试 / 项目经历 / 员工自评 / 培训记录,
+可解释「为什么认为你是 Level N」)与纯算法 Skill Gap 计算
+(目标岗位要求等级 − 当前等级,未登记技能按 0 计),输出结构化差距报告
+(缺失技能 + 差距值 + 重要度 + 岗位准备度),作为课程推荐模块的输入。
+
+```bash
+# 李明 → AI Engineer 差距报告(优先读 data/processed,缺失时自动回退离线 fixture)
+python -m profile EMP_001
+python -m profile EMP_001 --json                # 结构化 JSON 报告
+python -m profile EMP_001 --explain SKILL_001   # 单项技能 Evidence 解释
+python -m profile --list                        # 列出全部员工
+```
