@@ -99,6 +99,36 @@ make collect-offline      # 强制离线:仅用 data/raw/ 缓存与内置 fixtur
 (`data/processed/schemas/`)与跨文件引用校验。O*NET API 凭据可选
 (`ONET_API_USERNAME` / `ONET_API_PASSWORD`,见 `.env.example`)。
 
+## 知识图谱(阶段 2A)
+
+```bash
+make collect && make graph    # 采集数据并导入 Neo4j(需先 make up)
+```
+
+图模型(大纲第四节):
+
+```text
+(:Employee)-[:HAS_SKILL {level, ...evidence}]->(:Skill)
+(:Employee)-[:CURRENT_POSITION / :TARGET_POSITION]->(:Position)
+(:Position)-[:REQUIRES {importance, required_level}]->(:Skill)
+(:Course)-[:TEACHES]->(:Skill)
+(:Course)-[:PREREQUISITE]->(:Course)
+```
+
+查询接口(CLI 或 `knowledge_graph.queries` Python API):
+
+| 查询 | CLI | Python API |
+|------|-----|------------|
+| 岗位技能要求 | `python -m knowledge_graph position "AI Engineer"` | `position_required_skills()` |
+| 课程覆盖技能 | `python -m knowledge_graph course "Develop AI Agents"` | `course_taught_skills()` |
+| 前置链路(传递闭包,拓扑序) | 同上,`course` 子命令一并输出 | `course_prerequisite_chain()` |
+| 教授指定技能的课程 | `python -m knowledge_graph skill "AI Agent"` | `courses_teaching_skill()` |
+
+名称解析支持 ID / 名称(忽略大小写)/ 别名 / 包含 / 词元模糊:
+大纲示例「Develop AI Agents」自动解析到真实课程
+「Build and extend AI agents with Microsoft Foundry」,中文别名「智能体」
+解析到技能 AI Agent。构建脚本可重复执行(MERGE 幂等,默认整库重建)。
+
 ## 开发方式
 
 使用 [Emdash](https://github.com/generalaction/emdash) 并行调度 AI 编程 Agent 开发:
@@ -119,6 +149,13 @@ GenAI / Generative AI / 生成式AI 等输入全部归一到同一 `SKILL_004`�
 # 批量归一化并输出映射表(默认 data/processed/skill_id_map.json)
 python -m skill_normalization "GenAI" "生成式AI" --no-llm
 ```
+
+✅ 阶段 2A(知识图谱)完成:`knowledge_graph/` 实现
+Employee / Position / Skill / Course 四类节点与 HAS_SKILL / REQUIRES /
+TEACHES / PREREQUISITE(及 CURRENT_POSITION / TARGET_POSITION)关系,
+`make graph` 从 `data/processed/` 一键导入;查询接口支持
+「AI Engineer 需要什么技能」「Develop AI Agents 的前置课程」等验收查询,
+名称解析含词元模糊(大纲示例名 → 真实课程名)。
 
 ✅ 阶段 2B(画像与 Skill Gap)完成:`profile/` 实现员工画像
 (技能等级 0-4 + 四类 Evidence:技能考试 / 项目经历 / 员工自评 / 培训记录,
