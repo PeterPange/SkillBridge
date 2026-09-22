@@ -1,0 +1,1193 @@
+{
+ "modules": [
+  {
+   "summary": "Use Docker to build, store, and manage private container images with the Azure Container Registry.",
+   "levels": [
+    "beginner"
+   ],
+   "roles": [
+    "developer",
+    "student"
+   ],
+   "products": [
+    "azure"
+   ],
+   "subjects": [
+    "custom-app-development"
+   ],
+   "uid": "learn.intro-to-containers",
+   "type": "module",
+   "title": "Build a containerized web application with Docker",
+   "duration_in_minutes": 57,
+   "rating": {
+    "count": 4323,
+    "average": 4.64
+   },
+   "popularity": 0.5068940264054315,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/intro-to-containers.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2025-06-30T17:23:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/intro-to-containers/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/intro-to-containers/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.intro-to-containers.1-introduction",
+    "learn.intro-to-containers.2-deploy-docker-image-locally",
+    "learn.intro-to-containers.3-exercise-deploy-docker-image-locally",
+    "learn.intro-to-containers.4-create-custom-docker-image",
+    "learn.intro-to-containers.5-exercise-create-custom-docker-image",
+    "learn.intro-to-containers.6-deploy-docker-image-to-container-instance",
+    "learn.intro-to-containers.7-exercise-deploy-docker-image-to-container-instance",
+    "learn.intro-to-containers.8-summary"
+   ],
+   "number_of_children": 8
+  },
+  {
+   "summary": "Learn about large language models, their core concepts, the models that are available to use, and when to use them.",
+   "levels": [
+    "beginner"
+   ],
+   "roles": [
+    "developer"
+   ],
+   "products": [
+    "azure"
+   ],
+   "uid": "learn.introduction-large-language-models",
+   "type": "module",
+   "title": "Introduction to large language models",
+   "duration_in_minutes": 25,
+   "popularity": 0.5243928280658379,
+   "icon_url": "https://learn.microsoft.com/en-us/learn/achievements/generic-badge.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-06-11T07:12:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/introduction-large-language-models/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/introduction-large-language-models/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.introduction-large-language-models.introduction",
+    "learn.introduction-large-language-models.concept-understand-llms",
+    "learn.introduction-large-language-models.llms-core-concepts",
+    "learn.introduction-large-language-models.when-to-use-llms",
+    "learn.introduction-large-language-models.which-model-to-use",
+    "learn.introduction-large-language-models.knowledge-check",
+    "learn.introduction-large-language-models.summary"
+   ],
+   "number_of_children": 7
+  },
+  {
+   "summary": "Learn how to measure and mitigate risks for a generative AI app leveraging responsible AI tools and features within Azure AI Foundry.",
+   "levels": [
+    "beginner"
+   ],
+   "roles": [
+    "developer"
+   ],
+   "products": [
+    "azure"
+   ],
+   "uid": "learn.measure-mitigate-risks-azure-ai-studio",
+   "type": "module",
+   "title": "Measure and mitigate risks for a generative AI app in Azure AI Foundry",
+   "duration_in_minutes": 75,
+   "popularity": 0.39811941312947485,
+   "icon_url": "https://learn.microsoft.com/en-us/learn/achievements/generic-badge.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-04-23T17:12:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/measure-mitigate-risks-azure-ai-studio/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/measure-mitigate-risks-azure-ai-studio/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.measure-mitigate-risks-azure-ai-studio.introduction",
+    "learn.measure-mitigate-risks-azure-ai-studio.prepare",
+    "learn.measure-mitigate-risks-azure-ai-studio.choose-deploy-model",
+    "learn.measure-mitigate-risks-azure-ai-studio.upload-data-create-index",
+    "learn.measure-mitigate-risks-azure-ai-studio.create-system-message",
+    "learn.measure-mitigate-risks-azure-ai-studio.create-content-filter",
+    "learn.measure-mitigate-risks-azure-ai-studio.run-manual-evaluation",
+    "learn.measure-mitigate-risks-azure-ai-studio.run-automated-evaluation",
+    "learn.measure-mitigate-risks-azure-ai-studio.knowledge-check",
+    "learn.measure-mitigate-risks-azure-ai-studio.summary"
+   ],
+   "number_of_children": 10
+  },
+  {
+   "summary": "Discover the fundamentals of generative AI and how this technology is transforming our approach to creativity and productivity.",
+   "levels": [
+    "beginner"
+   ],
+   "roles": [
+    "developer",
+    "student",
+    "ai-engineer",
+    "technology-manager",
+    "solution-architect"
+   ],
+   "products": [
+    "azure"
+   ],
+   "uid": "learn.philanthropies.explore-generative-ai",
+   "type": "module",
+   "title": "Explore Generative AI",
+   "duration_in_minutes": 37,
+   "popularity": 0.8691715381192211,
+   "icon_url": "https://learn.microsoft.com/en-us/learn/achievements/generic-badge.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2025-08-12T17:17:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/explore-generative-ai/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/explore-generative-ai/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.philanthropies.explore-generative-ai.introduction",
+    "learn.philanthropies.explore-generative-ai.what-is-generative-ai",
+    "learn.philanthropies.explore-generative-ai.ai-linguistics",
+    "learn.philanthropies.explore-generative-ai.visualize-ai-text-image",
+    "learn.philanthropies.explore-generative-ai.ai-companion-content-creation",
+    "learn.philanthropies.explore-generative-ai.new-opportunities-with-generative-ai",
+    "learn.philanthropies.explore-generative-ai.exercise-create-with-generative-ai",
+    "learn.philanthropies.explore-generative-ai.knowledge-check",
+    "learn.philanthropies.explore-generative-ai.summary"
+   ],
+   "number_of_children": 9
+  },
+  {
+   "summary": "Build and extend an AI agent with grounded knowledge, data analysis, custom functions, and remote Model Context Protocol (MCP) tools.",
+   "levels": [
+    "intermediate"
+   ],
+   "roles": [
+    "ai-engineer",
+    "developer",
+    "solution-architect",
+    "student"
+   ],
+   "products": [
+    "microsoft-foundry",
+    "foundry-agent-service"
+   ],
+   "subjects": [
+    "artificial-intelligence"
+   ],
+   "uid": "learn.wwl.build-extend-ai-agents",
+   "type": "module",
+   "title": "Build and extend AI agents with Microsoft Foundry",
+   "duration_in_minutes": 59,
+   "popularity": 0.4480940055517758,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/generic-badge.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-08-21T17:11:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/build-extend-ai-agents/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/build-extend-ai-agents/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.build-extend-ai-agents.introduction",
+    "learn.wwl.build-extend-ai-agents.understand-agents-foundry",
+    "learn.wwl.build-extend-ai-agents.choose-development-approach",
+    "learn.wwl.build-extend-ai-agents.extend-agents-with-tools",
+    "learn.wwl.build-extend-ai-agents.connect-agents-to-mcp",
+    "learn.wwl.build-extend-ai-agents.exercise",
+    "learn.wwl.build-extend-ai-agents.knowledge-check",
+    "learn.wwl.build-extend-ai-agents.summary"
+   ],
+   "number_of_children": 8
+  },
+  {
+   "summary": "Learn how to implement Retrieval Augmented Generation (RAG) on Azure Database for PostgreSQL using Azure AI and vector (pgvector) extensions. Build a Python-based application and explore advanced options like GraphRAG.",
+   "levels": [
+    "intermediate"
+   ],
+   "roles": [
+    "developer",
+    "data-engineer",
+    "solution-architect"
+   ],
+   "products": [
+    "azure",
+    "azure-database-postgresql"
+   ],
+   "subjects": [
+    "databases",
+    "artificial-intelligence",
+    "cloud-computing"
+   ],
+   "uid": "learn.wwl.build-rag-applications-azure-database-postgresql",
+   "type": "module",
+   "title": "Build RAG applications with Azure Database for PostgreSQL",
+   "duration_in_minutes": 101,
+   "popularity": 0.3514644709839727,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/generic-database.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-01-16T18:10:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/build-rag-applications-azure-database-postgresql/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/build-rag-applications-azure-database-postgresql/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.build-rag-applications-azure-database-postgresql.introduction",
+    "learn.wwl.build-rag-applications-azure-database-postgresql.understand-rag-patterns-azure-database-postgresql",
+    "learn.wwl.build-rag-applications-azure-database-postgresql.explore-scale-accuracy-problem",
+    "learn.wwl.build-rag-applications-azure-database-postgresql.enhance-scale-vector-index",
+    "learn.wwl.build-rag-applications-azure-database-postgresql.build-rag-application-postgresql-python",
+    "learn.wwl.build-rag-applications-azure-database-postgresql.exercise-build-rag-application-postgresql-python",
+    "learn.wwl.build-rag-applications-azure-database-postgresql.improve-accuracy-advanced-rag-architecture",
+    "learn.wwl.build-rag-applications-azure-database-postgresql.explore-graphrag",
+    "learn.wwl.build-rag-applications-azure-database-postgresql.exercise-implement-graphrag",
+    "learn.wwl.build-rag-applications-azure-database-postgresql.knowledge-check",
+    "learn.wwl.build-rag-applications-azure-database-postgresql.summary"
+   ],
+   "number_of_children": 11
+  },
+  {
+   "summary": "Learn how to deploy an AI copilot app using Docker, Azure Container Resource, and Azure Kubernetes Service.",
+   "levels": [
+    "intermediate"
+   ],
+   "roles": [
+    "data-engineer",
+    "developer"
+   ],
+   "products": [
+    "azure-cosmos-db",
+    "azure-kubernetes-service",
+    "azure-openai"
+   ],
+   "subjects": [
+    "artificial-intelligence",
+    "databases"
+   ],
+   "uid": "learn.wwl.deploy-your-ai-copilot-azure-kubernetes",
+   "type": "module",
+   "title": "Deploy your AI Copilot with Azure Kubernetes",
+   "duration_in_minutes": 39,
+   "popularity": 0.2710949235513088,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/generic-badge.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2025-08-12T17:17:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/deploy-your-ai-copilot-azure-kubernetes/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/deploy-your-ai-copilot-azure-kubernetes/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.deploy-your-ai-copilot-azure-kubernetes.introduction",
+    "learn.wwl.deploy-your-ai-copilot-azure-kubernetes.deploy-apps-with-azure-kubernetes-service",
+    "learn.wwl.deploy-your-ai-copilot-azure-kubernetes.create-containerized-app",
+    "learn.wwl.deploy-your-ai-copilot-azure-kubernetes.exercise-prepare-your-copilot-application",
+    "learn.wwl.deploy-your-ai-copilot-azure-kubernetes.exercise-create-azure-kubernetes-service-cluster",
+    "learn.wwl.deploy-your-ai-copilot-azure-kubernetes.knowledge-check",
+    "learn.wwl.deploy-your-ai-copilot-azure-kubernetes.summary"
+   ],
+   "number_of_children": 7
+  },
+  {
+   "summary": "Describe the core architectural components of Azure",
+   "levels": [
+    "beginner"
+   ],
+   "roles": [
+    "administrator",
+    "developer",
+    "devops-engineer",
+    "solution-architect"
+   ],
+   "products": [
+    "azure"
+   ],
+   "subjects": [
+    "architecture",
+    "cloud-computing",
+    "infrastructure"
+   ],
+   "uid": "learn.wwl.describe-core-architectural-components-of-azure",
+   "type": "module",
+   "title": "Describe the core architectural components of Azure",
+   "duration_in_minutes": 28,
+   "rating": {
+    "count": 32943,
+    "average": 4.79
+   },
+   "popularity": 0.802697652175071,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/describe-core-architectural-components-of-azure.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-03-24T01:47:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.describe-core-architectural-components-of-azure.introduction",
+    "learn.wwl.describe-core-architectural-components-of-azure.what-microsoft-azure",
+    "learn.wwl.describe-core-architectural-components-of-azure.get-started-azure-accounts",
+    "learn.wwl.describe-core-architectural-components-of-azure.describe-azure-physical-infrastructure",
+    "learn.wwl.describe-core-architectural-components-of-azure.describe-azure-management-infrastructure",
+    "learn.wwl.describe-core-architectural-components-of-azure.knowledge-check",
+    "learn.wwl.describe-core-architectural-components-of-azure.summary"
+   ],
+   "number_of_children": 7
+  },
+  {
+   "summary": "Data exploration and analysis is at the core of data science. Data scientists require skills in programming languages like Python to explore, visualize, and manipulate data.",
+   "levels": [
+    "intermediate"
+   ],
+   "roles": [
+    "data-scientist"
+   ],
+   "products": [
+    "azure"
+   ],
+   "subjects": [
+    "machine-learning"
+   ],
+   "uid": "learn.wwl.explore-analyze-data-with-python",
+   "type": "module",
+   "title": "Explore and analyze data with Python",
+   "duration_in_minutes": 60,
+   "rating": {
+    "count": 10779,
+    "average": 4.75
+   },
+   "popularity": 0.7617217604361761,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/explore-and-analyze-data-with-python.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2025-12-02T18:09:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/explore-analyze-data-with-python/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/explore-analyze-data-with-python/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.explore-analyze-data-with-python.introduction",
+    "learn.wwl.explore-analyze-data-with-python.explore-data-numpy-pandas",
+    "learn.wwl.explore-analyze-data-with-python.exercise-explore-data",
+    "learn.wwl.explore-analyze-data-with-python.visualize-data",
+    "learn.wwl.explore-analyze-data-with-python.exercise-visualize-data",
+    "learn.wwl.explore-analyze-data-with-python.examine-real-world-data",
+    "learn.wwl.explore-analyze-data-with-python.exercise-real-world-data",
+    "learn.wwl.explore-analyze-data-with-python.knowledge-check",
+    "learn.wwl.explore-analyze-data-with-python.summary"
+   ],
+   "number_of_children": 9
+  },
+  {
+   "summary": "Machine learning is the basis for most modern artificial intelligence solutions. A familiarity with the core concepts on which machine learning is based is an important foundation for understanding AI.",
+   "levels": [
+    "beginner"
+   ],
+   "roles": [
+    "ai-engineer",
+    "data-scientist"
+   ],
+   "products": [
+    "azure-machine-learning"
+   ],
+   "uid": "learn.wwl.fundamentals-machine-learning",
+   "type": "module",
+   "title": "Introduction to machine learning concepts",
+   "duration_in_minutes": 93,
+   "popularity": 0.7867689523247272,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/fundamentals-of-machine-learning.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-03-27T23:09:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/fundamentals-machine-learning/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/fundamentals-machine-learning/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.fundamentals-machine-learning.introduction",
+    "learn.wwl.fundamentals-machine-learning.what-is-machine-learning",
+    "learn.wwl.fundamentals-machine-learning.types-of-machine-learning",
+    "learn.wwl.fundamentals-machine-learning.regression",
+    "learn.wwl.fundamentals-machine-learning.binary-classification",
+    "learn.wwl.fundamentals-machine-learning.multiclass-classification",
+    "learn.wwl.fundamentals-machine-learning.clustering",
+    "learn.wwl.fundamentals-machine-learning.deep-learning",
+    "learn.wwl.fundamentals-machine-learning.exercise",
+    "learn.wwl.fundamentals-machine-learning.knowledge-check",
+    "learn.wwl.fundamentals-machine-learning.summary"
+   ],
+   "number_of_children": 11
+  },
+  {
+   "summary": "Curious about artificial intelligence? Want to understand what the buzz is about? This module introduces you to the world of AI.",
+   "levels": [
+    "beginner"
+   ],
+   "roles": [
+    "ai-engineer",
+    "data-scientist",
+    "student"
+   ],
+   "products": [
+    "ms-copilot"
+   ],
+   "subjects": [
+    "artificial-intelligence"
+   ],
+   "uid": "learn.wwl.get-started-ai-fundamentals",
+   "type": "module",
+   "title": "Introduction to AI concepts",
+   "duration_in_minutes": 40,
+   "rating": {
+    "count": 72201,
+    "average": 4.76
+   },
+   "popularity": 0.8720291169082018,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/get-started-ai-fundamentals.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-04-24T17:12:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.get-started-ai-fundamentals.introduction-ai",
+    "learn.wwl.get-started-ai-fundamentals.generative-ai",
+    "learn.wwl.get-started-ai-fundamentals.natural-language-processing",
+    "learn.wwl.get-started-ai-fundamentals.speech",
+    "learn.wwl.get-started-ai-fundamentals.computer-vision",
+    "learn.wwl.get-started-ai-fundamentals.extract-insights",
+    "learn.wwl.get-started-ai-fundamentals.responsible-ai",
+    "learn.wwl.get-started-ai-fundamentals.exercise",
+    "learn.wwl.get-started-ai-fundamentals.knowledge-check",
+    "learn.wwl.get-started-ai-fundamentals.summary"
+   ],
+   "number_of_children": 10
+  },
+  {
+   "summary": "Learn to build, integrate, and evaluate generative AI agents using Azure Database for PostgreSQL.",
+   "levels": [
+    "intermediate"
+   ],
+   "roles": [
+    "developer",
+    "data-engineer",
+    "solution-architect"
+   ],
+   "products": [
+    "azure",
+    "azure-database-postgresql"
+   ],
+   "subjects": [
+    "databases",
+    "artificial-intelligence",
+    "cloud-computing"
+   ],
+   "uid": "learn.wwl.implement-generative-ai-agents-azure-postgresql",
+   "type": "module",
+   "title": "Implement generative AI agents with Azure Database for PostgreSQL",
+   "duration_in_minutes": 62,
+   "popularity": 0.39056061450625057,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/generic-database.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-01-16T18:10:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/implement-generative-ai-agents-azure-postgresql/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/implement-generative-ai-agents-azure-postgresql/01-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.implement-generative-ai-agents-azure-postgresql.introduction",
+    "learn.wwl.implement-generative-ai-agents-azure-postgresql.understand-ai-agents-azure-database-postgresql",
+    "learn.wwl.implement-generative-ai-agents-azure-postgresql.apply-information-retrieval-agents",
+    "learn.wwl.implement-generative-ai-agents-azure-postgresql.evaluate-agentic-frameworks-integration-postgresql",
+    "learn.wwl.implement-generative-ai-agents-azure-postgresql.implement-ai-agents-foundry-agent-service",
+    "learn.wwl.implement-generative-ai-agents-azure-postgresql.exercise-build-ai-agent-foundry-azure-database-postgresql",
+    "learn.wwl.implement-generative-ai-agents-azure-postgresql.integrate-ai-agents-mcp-postgresql",
+    "learn.wwl.implement-generative-ai-agents-azure-postgresql.knowledge-check",
+    "learn.wwl.implement-generative-ai-agents-azure-postgresql.summary"
+   ],
+   "number_of_children": 9
+  },
+  {
+   "summary": "Introduction to Transact-SQL",
+   "levels": [
+    "beginner"
+   ],
+   "roles": [
+    "data-analyst",
+    "data-engineer",
+    "data-scientist",
+    "database-administrator",
+    "developer",
+    "solution-architect",
+    "student",
+    "technology-manager"
+   ],
+   "products": [
+    "azure-sql-database",
+    "sql-server",
+    "azure-sql-managed-instance",
+    "azure-sqlserver-vm",
+    "azure-sql-virtual-machines",
+    "fabric"
+   ],
+   "subjects": [
+    "data-analytics",
+    "databases",
+    "backend-development"
+   ],
+   "uid": "learn.wwl.intro-to-transact-sql",
+   "type": "module",
+   "title": "Introduction to Transact-SQL",
+   "duration_in_minutes": 61,
+   "rating": {
+    "count": 2203,
+    "average": 4.77
+   },
+   "popularity": 0.5606103036182036,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/explore-sql-server-and-query-tools.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-08-10T22:17:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/introduction-to-transact-sql/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/introduction-to-transact-sql/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.intro-to-transact-sql.introduction",
+    "learn.wwl.intro-to-transact-sql.work-with-schemas",
+    "learn.wwl.intro-to-transact-sql.explore-structure-sql-statements",
+    "learn.wwl.intro-to-transact-sql.examine-select-statement",
+    "learn.wwl.intro-to-transact-sql.work-with-data-types",
+    "learn.wwl.intro-to-transact-sql.handle-nulls",
+    "learn.wwl.intro-to-transact-sql.exercise-work-with-select-statements",
+    "learn.wwl.intro-to-transact-sql.knowledge-check",
+    "learn.wwl.intro-to-transact-sql.summary"
+   ],
+   "number_of_children": 9
+  },
+  {
+   "summary": "Learn about DevOps for machine learning, machine learning operations, and MLOps.",
+   "levels": [
+    "beginner"
+   ],
+   "roles": [
+    "data-scientist"
+   ],
+   "products": [
+    "azure-devops",
+    "azure-machine-learning",
+    "github"
+   ],
+   "subjects": [
+    "devops"
+   ],
+   "uid": "learn.wwl.introduction-development-operations-principles-for-machine-learn",
+   "type": "module",
+   "title": "Introduction to DevOps principles for machine learning",
+   "duration_in_minutes": 33,
+   "rating": {
+    "count": 655,
+    "average": 4.71
+   },
+   "popularity": 0.4509202120697846,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/introduction-development-operations-principles-for-machine-learn.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2025-12-02T18:09:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/introduction-development-operations-principles-for-machine-learn/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/introduction-development-operations-principles-for-machine-learn/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.introduction-development-operations-principles-for-machine-learn.introduction",
+    "learn.wwl.introduction-development-operations-principles-for-machine-learn.devops",
+    "learn.wwl.introduction-development-operations-principles-for-machine-learn.devops-tools",
+    "learn.wwl.introduction-development-operations-principles-for-machine-learn.integrate-azure-devops-tools",
+    "learn.wwl.introduction-development-operations-principles-for-machine-learn.knowledge-check",
+    "learn.wwl.introduction-development-operations-principles-for-machine-learn.summary"
+   ],
+   "number_of_children": 6
+  },
+  {
+   "summary": "This foundational module provides a comprehensive overview of DevOps principles, practices, and transformation strategies. It covers what DevOps is, how organizations can begin their DevOps journey, and introduces key tools like Azure DevOps and GitHub.",
+   "levels": [
+    "beginner"
+   ],
+   "roles": [
+    "administrator",
+    "ai-engineer",
+    "data-engineer",
+    "developer",
+    "devops-engineer",
+    "platform-engineer",
+    "security-engineer",
+    "security-operations-analyst",
+    "service-adoption-specialist",
+    "solution-architect",
+    "startup-founder",
+    "technology-manager"
+   ],
+   "products": [
+    "azure",
+    "azure-artifacts",
+    "azure-boards",
+    "azure-cloud-services",
+    "azure-devops",
+    "azure-pipelines",
+    "azure-repos",
+    "azure-test-plans",
+    "github"
+   ],
+   "subjects": [
+    "devops"
+   ],
+   "uid": "learn.wwl.introduction-to-devops",
+   "type": "module",
+   "title": "Introduction to DevOps",
+   "duration_in_minutes": 42,
+   "rating": {
+    "count": 6676,
+    "average": 4.76
+   },
+   "popularity": 0.58455967608403,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/1-introduction-to-devops.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-09-08T22:11:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/introduction-to-devops/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/introduction-to-devops/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.introduction-to-devops.introduction",
+    "learn.wwl.introduction-to-devops.what-is-devops",
+    "learn.wwl.introduction-to-devops.explore-devops-journey",
+    "learn.wwl.introduction-to-devops.identify-transformation-teams",
+    "learn.wwl.introduction-to-devops.define-organization-structure-agile-practices",
+    "learn.wwl.introduction-to-devops.explore-shared-goals-define-timelines",
+    "learn.wwl.introduction-to-devops.what-is-azure-devops",
+    "learn.wwl.introduction-to-devops.what-is-github",
+    "learn.wwl.introduction-to-devops.design-license-management-strategy",
+    "learn.wwl.introduction-to-devops.what-source-control",
+    "learn.wwl.introduction-to-devops.describe-working-git-locally",
+    "learn.wwl.introduction-to-devops.introduction-azure-repos",
+    "learn.wwl.introduction-to-devops.introduction-to-github",
+    "learn.wwl.introduction-to-devops.knowledge-check",
+    "learn.wwl.introduction-to-devops.summary"
+   ],
+   "number_of_children": 15
+  },
+  {
+   "summary": "Learn how to monitor the performance of your generative AI application using Microsoft Foundry. This module teaches you to track key metrics like latency and token usage to make informed, cost-effective deployment decisions.",
+   "levels": [
+    "intermediate"
+   ],
+   "roles": [
+    "ai-engineer"
+   ],
+   "products": [
+    "microsoft-foundry"
+   ],
+   "subjects": [
+    "artificial-intelligence",
+    "app-development"
+   ],
+   "uid": "learn.wwl.monitor-generative-ai-app",
+   "type": "module",
+   "title": "Monitor your generative AI application",
+   "duration_in_minutes": 60,
+   "popularity": 0.6408333446702792,
+   "icon_url": "https://learn.microsoft.com/en-us/learn/achievements/generic-badge.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-05-07T17:55:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/monitor-generative-ai-app/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/monitor-generative-ai-app/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.monitor-generative-ai-app.introduction",
+    "learn.wwl.monitor-generative-ai-app.why-monitor",
+    "learn.wwl.monitor-generative-ai-app.what-to-monitor",
+    "learn.wwl.monitor-generative-ai-app.how-to-monitor",
+    "learn.wwl.monitor-generative-ai-app.prepare-scripts",
+    "learn.wwl.monitor-generative-ai-app.informed-decisions",
+    "learn.wwl.monitor-generative-ai-app.exercise",
+    "learn.wwl.monitor-generative-ai-app.knowledge-check",
+    "learn.wwl.monitor-generative-ai-app.summary"
+   ],
+   "number_of_children": 9
+  },
+  {
+   "summary": "Get started with Python programming. Learn to display output, accept user input, and manipulate strings to build your first Python program.",
+   "levels": [
+    "beginner"
+   ],
+   "roles": [
+    "developer",
+    "student"
+   ],
+   "products": [
+    "vs-code"
+   ],
+   "subjects": [
+    "app-development"
+   ],
+   "uid": "learn.wwl.write-first-python-code",
+   "type": "module",
+   "title": "Write your first Python code",
+   "duration_in_minutes": 39,
+   "popularity": 0.5472082582942026,
+   "icon_url": "https://learn.microsoft.com/en-us/learn/achievements/generic-badge.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-08-07T22:11:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/write-first-python-code/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/write-first-python-code/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.write-first-python-code.introduction",
+    "learn.wwl.write-first-python-code.display-output-with-print",
+    "learn.wwl.write-first-python-code.accept-user-input",
+    "learn.wwl.write-first-python-code.manipulate-strings",
+    "learn.wwl.write-first-python-code.exercise",
+    "learn.wwl.write-first-python-code.knowledge-check",
+    "learn.wwl.write-first-python-code.summary"
+   ],
+   "number_of_children": 7
+  },
+  {
+   "summary": "Choose this module if you want to compare models by using automated machine learning, MLflow, and the Responsible AI dashboard.",
+   "levels": [
+    "beginner"
+   ],
+   "roles": [
+    "data-scientist"
+   ],
+   "products": [
+    "azure-machine-learning"
+   ],
+   "subjects": [
+    "machine-learning"
+   ],
+   "uid": "learn.wwl.experiment-azure-machine-learning",
+   "type": "module",
+   "title": "Experiment with Azure Machine Learning",
+   "duration_in_minutes": 65,
+   "popularity": 0.6182933285521597,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/find-best-classification-model-automated-machine-learning.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-08-27T17:45:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/experiment-azure-machine-learning/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/experiment-azure-machine-learning/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.experiment-azure-machine-learning.introduction",
+    "learn.wwl.experiment-azure-machine-learning.preprocess-data-configure-featurization",
+    "learn.wwl.experiment-azure-machine-learning.run-job",
+    "learn.wwl.experiment-azure-machine-learning.evaluate-compare-models",
+    "learn.wwl.experiment-azure-machine-learning.model-tracking",
+    "learn.wwl.experiment-azure-machine-learning.train-models-notebooks",
+    "learn.wwl.experiment-azure-machine-learning.responsible-ai-dashboard",
+    "learn.wwl.experiment-azure-machine-learning.exercise",
+    "learn.wwl.experiment-azure-machine-learning.knowledge-check",
+    "learn.wwl.experiment-azure-machine-learning.summary"
+   ],
+   "number_of_children": 10
+  },
+  {
+   "summary": "We will learn to use a rich set of REST response codes returned by Azure Cosmos DB request to help you analyze potential issues.",
+   "levels": [
+    "intermediate"
+   ],
+   "roles": [
+    "developer"
+   ],
+   "products": [
+    "azure-cosmos-db"
+   ],
+   "subjects": [
+    "cloud-computing"
+   ],
+   "uid": "learn.wwl.monitor-responses-events-azure-cosmos-db-sql-api",
+   "type": "module",
+   "title": "Monitor responses and events in Azure Cosmos DB for NoSQL",
+   "duration_in_minutes": 51,
+   "rating": {
+    "count": 171,
+    "average": 4.88
+   },
+   "popularity": 0.35433429963632335,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/azure-cosmos-db-monitor-responses.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2025-04-03T17:01:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/monitor-responses-events-azure-cosmos-db-sql-api/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/monitor-responses-events-azure-cosmos-db-sql-api/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.monitor-responses-events-azure-cosmos-db-sql-api.introduction",
+    "learn.wwl.monitor-responses-events-azure-cosmos-db-sql-api.review-common-response-codes",
+    "learn.wwl.monitor-responses-events-azure-cosmos-db-sql-api.understand-transient-errors",
+    "learn.wwl.monitor-responses-events-azure-cosmos-db-sql-api.review-rate-limiting-errors",
+    "learn.wwl.monitor-responses-events-azure-cosmos-db-sql-api.configure-alerts",
+    "learn.wwl.monitor-responses-events-azure-cosmos-db-sql-api.audit-security",
+    "learn.wwl.monitor-responses-events-azure-cosmos-db-sql-api.exercise-troubleshoot-application-using-sdk",
+    "learn.wwl.monitor-responses-events-azure-cosmos-db-sql-api.knowledge-check",
+    "learn.wwl.monitor-responses-events-azure-cosmos-db-sql-api.summary"
+   ],
+   "number_of_children": 9
+  },
+  {
+   "summary": "Manage data storage in Microsoft Sentinel by creating custom log tables, configuring retention tiers and archive policies for compliance. Then, connect Microsoft Purview Audit as a data source, and query audit logs in the Microsoft Defender XDR portal for compliance investigations.",
+   "levels": [
+    "intermediate"
+   ],
+   "roles": [
+    "security-engineer"
+   ],
+   "products": [
+    "microsoft-sentinel",
+    "defender-xdr",
+    "azure-log-analytics",
+    "azure-monitor",
+    "microsoft-purview"
+   ],
+   "subjects": [
+    "security",
+    "cloud-security"
+   ],
+   "uid": "learn.wwl.manage-data-storage-audit-logs-sentinel",
+   "type": "module",
+   "title": "Manage data storage and query audit logs in Microsoft Sentinel",
+   "duration_in_minutes": 31,
+   "popularity": 0.5270906216317864,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/generic-badge.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-05-18T23:11:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/manage-data-storage-audit-logs-sentinel/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/manage-data-storage-audit-logs-sentinel/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.manage-data-storage-audit-logs-sentinel.introduction",
+    "learn.wwl.manage-data-storage-audit-logs-sentinel.create-custom-log-tables",
+    "learn.wwl.manage-data-storage-audit-logs-sentinel.implement-data-retention",
+    "learn.wwl.manage-data-storage-audit-logs-sentinel.connect-purview-audit",
+    "learn.wwl.manage-data-storage-audit-logs-sentinel.query-purview-audit",
+    "learn.wwl.manage-data-storage-audit-logs-sentinel.knowledge-check",
+    "learn.wwl.manage-data-storage-audit-logs-sentinel.summary"
+   ],
+   "number_of_children": 7
+  },
+  {
+   "summary": "Learn how to run Windows containers on Windows Server, including process isolation and Hyper-V isolation modes, Docker container management, container base images from the Microsoft Container Registry, and Windows Admin Center container management.",
+   "levels": [
+    "intermediate"
+   ],
+   "roles": [
+    "administrator",
+    "solution-architect"
+   ],
+   "products": [
+    "windows-server"
+   ],
+   "subjects": [
+    "containers"
+   ],
+   "uid": "learn.wwl.run-containers-windows-server",
+   "type": "module",
+   "title": "Run containers on Windows Server",
+   "duration_in_minutes": 48,
+   "rating": {
+    "count": 294,
+    "average": 4.73
+   },
+   "popularity": 0.5002475025089921,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/run-containers-on-windows-server.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-09-01T07:11:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/run-containers-windows-server/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/run-containers-windows-server/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.run-containers-windows-server.introduction",
+    "learn.wwl.run-containers-windows-server.define-containers",
+    "learn.wwl.run-containers-windows-server.list-differences-between-containers-vms",
+    "learn.wwl.run-containers-windows-server.define-hyper-v-containers-isolation-modes",
+    "learn.wwl.run-containers-windows-server.explore-docker",
+    "learn.wwl.run-containers-windows-server.prepare-2019-host-for-container-deployment",
+    "learn.wwl.run-containers-windows-server.security-storage-networking-windows-containers",
+    "learn.wwl.run-containers-windows-server.knowledge-check",
+    "learn.wwl.run-containers-windows-server.summary"
+   ],
+   "number_of_children": 9
+  },
+  {
+   "summary": "Educators use the basics of Python, a text-based programming language, in Minecraft Education to build out coding knowledge to facilitate Python coding in the classroom",
+   "levels": [
+    "beginner"
+   ],
+   "roles": [
+    "k-12-educator",
+    "school-leader"
+   ],
+   "products": [
+    "minecraft"
+   ],
+   "uid": "learn.mec.begin-python-coding-minecraft-makecode-azure-notebooks",
+   "type": "module",
+   "title": "Begin Python coding in Minecraft with MakeCode",
+   "duration_in_minutes": 65,
+   "rating": {
+    "count": 162,
+    "average": 4.8
+   },
+   "popularity": 0.3870940552939008,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/begin-python-coding-minecraft-makecode-azure-notebooks.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-03-10T23:08:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/begin-python-coding-minecraft-makecode-azure-notebooks/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/begin-python-coding-minecraft-makecode-azure-notebooks/introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.mec.begin-python-coding-minecraft-makecode-azure-notebooks.introduction",
+    "learn.mec.begin-python-coding-minecraft-makecode-azure-notebooks.understand-text-based-programming-python",
+    "learn.mec.begin-python-coding-minecraft-makecode-azure-notebooks.makecode-python-with-python-101",
+    "learn.mec.begin-python-coding-minecraft-makecode-azure-notebooks.experience-makecode-python-coding-minecraft",
+    "learn.mec.begin-python-coding-minecraft-makecode-azure-notebooks.understand-python-coding-concepts-python-101",
+    "learn.mec.begin-python-coding-minecraft-makecode-azure-notebooks.knowledge-check",
+    "learn.mec.begin-python-coding-minecraft-makecode-azure-notebooks.summary"
+   ],
+   "number_of_children": 7
+  },
+  {
+   "summary": "Learn tips and tricks about preparing for your first teaching session, which labs to use, when and how to introduce technical topics, as well as other resources and materials.",
+   "levels": [
+    "beginner"
+   ],
+   "roles": [
+    "higher-ed-educator"
+   ],
+   "products": [
+    "azure"
+   ],
+   "uid": "learn.wwl.get-tips-tricks-teach-az-900-microsoft-azure-ai-fundamentals",
+   "type": "module",
+   "title": "Get tips and tricks for teaching AZ-900 Microsoft Azure Fundamentals",
+   "duration_in_minutes": 53,
+   "rating": {
+    "count": 170,
+    "average": 4.76
+   },
+   "popularity": 0.4403219863707006,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/get-tips-tricks-teach-az-900-microsoft-azure-ai-fundamentals.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2025-03-28T23:01:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/get-tips-tricks-teach-az-900-microsoft-azure-ai-fundamentals/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/get-tips-tricks-teach-az-900-microsoft-azure-ai-fundamentals/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.get-tips-tricks-teach-az-900-microsoft-azure-ai-fundamentals.introduction",
+    "learn.wwl.get-tips-tricks-teach-az-900-microsoft-azure-ai-fundamentals.explore-objective-domains",
+    "learn.wwl.get-tips-tricks-teach-az-900-microsoft-azure-ai-fundamentals.learn-module-best-practices",
+    "learn.wwl.get-tips-tricks-teach-az-900-microsoft-azure-ai-fundamentals.explore-best-practices-for-module-1",
+    "learn.wwl.get-tips-tricks-teach-az-900-microsoft-azure-ai-fundamentals.explore-best-practices-for-module-2-lesson-1",
+    "learn.wwl.get-tips-tricks-teach-az-900-microsoft-azure-ai-fundamentals.explore-best-practices-for-module-2-lesson-2",
+    "learn.wwl.get-tips-tricks-teach-az-900-microsoft-azure-ai-fundamentals.explore-best-practices-for-module-2-lesson-3",
+    "learn.wwl.get-tips-tricks-teach-az-900-microsoft-azure-ai-fundamentals.explore-best-practices-for-module-2-lesson-4",
+    "learn.wwl.get-tips-tricks-teach-az-900-microsoft-azure-ai-fundamentals.explore-best-practices-for-module-3",
+    "learn.wwl.get-tips-tricks-teach-az-900-microsoft-azure-ai-fundamentals.bring-it-together",
+    "learn.wwl.get-tips-tricks-teach-az-900-microsoft-azure-ai-fundamentals.knowledge-check",
+    "learn.wwl.get-tips-tricks-teach-az-900-microsoft-azure-ai-fundamentals.summary"
+   ],
+   "number_of_children": 12
+  },
+  {
+   "summary": "Manage Azure Kubernetes Service on Azure Stack HCI",
+   "levels": [
+    "intermediate"
+   ],
+   "roles": [
+    "devops-engineer",
+    "security-engineer",
+    "solution-architect",
+    "student",
+    "technology-manager"
+   ],
+   "products": [
+    "azure"
+   ],
+   "subjects": [
+    "cloud-computing",
+    "virtual-machine",
+    "data-engineering"
+   ],
+   "uid": "learn.wwl.manage-azure-kubernetes-service-azure-stack-hci",
+   "type": "module",
+   "title": "Manage Azure Kubernetes Service on Azure Stack HCI",
+   "duration_in_minutes": 66,
+   "rating": {
+    "count": 93,
+    "average": 4.72
+   },
+   "popularity": 0.39741556954548113,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/manage-azure-kubernetes-service-on-azure-stack-hci.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-01-23T18:10:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/manage-azure-kubernetes-service-azure-stack-hci/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/manage-azure-kubernetes-service-azure-stack-hci/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.manage-azure-kubernetes-service-azure-stack-hci.introduction",
+    "learn.wwl.manage-azure-kubernetes-service-azure-stack-hci.overview-of-kubernetes-aks",
+    "learn.wwl.manage-azure-kubernetes-service-azure-stack-hci.overview-of",
+    "learn.wwl.manage-azure-kubernetes-service-azure-stack-hci.deploy-aks-cluster-to",
+    "learn.wwl.manage-azure-kubernetes-service-azure-stack-hci.deploy-kubernetes-cluster-to",
+    "learn.wwl.manage-azure-kubernetes-service-azure-stack-hci.connect-to-azure-arc-for-kubernetes",
+    "learn.wwl.manage-azure-kubernetes-service-azure-stack-hci.manage-pods-multi-pool-kubernetes-clusters",
+    "learn.wwl.manage-azure-kubernetes-service-azure-stack-hci.manage-pod-storage-kubernetes-clusters",
+    "learn.wwl.manage-azure-kubernetes-service-azure-stack-hci.implement-containerized-windows-workloads",
+    "learn.wwl.manage-azure-kubernetes-service-azure-stack-hci.troubleshoot",
+    "learn.wwl.manage-azure-kubernetes-service-azure-stack-hci.summary"
+   ],
+   "number_of_children": 11
+  },
+  {
+   "summary": "Create a website using C#, Java, Python, or Node.js and deploy it through the hosted web app platform in Azure App Service.",
+   "levels": [
+    "beginner"
+   ],
+   "roles": [
+    "developer",
+    "solution-architect",
+    "student"
+   ],
+   "products": [
+    "azure",
+    "azure-app-service",
+    "azure-portal"
+   ],
+   "subjects": [
+    "cloud-computing"
+   ],
+   "uid": "learn.host-a-web-application-with-azure-web-apps",
+   "type": "module",
+   "title": "Host a web application with Azure App Service",
+   "duration_in_minutes": 31,
+   "rating": {
+    "count": 13253,
+    "average": 4.68
+   },
+   "popularity": 0.5532375516161313,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/host-a-web-app-with-azure-app-service.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2025-12-12T19:39:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/host-a-web-app-with-azure-app-service/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/host-a-web-app-with-azure-app-service/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.host-a-web-application-with-azure-web-apps.1-introduction",
+    "learn.host-a-web-application-with-azure-web-apps.2-create-a-web-app-in-the-azure-portal",
+    "learn.host-a-web-application-with-azure-web-apps.3-exercise-create-a-web-app-in-the-azure-portal",
+    "learn.host-a-web-application-with-azure-web-apps.4-exercise-implement-a-web-application",
+    "learn.host-a-web-application-with-azure-web-apps.5-deploying-code-to-app-service",
+    "learn.host-a-web-application-with-azure-web-apps.6-exercise-deploy-your-code-to-app-service",
+    "learn.host-a-web-application-with-azure-web-apps.7-summary",
+    "learn.host-a-web-application-with-azure-web-apps.8"
+   ],
+   "number_of_children": 8
+  },
+  {
+   "summary": "In this module, you learn how to use the Windows Subsystem for Linux (WSL) with Visual Studio Code (VS Code). We explore the installation process and the basics of using WSL. Additionally, we install and utilize the Visual Studio Code WSL extension. Finally, we demonstrate how to debug and run Python code in VS Code within our WSL environment.",
+   "levels": [
+    "beginner"
+   ],
+   "roles": [
+    "developer"
+   ],
+   "products": [
+    "vs-code"
+   ],
+   "subjects": [
+    "app-development"
+   ],
+   "uid": "learn.developing-in-wsl",
+   "type": "module",
+   "title": "Developing in the Windows Subsystem for Linux with Visual Studio Code",
+   "duration_in_minutes": 21,
+   "popularity": 0.4007924163685608,
+   "icon_url": "https://learn.microsoft.com/en-us/learn/achievements/introduction-to-visual-studio-code.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2024-11-26T00:00:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/developing-in-wsl/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/developing-in-wsl/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.developing-in-wsl.introduction",
+    "learn.developing-in-wsl.what-is-windows-subsystem-linux",
+    "learn.developing-in-wsl.setting-up-windows-subsystem-linux",
+    "learn.developing-in-wsl.setting-up-windows-subsystem-linux-extension",
+    "learn.developing-in-wsl.running-debugging",
+    "learn.developing-in-wsl.summary"
+   ],
+   "number_of_children": 6
+  },
+  {
+   "summary": "Evaluate strategies for migrating to Azure SQL",
+   "levels": [
+    "intermediate"
+   ],
+   "roles": [
+    "data-engineer",
+    "database-administrator"
+   ],
+   "products": [
+    "azure",
+    "azure-sql-database",
+    "azure-sql-managed-instance",
+    "azure-sqlserver-vm",
+    "sql-server"
+   ],
+   "subjects": [
+    "migration",
+    "cloud-computing"
+   ],
+   "uid": "learn.wwl.evaluate-strategies-for-migrating-to-azure-sql",
+   "type": "module",
+   "title": "Evaluate strategies for migrating to Azure SQL",
+   "duration_in_minutes": 22,
+   "rating": {
+    "count": 347,
+    "average": 4.83
+   },
+   "popularity": 0.3793463238405031,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/4-evaluate-strategies-for-moving-to-azure.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-08-04T22:11:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/evaluate-strategies-for-migrating-to-azure-sql/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/evaluate-strategies-for-migrating-to-azure-sql/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.evaluate-strategies-for-migrating-to-azure-sql.introduction",
+    "learn.wwl.evaluate-strategies-for-migrating-to-azure-sql.understand-compatibility-level",
+    "learn.wwl.evaluate-strategies-for-migrating-to-azure-sql.understand-azure-preview-features",
+    "learn.wwl.evaluate-strategies-for-migrating-to-azure-sql.describe-azure-database-migration-options",
+    "learn.wwl.evaluate-strategies-for-migrating-to-azure-sql.knowledge-check",
+    "learn.wwl.evaluate-strategies-for-migrating-to-azure-sql.summary"
+   ],
+   "number_of_children": 6
+  },
+  {
+   "summary": "Use generative AI in Azure Database for PostgreSQL.",
+   "levels": [
+    "intermediate"
+   ],
+   "roles": [
+    "developer"
+   ],
+   "products": [
+    "azure-database-postgresql"
+   ],
+   "subjects": [
+    "artificial-intelligence",
+    "databases"
+   ],
+   "uid": "learn.wwl.get-started-generative-ai-azure-database-postgresql",
+   "type": "module",
+   "title": "Get started with generative AI in Azure Database for PostgreSQL",
+   "duration_in_minutes": 57,
+   "popularity": 0.4349397882581704,
+   "icon_url": "https://learn.microsoft.com/en-us/training/achievements/generic-badge.svg",
+   "social_image_url": "https://learn.microsoft.com/en-us/training/achievements/generic-social.png",
+   "locale": "en-us",
+   "last_modified": "2026-01-26T18:09:00+00:00",
+   "url": "https://learn.microsoft.com/en-us/training/modules/get-started-generative-ai-azure-database-postgresql/?WT.mc_id=api_CatalogApi",
+   "firstUnitUrl": "https://learn.microsoft.com/en-us/training/modules/get-started-generative-ai-azure-database-postgresql/1-introduction/?WT.mc_id=api_CatalogApi",
+   "units": [
+    "learn.wwl.get-started-generative-ai-azure-database-postgresql.introduction",
+    "learn.wwl.get-started-generative-ai-azure-database-postgresql.understand-generative-ai-language-models",
+    "learn.wwl.get-started-generative-ai-azure-database-postgresql.describe-azure-ai-extension",
+    "learn.wwl.get-started-generative-ai-azure-database-postgresql.explore-azure-openai-schema",
+    "learn.wwl.get-started-generative-ai-azure-database-postgresql.review-azure-cognitive-schema",
+    "learn.wwl.get-started-generative-ai-azure-database-postgresql.explore-semantic-operators",
+    "learn.wwl.get-started-generative-ai-azure-database-postgresql.examine-azure-machine-learning-schema",
+    "learn.wwl.get-started-generative-ai-azure-database-postgresql.exercise-explore-azure-ai-extension",
+    "learn.wwl.get-started-generative-ai-azure-database-postgresql.knowledge-check",
+    "learn.wwl.get-started-generative-ai-azure-database-postgresql.summary"
+   ],
+   "number_of_children": 10
+  }
+ ]
+}

@@ -1,0 +1,109 @@
+{
+  "learn.wwl.get-started-ai-fundamentals": [
+    "In this module, you learn about the kinds of solutions AI can make possible and considerations for responsible AI practices."
+  ],
+  "learn.wwl.fundamentals-machine-learning": [
+    "Describe core concepts of machine learning",
+    "Identify different types of machine learning",
+    "Describe considerations for training and evaluating machine learning models",
+    "Describe core concepts of deep learning"
+  ],
+  "learn.philanthropies.explore-generative-ai": [
+    "Distinguish between Natural Language Processing (NLP), Natural Language Generation (NLG), and Large Language Models (LLMs), assessing their roles, applications, and interrelationships with generating human language.",
+    "Assess the differences between generative AI and traditional AI models, focusing on their applications, capabilities, and the role of data.",
+    "Evaluate how generative AI services like Microsoft Copilot can enhance creativity in various fields."
+  ],
+  "learn.introduction-large-language-models": [
+    "Explain what a large language model (LLM) is.",
+    "Describe what LLMs can and can't do.",
+    "Understand core concepts like prompts, tokens, and completions.",
+    "Distinguish between different models to understand which one to choose for what purpose."
+  ],
+  "learn.wwl.build-rag-applications-azure-database-postgresql": [
+    "Explain the RAG pattern and its benefits for grounding large language models.",
+    "Map RAG pipeline stages to Azure Database for PostgreSQL features and extensions.",
+    "Build a basic RAG application using PostgreSQL and Python.",
+    "Enhance performance and accuracy with indexing strategies and semantic re-ranking.",
+    "Explore advanced RAG patterns, including GraphRAG for multi-hop reasoning."
+  ],
+  "learn.wwl.build-extend-ai-agents": [
+    "Describe AI agents and the key capabilities of Microsoft Foundry Agent Service.",
+    "Choose a development approach using the Foundry portal, Visual Studio Code, or code.",
+    "Extend an agent with custom function tools, Azure Functions, and OpenAPI-defined tools.",
+    "Connect an agent to a remote Model Context Protocol (MCP) server and handle tool-approval requests."
+  ],
+  "learn.wwl.implement-generative-ai-agents-azure-postgresql": [
+    "Understand agent architectures and frameworks",
+    "Apply information retrieval for agents",
+    "Implement and integrate agents with Azure services",
+    "Build and test an AI agent solution",
+    "Assess your knowledge of generative AI agents"
+  ],
+  "learn.measure-mitigate-risks-azure-ai-studio": [
+    "Choose and deploy a model from the model catalog",
+    "Upload data and create a vector index",
+    "Set up and refine a system message",
+    "Create and apply a content filter",
+    "Run a manual evaluation",
+    "Run and compare automated evaluations"
+  ],
+  "learn.wwl.write-first-python-code": [
+    "Display output using the print() function.",
+    "Accept user input with the input() function.",
+    "Manipulate strings using common string operations."
+  ],
+  "learn.wwl.explore-analyze-data-with-python": [
+    "Common data exploration and analysis tasks.",
+    "How to use Python packages like NumPy, Pandas, and Matplotlib to analyze data."
+  ],
+  "learn.wwl.intro-to-transact-sql": [
+    "Understand what SQL is for",
+    "Identify database objects in schemas",
+    "Identify SQL statement types",
+    "Use the SELECT statement",
+    "Work with data types",
+    "Handle NULLs"
+  ],
+  "learn.intro-to-containers": [
+    "Create a Dockerfile for a new container image based on a starter image from Docker Hub.",
+    "Add files to an image using Dockerfile commands.",
+    "Configure an image's startup command with Dockerfile commands.",
+    "Build and run a web application packaged in a Docker image.",
+    "Deploy a Docker image using the Azure Container Instance service."
+  ],
+  "learn.wwl.introduction-to-devops": [
+    "DevOps definition and core principles",
+    "Organizational transformation planning",
+    "Team structure and agile practices",
+    "Azure DevOps and GitHub platform overview",
+    "Source control and Git fundamentals",
+    "License management strategies",
+    "Cycle time optimization and validated learning"
+  ],
+  "learn.wwl.introduction-development-operations-principles-for-machine-learn": [
+    "Why DevOps is useful for machine learning projects.",
+    "Which DevOps principles can be applied to machine learning projects.",
+    "How to connect Azure DevOps and GitHub with Azure Machine Learning."
+  ],
+  "learn.wwl.deploy-your-ai-copilot-azure-kubernetes": [
+    "Set up REST endpoints in the application to access vector and GPT search functions.",
+    "Test the application container locally using Docker.",
+    "Build and store your application image in an Azure Container Resource.",
+    "Deploy the image with Azure Kubernetes Service."
+  ],
+  "learn.wwl.monitor-generative-ai-app": [
+    "Understand why monitoring is essential when moving Gen AI apps toward production readiness.",
+    "Identify and interpret key performance metrics: latency, throughput, token usage, and error rates.",
+    "Use Azure Monitor together with Microsoft Foundry to observe and analyze app behavior.",
+    "Apply insights to optimize performance, cost, and user experience in Gen AI solutions."
+  ],
+  "learn.wwl.describe-core-architectural-components-of-azure": [
+    "Describe Azure regions, region pairs, and sovereign regions",
+    "Describe Availability Zones",
+    "Describe Azure datacenters",
+    "Describe Azure resources and Resource Groups",
+    "Describe subscriptions",
+    "Describe management groups",
+    "Describe the hierarchy of resource groups, subscriptions, and management groups"
+  ]
+}

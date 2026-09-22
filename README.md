@@ -32,8 +32,11 @@
 SkillBridge/
 ├── prompts/              # 设计文档与大纲
 ├── data/                 # 岗位/技能/课程/员工数据(阶段 1A)
+│   ├── collect.py        # 采集入口:python -m data.collect
+│   ├── sources/          # 外部数据源适配(ESCO / O*NET / Microsoft Learn)
+│   ├── fixtures/         # 离线 fixture(真实 API 响应裁剪版)
 │   ├── raw/              # 外部数据源拉取的原始缓存
-│   └── processed/        # 标准化后的 JSON
+│   └── processed/        # 标准化后的 JSON(含 schemas/)
 ├── skill_normalization/  # 技能归一化模块(阶段 1B)
 ├── knowledge_graph/      # Neo4j 图谱构建与查询(阶段 2A)
 ├── profile/              # 员工画像与 Skill Gap(阶段 2B)
@@ -74,6 +77,27 @@ make down
 
 服务地址(默认):Neo4j Browser `http://localhost:7474`(bolt `:7687`),
 PostgreSQL `localhost:5432`。
+
+## 数据采集(阶段 1A)
+
+```bash
+# 采集岗位/技能/课程/员工四类数据(在线优先,断网自动回退)
+make collect              # 等价于 uv run python -m data.collect
+make collect-offline      # 强制离线:仅用 data/raw/ 缓存与内置 fixture
+```
+
+数据源与产出:
+
+| 数据 | 来源 | 产出 |
+|------|------|------|
+| 岗位与技能 | ESCO API + O*NET Web Services(可选凭据)+ 人工策展 | `data/processed/skills.json`、`positions.json` |
+| 课程 | Microsoft Learn Catalog API + 课程页学习目标 | `data/processed/courses.json` |
+| 员工 | 模拟生成器(10 名,等级 0-4 + Evidence) | `data/processed/employees.json` |
+
+三级数据源调度:**在线 API → `data/raw/` 缓存 → 内置 fixture**(`data/fixtures/`,
+为真实 API 响应裁剪版),断网不阻塞;产出全部通过统一 JSON Schema
+(`data/processed/schemas/`)与跨文件引用校验。O*NET API 凭据可选
+(`ONET_API_USERNAME` / `ONET_API_PASSWORD`,见 `.env.example`)。
 
 ## 开发方式
 

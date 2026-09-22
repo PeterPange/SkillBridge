@@ -5,6 +5,7 @@ description = "SkillBridge AI —— 企业员工智能培训与能力发展 Age
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "jsonschema>=4.21",
     "neo4j>=5.26,<6",
     "psycopg[binary]>=3.2",
     "pgvector>=0.3",
