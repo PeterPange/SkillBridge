@@ -3,7 +3,7 @@
 
 COMPOSE ?= docker compose
 
-.PHONY: up down test collect collect-offline graph recommend
+.PHONY: up down test collect collect-offline graph recommend path
 
 up: ## 启动 Neo4j + PostgreSQL,等待健康检查通过
 	$(COMPOSE) up -d --wait
@@ -25,3 +25,6 @@ graph: ## 构建知识图谱(需先 make up 和 make collect)
 
 recommend: ## 个性化课程推荐 Top-K(需先 make up 与 make graph)
 	uv run python -m recommendation EMP_001
+
+path: ## 自适应学习路径周计划(需先 make up 与 make graph)
+	uv run python -m learning_path EMP_001
