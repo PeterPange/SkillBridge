@@ -189,3 +189,26 @@ python -m recommendation EMP_001 --json       # 结构化 JSON(含分项得分�
 
 排序为纯算法(不依赖 LLM / 数据库),可脱离 Neo4j 单测:
 `recommend_from_pool()` 接受候选池直接打分排序,五因子逐个可验算。
+
+✅ 阶段 3B(学习路径)完成:`learning_path/` 实现自适应学习路径:
+复用第七节候选生成作为种子,课程 DAG 上**剪枝已掌握课程**
+(掌握门槛随难度递增:beginner 平均等级 ≥ 2 / intermediate ≥ 3 /
+advanced ≥ 4,与推荐模块的难度期望一致)→ **补齐必须前置课程**
+(图谱传递闭包,已掌握的前置不再展开)→ **拓扑排序**(Kahn 算法,
+就绪集合按「覆盖加权缺口降序 → course_id 升序」选取,核心缺口优先,
+环检测兑底 CycleError)→ **每周时间约束分配**(默认每周 4 小时,
+装得下整门放入、装不下移下一周、超周预算跨周续学,每周负载恒不超预算)
+→ 8 周截止期限校验(超出显式提示,不静默截断)。李明(EMP_001,
+每周 4 小时、截止 8 周)剪枝已掌握 2 门(Python / Docker 的 beginner 课),
+14 门课程共 754 分钟,4 周完成、可按期完成,输出确定可复现。
+
+```bash
+# 李明 → AI Engineer 周计划(需先 make up 与 make graph)
+python -m learning_path EMP_001
+python -m learning_path EMP_001 --hours-per-week 6   # 每周 6 小时
+python -m learning_path EMP_001 --weeks 12           # 截止 12 周
+python -m learning_path EMP_001 --json              # 结构化 JSON(供 Agent / LLM)
+```
+
+剪枝 / 环检测 / 时间分配均为纯算法,可脱离 Neo4j 单测:
+`build_learning_path()` 接受候选池与课程目录直接规划,周计划逐周可验算。
