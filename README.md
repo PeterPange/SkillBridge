@@ -170,3 +170,22 @@ python -m profile EMP_001 --json                # 结构化 JSON 报告
 python -m profile EMP_001 --explain SKILL_001   # 单项技能 Evidence 解释
 python -m profile --list                        # 列出全部员工
 ```
+
+✅ 阶段 3A(课程推荐)完成:`recommendation/` 实现两步推荐:
+**Candidate Generation**(按 Skill Gap 从图谱沿 `TEACHES` 关系召回候选课程,
+大纲示例「缺少 AI Agent → Develop AI Agents」)+ **Course Ranking**(五因子
+加权打分:Gap 覆盖度 30% / 技能重要性 25% / 难度匹配 20% / 前置满足 15% /
+时间成本 10%,排序确定性:总分降序 → course_id 升序)。输出 Top-K 与
+逐因子推荐理由数据(覆盖缺口 / 难度匹配 / 前置状态 / 时间成本),
+供 LLM 解释「为什么推荐」与 Agent 工具消费;有缺口但无课程覆盖的技能
+显式进入 `uncovered_skills`,不会静默丢弃。
+
+```bash
+# 李明 → AI Engineer Top-5 推荐(需先 make up 与 make graph)
+python -m recommendation EMP_001
+python -m recommendation EMP_001 --top-k 3      # 指定 Top-K
+python -m recommendation EMP_001 --json       # 结构化 JSON(含分项得分与理由)
+```
+
+排序为纯算法(不依赖 LLM / 数据库),可脱离 Neo4j 单测:
+`recommend_from_pool()` 接受候选池直接打分排序,五因子逐个可验算。
