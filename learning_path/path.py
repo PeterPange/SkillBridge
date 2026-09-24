@@ -27,7 +27,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Callable, Mapping, Sequence
+from collections.abc import Callable, Iterable, Mapping, Sequence
 
 from neo4j import Driver
 
@@ -69,6 +69,7 @@ def build_learning_path(
     *,
     hours_per_week: float = DEFAULT_HOURS_PER_WEEK,
     deadline_weeks: int | None = DEFAULT_DEADLINE_WEEKS,
+    completed: Iterable[str] = (),
 ) -> LearningPathReport:
     """纯规划管线:候选池 + 课程目录 → 剪枝 → 拓扑排序 → 周计划。
 
@@ -82,6 +83,9 @@ def build_learning_path(
     :param gap_report: 差距报告(缺口与岗位元数据)。
     :param hours_per_week: 每周可学习小时数(默认 4)。
     :param deadline_weeks: 培训截止周数(默认 8);``None`` 表示不设截止。
+    :param completed: 已完成(考试通过)的课程 course_id 集合——
+        重排时直接剪枝、不再重复排课(大纲第十一节闭环:
+        学完 A/B 后只剩 C → D)。
     :raises ValueError: 时间参数非法,或候选 / 前置课程不在目录中。
     :raises CycleError: 课程前置关系存在环。
     """
@@ -91,7 +95,7 @@ def build_learning_path(
         raise ValueError(f"截止周数必须大于等于 1,得到 {deadline_weeks}")
 
     kept, pruned = select_path_courses(
-        pool.candidates, catalog, profile.level_of
+        pool.candidates, catalog, profile.level_of, completed=completed
     )
     order = topological_order(kept, gap_priority(gap_report.gaps))
     weeks = allocate_weeks(order, hours_per_week)
@@ -125,6 +129,7 @@ def generate_learning_path(
     *,
     hours_per_week: float = DEFAULT_HOURS_PER_WEEK,
     deadline_weeks: int | None = DEFAULT_DEADLINE_WEEKS,
+    completed: Iterable[str] = (),
     database: str | None = None,
 ) -> LearningPathReport:
     """完整学习路径管线:图谱召回候选 → 前置闭包 → 剪枝 → 排序 → 周计划。
@@ -134,6 +139,8 @@ def generate_learning_path(
     :param gap_report: 差距报告(大纲第六节输出,本模块的输入)。
     :param hours_per_week: 每周可学习小时数(默认 4)。
     :param deadline_weeks: 培训截止周数(默认 8);``None`` 表示不设截止。
+    :param completed: 已完成(考试通过)的课程 course_id 集合——
+        重排时直接剪枝(大纲第十一节闭环重排)。
     :param database: Neo4j 数据库(默认取 ``NEO4J_DATABASE`` 配置)。
     """
     # 复用第七节 Candidate Generation:按缺口技能沿 TEACHES 关系召回候选课程
@@ -150,4 +157,5 @@ def generate_learning_path(
         gap_report,
         hours_per_week=hours_per_week,
         deadline_weeks=deadline_weeks,
+        completed=completed,
     )

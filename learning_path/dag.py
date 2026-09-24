@@ -4,7 +4,7 @@
 
     课程 DAG(前置关系)
           ↓
-    删除已经掌握课程
+    删除已经掌握课程(员工已有能力)/ 已完成课程(培训记录,第十一节)
           ↓
     补齐必须前置课程
           ↓
@@ -36,7 +36,12 @@ from __future__ import annotations
 import heapq
 from collections.abc import Callable, Iterable, Mapping
 
-from learning_path.models import PathCourse, PrunedCourse
+from learning_path.models import (
+    PRUNE_REASON_COMPLETED,
+    PRUNE_REASON_MASTERED,
+    PathCourse,
+    PrunedCourse,
+)
 from recommendation.models import DIFFICULTIES
 
 #: 各难度的掌握门槛:所授技能平均等级 ≥ 门槛 → 已掌握,可跳过
@@ -92,24 +97,31 @@ def select_path_courses(
     candidates: Iterable[PathCourse],
     catalog: Mapping[str, PathCourse],
     level_of: LevelOf,
+    completed: Iterable[str] = (),
 ) -> tuple[dict[str, PathCourse], dict[str, PrunedCourse]]:
-    """从候选课程出发,剪枝已掌握课程并补齐必须前置课程。
+    """从候选课程出发,剪枝已掌握/已完成课程并补齐必须前置课程。
 
-    遍历规则(对应大纲「删除已经掌握课程 → 补齐必须前置课程」):
+    遍历规则(对应大纲「删除已经掌握课程 → 补齐必须前置课程」,
+    第十一节闭环重排追加「已完成课程同样剪枝」):
 
-    1. 候选课程逐门判定:已掌握 → 剪枝(且不展开其前置);
-    2. 保留课程的直接前置递归入图,同样按掌握判定剪枝;
-    3. 已掌握的前置不继续展开(其前置更基础,必然也已掌握)。
+    1. 候选课程逐门判定:已完成(培训记录归档)→ 剪枝;
+       已掌握(凭技能门槛)→ 剪枝;两者均不展开其前置;
+    2. 保留课程的直接前置递归入图,同样按完成 / 掌握判定剪枝;
+    3. 已剪枝的前置不继续展开——已掌握的前置更基础必然已掌握;
+       已完成的前置能完成它说明基础已具备。
 
     :param candidates: 候选课程(第七节 Candidate Generation 的产出,
         每门至少教授一项缺口技能);
     :param catalog: 课程目录(候选 + 全部传递前置的完整元数据,
         见 :func:`learning_path.graph.fetch_course_closure`);
-    :param level_of: 员工技能等级查询。
+    :param level_of: 员工技能等级查询;
+    :param completed: 已完成(考试通过)的课程 course_id 集合,
+        重排时不再重复排课(大纲第十一节:学完 A/B 后只剩 C → D)。
     :return: ``(保留课程, 剪枝课程)``,均为 course_id → 对象;
         保留课程即学习路径 DAG 的节点集。
     :raises ValueError: 候选或前置课程不在目录中(数据不一致)。
     """
+    completed_ids = frozenset(completed)
     kept: dict[str, PathCourse] = {}
     pruned: dict[str, PrunedCourse] = {}
     visited: set[str] = set()
@@ -129,11 +141,21 @@ def select_path_courses(
             continue
         visited.add(course_id)
 
+        if course_id in completed_ids:
+            pruned[course_id] = PrunedCourse(
+                course=course,
+                average_level=average_skill_level(course, level_of),
+                threshold=mastery_threshold(course.difficulty),
+                reason=PRUNE_REASON_COMPLETED,
+            )
+            continue  # 已完成:不展开它的前置课程(基础已具备)
+
         if is_mastered(course, level_of):
             pruned[course_id] = PrunedCourse(
                 course=course,
                 average_level=average_skill_level(course, level_of),
                 threshold=mastery_threshold(course.difficulty),
+                reason=PRUNE_REASON_MASTERED,
             )
             continue  # 已掌握:不补齐它的前置课程
 

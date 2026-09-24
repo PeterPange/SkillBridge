@@ -19,6 +19,8 @@
 
 from __future__ import annotations
 
+from collections.abc import Iterable
+
 from neo4j import Driver
 
 from profile.models import EmployeeProfile, GapReport
@@ -102,6 +104,7 @@ def recommend_courses(
     *,
     top_k: int = DEFAULT_TOP_K,
     weights: ScoringWeights | None = None,
+    exclude: Iterable[str] = (),
     database: str | None = None,
 ) -> RecommendationReport:
     """完整推荐管线:按缺口从图谱召回候选 → 加权排序 → Top-K 报告。
@@ -111,9 +114,13 @@ def recommend_courses(
     :param gap_report: 差距报告(大纲第六节输出,本模块的输入)。
     :param top_k: 推荐数量(默认 5)。
     :param weights: 五因子权重。
+    :param exclude: 排除的课程 course_id 集合(如员工已完成的课程,
+        闭环重算时不再重复推荐,大纲第十一节)。
     :param database: Neo4j 数据库(默认取 ``NEO4J_DATABASE`` 配置)。
     """
-    pool = generate_candidates(driver, gap_report.gaps, database=database)
+    pool = generate_candidates(
+        driver, gap_report.gaps, database=database, exclude=exclude
+    )
     return recommend_from_pool(
         pool, profile, gap_report, top_k=top_k, weights=weights
     )

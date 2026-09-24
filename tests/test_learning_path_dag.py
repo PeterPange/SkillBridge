@@ -14,6 +14,8 @@ import pytest
 
 from learning_path import (
     CycleError,
+    PRUNE_REASON_COMPLETED,
+    PRUNE_REASON_MASTERED,
     average_skill_level,
     is_mastered,
     mastery_threshold,
@@ -218,6 +220,57 @@ def test_select_unknown_prerequisite_raises():
     orphan = make_course("Y", skills=("SKILL_001",), prerequisites=("Z",))
     with pytest.raises(ValueError, match="前置 Z 不在课程目录"):
         select_path_courses([orphan], {"Y": orphan}, level_of({}))
+
+
+# ---------------------------------------------------------------------------
+# 已完成课程剪枝(大纲第十一节闭环重排)
+# ---------------------------------------------------------------------------
+
+def test_completed_courses_pruned_not_replanned():
+    """已完成课程直接剪枝(即使尚未达到掌握门槛),不再重复排课。"""
+    catalog, candidates = _mini_catalog()
+    levels = {"SKILL_001": 2, "SKILL_011": 2, "SKILL_004": 1,
+              "SKILL_006": 0, "SKILL_009": 0}
+    # B(生成式 AI,beginner)已完成但 GenAI 仍为 0 级(未达掌握门槛 2)
+    kept, pruned = select_path_courses(
+        candidates, catalog, level_of(levels), completed={"B"}
+    )
+    assert "B" not in kept
+    assert pruned["B"].reason == PRUNE_REASON_COMPLETED
+    # 已完成的 B 不再展开前置:A 不因 B 被补入(但 A 自身是候选仍保留)
+    assert "A" in kept
+    # 未完成的候选照常保留;E(Python 2 ≥ 门槛)仍按掌握剪枝
+    assert set(kept) == {"A", "C", "F"}
+    assert set(pruned) == {"B", "D", "E"}
+
+
+def test_completed_prerequisite_not_expanded():
+    """保留课程的前置已完成:前置剪枝且不展开,课程视为立即可学。"""
+    catalog, _ = _mini_catalog()
+    levels = {"SKILL_006": 1, "SKILL_009": 0, "SKILL_011": 2}
+    # C(AI Agent)保留,其前置 B(已完成)剪枝、D(已掌握)剪枝
+    kept, pruned = select_path_courses(
+        [catalog["C"]], catalog, level_of(levels), completed={"B"}
+    )
+    assert set(kept) == {"C"}
+    assert set(pruned) == {"B", "D"}
+    assert pruned["B"].reason == PRUNE_REASON_COMPLETED
+    assert pruned["D"].reason == PRUNE_REASON_MASTERED
+    order = topological_order(kept)
+    assert [course.course_id for course in order] == ["C"]  # 前置已具备,立即就绪
+
+
+def test_completed_default_keeps_backward_compatibility():
+    """不传 completed(默认):行为与扩展前完全一致(只按掌握剪枝)。"""
+    catalog, candidates = _mini_catalog()
+    levels = {"SKILL_001": 2, "SKILL_011": 2, "SKILL_004": 1,
+              "SKILL_006": 0, "SKILL_009": 0}
+    kept, pruned = select_path_courses(candidates, catalog, level_of(levels))
+    assert set(kept) == {"A", "B", "C", "F"}
+    assert set(pruned) == {"D", "E"}
+    assert all(
+        item.reason == PRUNE_REASON_MASTERED for item in pruned.values()
+    )
 
 
 # ---------------------------------------------------------------------------

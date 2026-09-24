@@ -4,7 +4,10 @@ from __future__ import annotations
 
 import unicodedata
 
-from learning_path.models import LearningPathReport
+from learning_path.models import (
+    PRUNE_REASON_COMPLETED,
+    LearningPathReport,
+)
 
 
 def _display_width(text: str) -> int:
@@ -84,14 +87,35 @@ def render_learning_path_report(report: LearningPathReport) -> str:
         lines.append(thin)
 
     if report.pruned:
-        lines.append(f"已掌握,跳过({len(report.pruned)} 门,凭已有技能可免修):")
-        for item in report.pruned:
+        completed_items = [
+            item for item in report.pruned
+            if item.reason == PRUNE_REASON_COMPLETED
+        ]
+        mastered_items = [
+            item for item in report.pruned if item.reason != PRUNE_REASON_COMPLETED
+        ]
+        if completed_items:
             lines.append(
-                f"  - {item.course.name}({item.course.course_id})"
-                f"{item.course.difficulty} · 所授技能平均等级 "
-                f"{item.average_level:.1f} ≥ 掌握门槛 {_fmt_minutes(item.threshold)}"
+                f"已完成,跳过({len(completed_items)} 门,培训记录已归档,"
+                f"不再重复排课):"
             )
-        lines.append(thin)
+            for item in completed_items:
+                lines.append(
+                    f"  - {item.course.name}({item.course.course_id})"
+                    f"{item.course.difficulty} · 已完成培训(考试通过)"
+                )
+            lines.append(thin)
+        if mastered_items:
+            lines.append(
+                f"已掌握,跳过({len(mastered_items)} 门,凭已有技能可免修):"
+            )
+            for item in mastered_items:
+                lines.append(
+                    f"  - {item.course.name}({item.course.course_id})"
+                    f"{item.course.difficulty} · 所授技能平均等级 "
+                    f"{item.average_level:.1f} ≥ 掌握门槛 {_fmt_minutes(item.threshold)}"
+                )
+            lines.append(thin)
 
     if report.uncovered_skills:
         uncovered = "、".join(

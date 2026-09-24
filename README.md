@@ -44,6 +44,7 @@ SkillBridge/
 ├── learning_path/        # 学习路径规划(阶段 3B)
 ├── rag/                  # 企业知识库 RAG(阶段 4)
 ├── agent/                # HR Training Agent(LangGraph,阶段 4)
+├── feedback/             # 培训反馈闭环(阶段 5,大纲第十一节)
 ├── platform/             # HR 管理平台(占位,后续阶段)
 ├── skillbridge/          # 共享核心:配置与数据库连接
 ├── tests/                # 测试(含基础设施冒烟测试)
@@ -279,3 +280,58 @@ Neo4j / PostgreSQL 不可用时工具显式报告而非崩溃,RAG 在 Embedding
 模型不可用时自动降级「内存库 + 词面编码 + 内置培训制度文档」
 (离线防挂起:模块加载即声明 `HF_HUB_OFFLINE=1`,尊重用户显式配置)。
 pytest 覆盖工具编排、LLM 模式(桩客户端)、降级链路与 CLI。
+
+## 培训反馈闭环(阶段 5,大纲第十一节)
+
+✅ 阶段 5(学习反馈与动态调整)完成:`feedback/` 实现大纲第十一节——
+系统闭环的关键一环,员工完成课程后自动触发
+**画像刷新 → Skill Gap 重算 → 推荐刷新 → 课表重排**:
+
+```text
+Course completed(考试 85 分)
+      ↓
+training_record + assessment 落库(PostgreSQL)
+      ↓
+分数映射技能等级提升(≥85 提升 1 级;70-84 提升 1 级标记「需巩固」;
+<70 不提升,追加「补基础」前置课程建议)
+      ↓
+Evidence 追加(完成记录写入对应技能,可解释「为什么涨级」)
+      ↓
+闭环重算:画像刷新 → Skill Gap → 推荐刷新 → 课表重排
+(已完成课程剪枝:第一次 A → B → C → D,学完 A/B 后只剩 C → D)
+      ↓
+画像同步知识图谱(HAS_SKILL 等级 + Evidence)
+```
+
+**只做编排,不重复实现业务逻辑**:差距计算复用 `profile`,推荐复用
+`recommendation`(新增可选 `exclude` 参数排除已完成课程),课表复用
+`learning_path`(新增可选 `completed` 参数剪枝已完成课程,均向后兼容);
+画像回放采用**事件溯源**:基础画像(`employees.json`)+ 培训记录 →
+当前画像,不修改源数据,重放结果确定一致。
+
+**同难度不重复涨级**:一次完成对所授技能各提升 1 级,但同一
+`(技能, 课程难度)` 层只涨一次——CRS_001 / CRS_003 / CRS_004 都是
+beginner 的 Generative AI 课,完成三门恰好 0 → 1;要继续提升需完成
+更高难度的课程。
+
+```bash
+# 培训完成登记:落库 + Evidence 追加 + 自动闭环重算
+# (显示技能提升、培训历史与当前准备度)
+python -m feedback complete EMP_001 CRS_001 --score 85
+
+# 培训档案:培训历史 + 画像变化 + 准备度前后对比
+python -m feedback status EMP_001
+
+# 学习路径前后对比:原路径 vs 培训后重排路径(已完成课程剪枝)
+python -m feedback plan-diff EMP_001
+
+# 结构化 JSON(供 Agent / LLM 消费)
+python -m feedback status EMP_001 --json
+```
+
+验收(可演示的前后对比):李明完成 CRS_001 + CRS_003 + CRS_004
+(均 85 分)后,Generative AI 从 **0 升到 1**,岗位准备度从 **29.6%**
+上升到 **41.5%**,重排后的学习路径从 **14 门 / 4 周 / 754 分钟**缩短为
+**10 门 / 3 周 / 559 分钟**(已完成 3 门 + 新掌握 1 门被剪枝);考试
+不及格(60 分)用例:技能不升级 + 追加补基础建议(前置课程 CRS_003)。
+pytest 覆盖分数映射 / 回放 / 存储往返 / 闭环重算 / CLI(Neo4j + PostgreSQL)。

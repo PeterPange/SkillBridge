@@ -64,16 +64,21 @@ def generate_candidates(
     gaps: Iterable[SkillGap],
     *,
     database: str | None = None,
+    exclude: Iterable[str] = (),
 ) -> CandidatePool:
     """按缺口技能从图谱召回候选课程。
 
     :param driver: Neo4j 驱动(见 :func:`skillbridge.db.neo4j_driver`)。
     :param gaps: 差距报告的缺失技能列表(:class:`profile.models.SkillGap`)。
     :param database: Neo4j 数据库(默认取 ``NEO4J_DATABASE`` 配置)。
+    :param exclude: 排除的课程 course_id 集合(如员工已完成的课程,
+        大纲第十一节闭环重算时不再重复推荐);被排除的课程若作为
+        其他候选的前置,仍会进入前置上下文(前置满足判定需要)。
     :return: :class:`~recommendation.models.CandidatePool`,候选课程
         按 course_id 升序;缺口为空时返回空池。
     """
     gap_list = list(gaps)
+    excluded = frozenset(exclude)
     skill_ids = sorted({gap.skill_id for gap in gap_list})
     if not skill_ids:
         return CandidatePool()
@@ -84,6 +89,7 @@ def generate_candidates(
         candidate_rows = [
             dict(record)
             for record in session.run(_QUERY_CANDIDATES, skill_ids=skill_ids)
+            if record["course_id"] not in excluded
         ]
         course_ids = [row["course_id"] for row in candidate_rows]
 

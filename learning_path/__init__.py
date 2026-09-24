@@ -47,6 +47,8 @@ from learning_path.dag import (
 )
 from learning_path.graph import fetch_course_closure
 from learning_path.models import (
+    PRUNE_REASON_COMPLETED,
+    PRUNE_REASON_MASTERED,
     LearningPathReport,
     PathCourse,
     PrunedCourse,
@@ -70,6 +72,9 @@ __all__ = [
     "PrunedCourse",
     "WeekCourse",
     "WeekPlan",
+    # 剪枝原因
+    "PRUNE_REASON_COMPLETED",
+    "PRUNE_REASON_MASTERED",
     # DAG:剪枝 + 补齐前置 + 拓扑排序
     "MASTERY_THRESHOLDS",
     "CycleError",
