@@ -3,7 +3,7 @@
 
 COMPOSE ?= docker compose
 
-.PHONY: up down test collect collect-offline graph recommend path rag
+.PHONY: up down test collect collect-offline graph recommend path rag agent
 
 up: ## 启动 Neo4j + PostgreSQL,等待健康检查通过
 	$(COMPOSE) up -d --wait
@@ -30,5 +30,8 @@ path: ## 自适应学习路径周计划(需先 make up 与 make graph)
 	uv run python -m learning_path EMP_001
 
 rag: ## 企业知识库 RAG 演示:入库培训制度并示例提问(需先 make up)
-	uv run python -m rag ingest data/fixtures/training_policy.md
+	uv run python -m rag ingest data/fixtures/training_policy.md data/fixtures/ai_engineer_position.md
 	uv run python -m rag ask "新员工入职培训期是多久?"
+
+agent: ## HR Training Agent 演示:大纲第十节示例问题(需先 make up 与 make graph)
+	uv run python -m agent "我是Java后端,想转AI Engineer,每周4小时,帮我规划"
