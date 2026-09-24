@@ -237,3 +237,45 @@ python -m rag ingest data/fixtures/training_policy.md --reset
 语义对齐(同一问题 Top-1 判定一致),pytest 固定 fixture
 `data/fixtures/training_policy.md` 覆盖全部链路;pgvector 集成测试
 即验收用例(入库后自然语言提问命中对应章节)。
+
+## HR Training Agent(阶段 4,大纲第十节)
+
+✅ 阶段 4(HR Training Agent)完成:`agent/` 实现大纲第十节——Agent
+是**整个系统的智能入口和任务编排层**,LangGraph 状态机四节点:
+
+```text
+START → understand(理解需求)→ plan(规划工具调用)
+      → execute(执行工具)→ generate(生成回答)→ END
+```
+
+五个工具全部委托已有模块,不重复实现业务逻辑:
+
+| 工具 | 委托模块(大纲章节) |
+|------|--------------------|
+| `get_employee_profile` | `profile/`(第五节:画像 + Evidence) |
+| `get_skill_gap` | `profile.gap`(第六节:纯算法差距) |
+| `recommend_courses` | `recommendation/`(第七节:图谱召回 + 五因子排序) |
+| `generate_learning_path` | `learning_path/`(第八节:DAG + 拓扑排序 + 周计划) |
+| `rag_query` | `rag/`(第九节:pgvector 检索 + 重排 + 引用) |
+
+两种执行模式,同一张图:LLM 配置可用(`OPENAI_API_KEY` / `LLM_MODEL`)
+时走 **LLM 模式**(结构化意图提取 → function calling 规划 → 引用工具
+数据作答);不可用或调用失败时**就地降级规则模式**(规则解析意图、
+确定性工具链、直接串联工具输出渲染回答),主流程不中断,结果可复现。
+
+```bash
+# 大纲第十节示例问题(默认规则模式,不依赖 LLM)
+python -m agent "我是Java后端,想转AI Engineer,每周4小时,帮我规划"
+
+# 强制规则模式 / 结构化输出 / 制度类问题(追加 RAG 工具)
+python -m agent "帮我规划" --rule --quiet
+python -m agent "帮我规划" --json
+python -m agent "为什么给我推荐 AI Agent 课程?公司的培训制度有什么规定?"
+```
+
+验收:示例问题走通全链路,回答引用李明的真实数据——岗位准备度
+**29.6%**、**12 项**能力缺口、**Top-5** 课程推荐、**8 周**截止同课表;
+Neo4j / PostgreSQL 不可用时工具显式报告而非崩溃,RAG 在 Embedding
+模型不可用时自动降级「内存库 + 词面编码 + 内置培训制度文档」
+(离线防挂起:模块加载即声明 `HF_HUB_OFFLINE=1`,尊重用户显式配置)。
+pytest 覆盖工具编排、LLM 模式(桩客户端)、降级链路与 CLI。
