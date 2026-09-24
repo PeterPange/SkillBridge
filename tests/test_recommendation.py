@@ -113,6 +113,29 @@ def test_candidate_generation_empty_gaps(graph):
     assert pool.uncovered == ()
 
 
+def test_candidate_generation_excludes_completed(graph, li_ming_setup):
+    """exclude:已完成的课程不再召回为候选(闭环重算不重复推荐)。
+
+    被排除的课程若作为其他候选的前置,仍进入前置上下文
+    (前置满足判定需要它的所授技能)。
+    """
+    driver, (_, gap_report) = graph, li_ming_setup
+    pool = generate_candidates(
+        driver, gap_report.gaps, exclude={"CRS_001", "CRS_004"}
+    )
+    ids = {course.course_id for course in pool.candidates}
+    assert "CRS_001" not in ids
+    assert "CRS_004" not in ids
+    # 其余候选照常召回(15 门 - 2 门排除)
+    assert len(ids) == 13
+    # 被排除的课程作为保留候选的前置,仍可解析名称与所授技能:
+    # CRS_001 是 CRS_002/CRS_003/CRS_008 的前置,CRS_004 是 CRS_005/CRS_006 的前置
+    assert pool.name_of("CRS_001") == "Introduction to AI concepts"
+    assert pool.taught_skills_of("CRS_001") == {"SKILL_004", "SKILL_006"}
+    assert pool.name_of("CRS_004") == "Introduction to large language models"
+    assert pool.taught_skills_of("CRS_004") == {"SKILL_006", "SKILL_007", "SKILL_010"}
+
+
 # ---------------------------------------------------------------------------
 # 端到端验收:示例员工输出合理 Top-5
 # ---------------------------------------------------------------------------

@@ -30,19 +30,28 @@ from recommendation.models import CandidateCourse
 #: 候选课程(按缺口召回)与补齐的前置课程(传递闭包)统一用该对象表示。
 PathCourse = CandidateCourse
 
+#: 剪枝原因:已掌握(凭已有技能可免修)
+PRUNE_REASON_MASTERED = "已掌握"
+
+#: 剪枝原因:已完成培训(考试通过;大纲第十一节闭环重排时不再重复排课)
+PRUNE_REASON_COMPLETED = "已完成"
+
 
 @dataclass(frozen=True)
 class PrunedCourse:
-    """已掌握而被剪枝的课程:员工凭已有技能可免修。
+    """被剪枝的课程:已掌握(凭已有技能可免修)或已完成(培训已归档)。
 
     :param course: 被剪枝的课程;
     :param average_level: 员工在课程所授技能上的平均等级(0-4);
-    :param threshold: 该难度的掌握门槛(见 :data:`learning_path.dag.MASTERY_THRESHOLDS`)。
+    :param threshold: 该难度的掌握门槛(见 :data:`learning_path.dag.MASTERY_THRESHOLDS`);
+    :param reason: 剪枝原因——:data:`PRUNE_REASON_MASTERED`(默认)或
+        :data:`PRUNE_REASON_COMPLETED`(大纲第十一节:已完成课程不再排课)。
     """
 
     course: PathCourse
     average_level: float
     threshold: float
+    reason: str = PRUNE_REASON_MASTERED
 
     def to_dict(self) -> dict[str, Any]:
         """回写为 JSON 可序列化对象。"""
@@ -53,6 +62,7 @@ class PrunedCourse:
             "duration_minutes": self.course.duration_minutes,
             "average_level": round(self.average_level, 2),
             "threshold": self.threshold,
+            "reason": self.reason,
         }
 
 
