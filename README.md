@@ -212,3 +212,28 @@ python -m learning_path EMP_001 --json              # 结构化 JSON(供 Agent /
 
 剪枝 / 环检测 / 时间分配均为纯算法,可脱离 Neo4j 单测:
 `build_learning_path()` 接受候选池与课程目录直接规划,周计划逐周可验算。
+
+✅ 阶段 4(企业知识库 RAG)完成:`rag/` 实现大纲第九节完整链路:
+**文档解析**(Markdown 原生 / Word .docx 按标题样式 / PDF 按编号模式启发式,
+首个标题视为文档标题)→ **标题级分块**(块携带完整标题路径与来源,
+超长小节按段落/句子边界切分,不跨标题合并)→ **Embedding + pgvector**
+(复用 skill_normalization 后端:sentence-transformers 本地多语言模型,
+未安装/无网络自动降级词面匹配;HNSW 余弦索引,同文档重复入库幂等替换,
+维度不一致显式报错)→ **检索 + 重排**(向量 Top-K 召回 → 查询词覆盖率
+线性融合重排,压下「语义相近但答非所问」的候选)→ **带来源引用的上下文**
+(编号引用:文档标题 / 标题路径 / 来源文件 / 相关度,直接拼入 LLM 提示词)。
+
+```bash
+# 入库企业培训制度并自然语言提问(需先 make up)
+python -m rag ingest data/fixtures/training_policy.md   # 也支持目录批量入库
+python -m rag ask "新员工入职培训期是多久?"
+python -m rag ask "外部培训费用怎么报销?" --top-k 3 --json
+python -m rag list                                     # 已入库文档
+# 换 Embedding 后端(维度变化)后重建知识库
+python -m rag ingest data/fixtures/training_policy.md --reset
+```
+
+分块与检索逻辑可脱离数据库单测:`MemoryVectorStore` 与 pgvector
+语义对齐(同一问题 Top-1 判定一致),pytest 固定 fixture
+`data/fixtures/training_policy.md` 覆盖全部链路;pgvector 集成测试
+即验收用例(入库后自然语言提问命中对应章节)。

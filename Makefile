@@ -3,7 +3,7 @@
 
 COMPOSE ?= docker compose
 
-.PHONY: up down test collect collect-offline graph recommend path
+.PHONY: up down test collect collect-offline graph recommend path rag
 
 up: ## 启动 Neo4j + PostgreSQL,等待健康检查通过
 	$(COMPOSE) up -d --wait
@@ -28,3 +28,7 @@ recommend: ## 个性化课程推荐 Top-K(需先 make up 与 make graph)
 
 path: ## 自适应学习路径周计划(需先 make up 与 make graph)
 	uv run python -m learning_path EMP_001
+
+rag: ## 企业知识库 RAG 演示:入库培训制度并示例提问(需先 make up)
+	uv run python -m rag ingest data/fixtures/training_policy.md
+	uv run python -m rag ask "新员工入职培训期是多久?"

@@ -15,6 +15,8 @@ dependencies = [
     "sentence-transformers>=3.0",
     # torch 为 sentence-transformers 的推理后端,显式声明以便固定 CPU 轮子来源。
     "torch>=2.2",
+    "pypdf>=6.19.0",
+    "python-docx>=1.2.0",
 ]
 
 [dependency-groups]

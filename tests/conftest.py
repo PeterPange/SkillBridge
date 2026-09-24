@@ -1,4 +1,7 @@
-"""共享测试夹具:大纲第六节验收用例(李明 vs AI Engineer)。
+"""共享测试夹具。
+
+- 大纲第六节验收用例(李明 vs AI Engineer):员工 / 岗位 fixture;
+- 大纲第九节验收用例(企业知识库 RAG):企业培训制度文档 fixture。
 
 大纲第二节的示例员工李明(Java 后端,工作 3 年)与第六节的
 AI Engineer 岗位要求,映射到统一技能库 skill_id:
@@ -6,6 +9,8 @@ AI Engineer 岗位要求,映射到统一技能库 skill_id:
 - Deployment → SKILL_011 Docker
 - Monitoring → SKILL_015 Monitoring
 """
+
+from pathlib import Path
 
 import pytest
 
@@ -24,6 +29,19 @@ def outline_skill(skill_id: str, level: int) -> dict:
             "training_records": [f"{skill_id} 基础培训已完成"] if level else [],
         },
     }
+
+
+@pytest.fixture(scope="session")
+def training_policy_path() -> Path:
+    """企业员工培训制度文档(大纲第九节 RAG 验收用固定 fixture)。"""
+    path = (
+        Path(__file__).resolve().parent.parent
+        / "data"
+        / "fixtures"
+        / "training_policy.md"
+    )
+    assert path.is_file(), f"RAG 验收 fixture 缺失: {path}"
+    return path
 
 
 @pytest.fixture()
