@@ -43,7 +43,9 @@ class Fetcher:
     :param delay_seconds: 相邻请求最小间隔(礼貌限速);
     :param retries: 单页失败重试次数(指数退避);
     :param timeout_seconds: 单请求超时;
-    :param respect_robots: 是否检查目标站 robots.txt(默认开)。
+    :param respect_robots: 是否检查目标站 robots.txt(默认开);
+    :param direct: 直连模式(绕过 HTTP_PROXY 等环境代理)。
+        国内站点(B 站等)走代理反而触发风控,置 True 强制直连。
     """
 
     def __init__(
@@ -53,27 +55,42 @@ class Fetcher:
         retries: int = DEFAULT_RETRIES,
         timeout_seconds: int = DEFAULT_TIMEOUT_SECONDS,
         respect_robots: bool = True,
+        direct: bool = False,
     ) -> None:
         self.delay_seconds = max(0.0, delay_seconds)
         self.retries = max(0, retries)
         self.timeout_seconds = timeout_seconds
         self.respect_robots = respect_robots
+        self.direct = direct
         self._last_request_at = 0.0
         self._robots: dict[str, RobotFileParser | None] = {}
+        self._opener = (
+            urllib.request.build_opener(urllib.request.ProxyHandler({}))
+            if direct
+            else None
+        )
 
-    def fetch(self, url: str) -> FetchResult:
-        """抓取单个 URL,自动遵守限速与 robots.txt。"""
+    def fetch(self, url: str, *, headers: dict[str, str] | None = None) -> FetchResult:
+        """抓取单个 URL,自动遵守限速与 robots.txt。
+
+        :param headers: 附加请求头(如浏览器 UA / Referer / Cookie)。
+        """
         if self.respect_robots and not self._robots_allows(url):
             return FetchResult(url=url, error="disallowed by robots.txt")
 
         self._throttle()
+        merged_headers = {"User-Agent": USER_AGENT, "Accept-Language": "en-US,en;q=0.9"}
+        if headers:
+            merged_headers.update(headers)
         last_error = ""
         for attempt in range(self.retries + 1):
             try:
-                request = urllib.request.Request(
-                    url, headers={"User-Agent": USER_AGENT, "Accept-Language": "en-US,en;q=0.9"}
-                )
-                with urllib.request.urlopen(request, timeout=self.timeout_seconds) as response:
+                request = urllib.request.Request(url, headers=merged_headers)
+                if self._opener is not None:
+                    response = self._opener.open(request, timeout=self.timeout_seconds)
+                else:
+                    response = urllib.request.urlopen(request, timeout=self.timeout_seconds)
+                with response:
                     body = response.read().decode("utf-8", errors="replace")
                     return FetchResult(url=url, status=response.status, body=body)
             except urllib.error.HTTPError as exc:
