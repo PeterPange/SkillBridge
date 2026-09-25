@@ -60,19 +60,30 @@ def graph(processed_dir):
 
 
 @pytest.fixture()
-def store():
-    """培训记录存储(PostgreSQL):每个用例前清空,保证隔离。
+def store(training_store_test_db):
+    """培训记录存储(独立测试库):每个用例前清空,保证隔离。
 
     闭环写操作会同步 Neo4j 的 HAS_SKILL,但全部断言均基于回放画像
     (事件溯源),不依赖图谱中的员工关系状态,因此无需重建图谱。
+    存储指向 tests/conftest.py 的 skillbridge_test 测试库,
+    开发库的培训记录不受影响。
     """
-    training_store = PostgresTrainingStore()
-    training_store.ensure_schema()
-    training_store.reset()
-    try:
-        yield training_store
-    finally:
-        training_store.close()
+    training_store_test_db.reset()
+    yield training_store_test_db
+
+
+@pytest.fixture()
+def cli_uses_test_db(store, monkeypatch):
+    """让 CLI(main)内部创建的 PostgresTrainingStore 也指向测试库。
+
+    CLI 入口自建 store(直连开发库),不 patch 会把培训记录写进
+    开发库,且用例间状态串扰导致断言不稳定。
+    """
+    import feedback.__main__ as feedback_cli
+
+    monkeypatch.setattr(
+        feedback_cli, "PostgresTrainingStore", lambda **_: store
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -282,7 +293,7 @@ def test_postgres_store_roundtrip(graph, processed_dir, store):
 # CLI:python -m feedback complete / status / plan-diff
 # ---------------------------------------------------------------------------
 
-def test_cli_complete(graph, processed_dir, store, capsys):
+def test_cli_complete(graph, processed_dir, store, cli_uses_test_db, capsys):
     """complete:登记 + 显示技能提升 / 闭环重算 / 培训历史 / 当前准备度。"""
     from feedback.__main__ import main
 
@@ -301,7 +312,7 @@ def test_cli_complete(graph, processed_dir, store, capsys):
     assert "training_record #1 + assessment" in out
 
 
-def test_cli_complete_json(graph, processed_dir, store, capsys):
+def test_cli_complete_json(graph, processed_dir, store, cli_uses_test_db, capsys):
     """complete --json:结构化输出(供 Agent / LLM 消费)。"""
     from feedback.__main__ import main
 
@@ -319,7 +330,7 @@ def test_cli_complete_json(graph, processed_dir, store, capsys):
     assert payload["graph_synced"] >= 1
 
 
-def test_cli_status(graph, processed_dir, store, capsys):
+def test_cli_status(graph, processed_dir, store, cli_uses_test_db, capsys):
     """status:培训历史 + 画像变化 + 准备度前后对比。"""
     from feedback.__main__ import main
 
@@ -338,7 +349,7 @@ def test_cli_status(graph, processed_dir, store, capsys):
     assert "岗位准备度 : 29.6% → 35.9%(+6.3 个百分点)" in out
 
 
-def test_cli_plan_diff(graph, processed_dir, store, capsys):
+def test_cli_plan_diff(graph, processed_dir, store, cli_uses_test_db, capsys):
     """plan-diff:学习路径前后对比,已完成课程被剪枝。"""
     from feedback.__main__ import main
 
@@ -360,7 +371,7 @@ def test_cli_plan_diff(graph, processed_dir, store, capsys):
     assert "不再排课 : CRS_001、CRS_003、CRS_004、CRS_002" in out
 
 
-def test_cli_plan_diff_json(graph, processed_dir, store, capsys):
+def test_cli_plan_diff_json(graph, processed_dir, store, cli_uses_test_db, capsys):
     """plan-diff --json:前后路径与对比指标的结构化输出。"""
     from feedback.__main__ import main
 
@@ -379,7 +390,7 @@ def test_cli_plan_diff_json(graph, processed_dir, store, capsys):
     assert payload["comparison"]["added_course_ids"] == []
 
 
-def test_cli_complete_fail_shows_suggestion(graph, processed_dir, store, capsys):
+def test_cli_complete_fail_shows_suggestion(graph, processed_dir, store, cli_uses_test_db, capsys):
     """complete(不及格):显示补基础建议,准备度不变。"""
     from feedback.__main__ import main
 
@@ -402,7 +413,7 @@ def test_cli_complete_fail_shows_suggestion(graph, processed_dir, store, capsys)
         (["status", "EMP_999"], "未知员工"),
     ],
 )
-def test_cli_errors(graph, processed_dir, store, capsys, argv, message):
+def test_cli_errors(graph, processed_dir, store, cli_uses_test_db, capsys, argv, message):
     """未知员工 / 课程、非法分数:退出码 1 + 明确错误信息。"""
     from feedback.__main__ import main
 

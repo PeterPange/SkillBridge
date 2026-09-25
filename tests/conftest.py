@@ -86,3 +86,60 @@ def outline_position() -> dict:
             {"skill_id": "SKILL_015", "importance": 3.0, "required_level": 2},  # Monitoring
         ],
     }
+
+
+# ---------------------------------------------------------------------------
+# 独立测试数据库(PostgreSQL 集成测试专用)
+#
+# 背景:RAG 与培训记录的集成测试需要真实库,但绝不能触碰开发库
+# (历史上曾把生产知识库 / 培训记录清空)。以下夹具提供同实例、
+# 同凭据、独立 dbname 的 skillbridge_test 库,按需创建。
+# ---------------------------------------------------------------------------
+
+import psycopg as _psycopg
+
+from skillbridge.config import get_settings as _get_settings
+from skillbridge.db import postgres_connect as _postgres_connect
+
+TEST_DB_NAME = "skillbridge_test"
+
+
+def ensure_test_database():
+    """连接测试库(不存在则创建),返回独立连接(调用方负责 close)。"""
+    admin = _postgres_connect()
+    admin.autocommit = True
+    with admin.cursor() as cur:
+        cur.execute("SELECT 1 FROM pg_database WHERE datname = %s", (TEST_DB_NAME,))
+        if cur.fetchone() is None:
+            cur.execute(
+                f'''CREATE DATABASE "{TEST_DB_NAME}" TEMPLATE template0 ENCODING 'utf8'''''
+            )
+    admin.close()
+    s = _get_settings()
+    conn = _psycopg.connect(
+        host=s.postgres_host,
+        port=s.postgres_port,
+        user=s.postgres_user,
+        password=s.postgres_password,
+        dbname=TEST_DB_NAME,
+    )
+    with conn.cursor() as cur:
+        cur.execute("CREATE EXTENSION IF NOT EXISTS vector")
+    conn.commit()
+    return conn
+
+
+@pytest.fixture()
+def training_store_test_db():
+    """指向测试库的培训记录存储(用例间隔离,开发库零影响)。"""
+    from feedback.store import PostgresTrainingStore
+
+    conn = ensure_test_database()
+    store = PostgresTrainingStore(connection=conn)
+    store.ensure_schema()
+    store.reset()
+    try:
+        yield store
+    finally:
+        store.close()
+        conn.close()

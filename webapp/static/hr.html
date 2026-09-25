@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HR 管理台 — SkillBridge</title>
+<style>
+  :root { --bg:#fafafa; --panel:#fff; --border:#e4e4e7; --text:#18181b; --muted:#71717a; --accent:#2563eb; --good:#16a34a; --warn:#d97706; --bad:#dc2626; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif; background:var(--bg); color:var(--text); font-size:14px; line-height:1.6; }
+  header { background:var(--panel); border-bottom:1px solid var(--border); padding:12px 24px; display:flex; align-items:center; gap:14px; position:sticky; top:0; z-index:10; }
+  header h1 { font-size:16px; font-weight:600; }
+  header a.back { color:var(--muted); font-size:13px; text-decoration:none; margin-left:auto; }
+  .wrap { max-width:1080px; margin:0 auto; padding:20px 24px 60px; display:flex; flex-direction:column; gap:18px; }
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; }
+  .stat { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:16px 20px; }
+  .stat .v { font-size:28px; font-weight:700; }
+  .stat .l { font-size:12px; color:var(--muted); }
+  .stat.good .v { color:var(--good); }
+  .stat.warn .v { color:var(--warn); }
+  .stat.bad .v { color:var(--bad); }
+  .card { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:18px 20px; }
+  .card h3 { font-size:13px; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:12px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:18px; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th { text-align:left; color:var(--muted); font-weight:500; padding:6px 8px; border-bottom:1px solid var(--border); }
+  td { padding:8px; border-bottom:1px solid var(--border); }
+  tr:last-child td { border-bottom:none; }
+  .pill { display:inline-block; border-radius:999px; padding:1px 10px; font-size:12px; border:1px solid; }
+  .pill.ready { color:var(--good); border-color:var(--good); }
+  .pill.close { color:var(--warn); border-color:var(--warn); }
+  .pill.far { color:var(--bad); border-color:var(--bad); }
+  .bar { height:6px; background:var(--border); border-radius:3px; overflow:hidden; min-width:80px; }
+  .bar > i { display:block; height:100%; background:var(--accent); border-radius:3px; }
+  .gap-row { display:flex; align-items:center; gap:12px; padding:7px 0; border-bottom:1px solid var(--border); }
+  .gap-row:last-child { border-bottom:none; }
+  .gap-row .name { width:170px; font-size:13px; font-weight:500; }
+  .gap-row .name .core { color:var(--warn); font-size:11px; }
+  .gap-row .bar { flex:1; }
+  .gap-row .num { width:90px; text-align:right; color:var(--muted); font-size:12px; }
+  .qa-row { display:flex; gap:10px; }
+  .qa-row input { flex:1; border:1px solid var(--border); border-radius:8px; padding:9px 12px; font-size:13px; background:var(--bg); }
+  .qa-row input:focus { outline:none; border-color:var(--accent); }
+  button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:9px 18px; font-size:13px; cursor:pointer; }
+  .answer { border:1px solid var(--border); border-radius:8px; padding:12px 14px; background:var(--bg); margin-top:10px; font-size:13px; }
+  .answer .src { color:var(--muted); font-size:11px; margin-top:4px; }
+  .loading { color:var(--muted); text-align:center; padding:40px 0; }
+  .empty { color:var(--muted); text-align:center; padding:16px 0; font-size:13px; }
+  .recent li { padding:5px 0; font-size:13px; border-bottom:1px solid var(--border); list-style:none; }
+  .recent li:last-child { border-bottom:none; }
+  .recent li span { color:var(--muted); font-size:12px; }
+</style>
+</head>
+<body>
+<header><h1>HR 管理台</h1><a class="back" href="/">切换角色</a></header>
+<div class="wrap" id="wrap"><div class="loading">加载中</div></div>
+<script>
+const $ = id => document.getElementById(id);
+
+async function api(path, opts) {
+  const res = await fetch(path, opts);
+  if (!res.ok) throw new Error((await res.json().catch(()=>({}))).detail || res.statusText);
+  return res.json();
+}
+
+async function load() {
+  try {
+    const d = await api('/api/hr/home');
+    render(d);
+  } catch (e) { $('wrap').innerHTML = `<div class="empty">加载失败:${e.message}</div>`; }
+}
+
+function render(d) {
+  const t = d.training;
+  $('wrap').innerHTML = `
+  <div class="stats">
+    <div class="stat"><div class="v">${d.team_size}</div><div class="l">在培员工</div></div>
+    <div class="stat"><div class="v">${d.average_readiness}%</div><div class="l">团队平均准备度</div></div>
+    <div class="stat good"><div class="v">${d.buckets.ready}</div><div class="l">已达标</div></div>
+    <div class="stat warn"><div class="v">${d.buckets.close}</div><div class="l">接近达标</div></div>
+    <div class="stat bad"><div class="v">${d.buckets.far}</div><div class="l">差距较大</div></div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>团队能力缺口排行</h3>
+      ${d.top_team_gaps.map(g => `
+        <div class="gap-row">
+          <span class="name">${g.skill}${g.is_core ? ' <span class="core">核心</span>' : ''}</span>
+          <span class="bar"><i style="width:${g.coverage_percent}%"></i></span>
+          <span class="num">${g.lacking_count}/${g.team_size} 人待补</span>
+        </div>`).join('') || '<div class="empty">暂无缺口数据</div>'}
+      <p style="color:var(--muted);font-size:12px;margin-top:10px">进度条为团队覆盖率;核心技能缺口建议优先安排培训资源。</p>
+    </div>
+
+    <div class="card">
+      <h3>培训效果</h3>
+      <div class="stats" style="grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px">
+        <div class="stat" style="border:none;padding:6px"><div class="v" style="font-size:20px">${t.total_completions}</div><div class="l">累计完成</div></div>
+        <div class="stat" style="border:none;padding:6px"><div class="v" style="font-size:20px">${t.pass_rate ?? '—'}${t.pass_rate != null ? '%' : ''}</div><div class="l">通过率</div></div>
+        <div class="stat" style="border:none;padding:6px"><div class="v" style="font-size:20px">${t.average_score ?? '—'}</div><div class="l">考试均分</div></div>
+      </div>
+      <h3 style="margin-bottom:6px">最近动态</h3>
+      <ul class="recent">
+        ${t.recent.map(r => `<li>${r.employee} 完成 ${r.course_id} · ${r.score} 分 ${r.passed ? '' : '(未通过)'}<span>${(r.at || '').slice(0, 10)}</span></li>`).join('') || '<li class="empty">暂无培训记录</li>'}
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>员工培训档案</h3>
+    <table>
+      <tr><th>员工</th><th>部门</th><th>当前 → 目标岗位</th><th>准备度</th><th>状态</th><th>已完成</th><th>考试均分</th></tr>
+      ${d.members.map(m => `
+        <tr>
+          <td><b>${m.name}</b></td>
+          <td>${m.department}</td>
+          <td>${m.current_position} → ${m.target_position}</td>
+          <td><span class="bar"><i style="width:${m.readiness_percent}%"></i></span></td>
+          <td><span class="pill ${m.bucket}">${m.bucket_label}</span></td>
+          <td>${m.completed_courses} 门</td>
+          <td>${m.average_score ?? '—'}</td>
+        </tr>`).join('')}
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>政策与知识问答</h3>
+    <div class="qa-row">
+      <input id="qa-input" placeholder="例如:转岗培训的报销政策是什么?" onkeydown="if(event.key==='Enter')ask()" />
+      <button onclick="ask()">提问</button>
+    </div>
+    <div id="qa-answer"></div>
+  </div>`;
+}
+
+async function ask() {
+  const q = $('qa-input').value.trim();
+  if (!q) return;
+  $('qa-answer').innerHTML = '<div class="loading">思考中</div>';
+  try {
+    const r = await api('/api/knowledge/ask', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ question: q })
+    });
+    if (!r.answered) { $('qa-answer').innerHTML = '<div class="answer">知识库中暂无相关内容</div>'; return; }
+    $('qa-answer').innerHTML = r.passages.map(p => `
+      <div class="answer">
+        <b>${p.doc_title}${p.heading ? ' — ' + p.heading : ''}</b>
+        <div style="margin-top:4px">${p.content.replace(/</g,'&lt;')}</div>
+        <div class="src">来源:${p.source_name}</div>
+      </div>`).join('');
+  } catch (e) { $('qa-answer').innerHTML = `<div class="answer">问答失败:${e.message}</div>`; }
+}
+
+load();
+</script>
+</body>
+</html>

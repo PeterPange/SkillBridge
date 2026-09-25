@@ -5,357 +5,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>SkillBridge — 企业员工能力发展平台</title>
 <style>
-  :root {
-    --bg: #fafafa; --panel: #ffffff; --border: #e4e4e7;
-    --text: #18181b; --muted: #71717a; --accent: #2563eb;
-    --good: #16a34a; --warn: #d97706; --bad: #dc2626;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
-    background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6;
-  }
-  header {
-    background: var(--panel); border-bottom: 1px solid var(--border);
-    padding: 14px 24px; display: flex; align-items: baseline; gap: 12px;
-    position: sticky; top: 0; z-index: 10;
-  }
-  header h1 { font-size: 17px; font-weight: 600; letter-spacing: 0.5px; }
-  header span { color: var(--muted); font-size: 12px; }
-  .layout { display: grid; grid-template-columns: 220px 1fr; max-width: 1280px; margin: 0 auto; gap: 20px; padding: 20px 24px; }
-  aside { position: sticky; top: 64px; align-self: start; }
-  aside h2 { font-size: 12px; color: var(--muted); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-  .emp-item {
-    background: var(--panel); border: 1px solid var(--border); border-radius: 8px;
-    padding: 10px 12px; margin-bottom: 8px; cursor: pointer; transition: border-color 0.15s;
-  }
-  .emp-item:hover { border-color: var(--accent); }
-  .emp-item.active { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
-  .emp-item .name { font-weight: 600; }
-  .emp-item .meta { font-size: 12px; color: var(--muted); }
-  main { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
-  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; }
-  .card > h3 { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
-  .card > h3 .tag { font-size: 11px; color: var(--muted); text-transform: none; letter-spacing: 0; font-weight: 400; }
-  .hero { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
-  .stat { border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
-  .stat .label { font-size: 12px; color: var(--muted); }
-  .stat .value { font-size: 22px; font-weight: 600; margin-top: 2px; }
-  .stat .sub { font-size: 12px; color: var(--muted); }
-  table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th { text-align: left; color: var(--muted); font-weight: 500; padding: 6px 8px; border-bottom: 1px solid var(--border); }
-  td { padding: 7px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
-  tr:last-child td { border-bottom: none; }
-  .num { font-variant-numeric: tabular-nums; }
-  .delta-up { color: var(--good); } .delta-down { color: var(--bad); }
-  .bar { height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; min-width: 60px; }
-  .bar > i { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
-  .bar.warn > i { background: var(--warn); }
-  .reason { color: var(--muted); font-size: 12px; margin-top: 2px; }
-  .week { margin-bottom: 10px; }
-  .week .week-head { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
-  .week ul { list-style: none; }
-  .week li { padding: 4px 0 4px 14px; border-left: 2px solid var(--border); margin-left: 2px; font-size: 13px; }
-  .week li b { font-weight: 600; }
-  .week li .meta { color: var(--muted); font-size: 12px; }
-  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .compare .col > .col-title { font-size: 12px; color: var(--muted); margin-bottom: 6px; font-weight: 600; }
-  .compare .col.after { border-left: 1px solid var(--border); padding-left: 16px; }
-  .pill { display: inline-block; border: 1px solid var(--border); border-radius: 999px; padding: 1px 10px; font-size: 12px; color: var(--muted); margin: 2px 4px 2px 0; }
-  .pill.hit { border-color: var(--good); color: var(--good); }
-  .pill.miss { border-color: var(--bad); color: var(--bad); }
-  .qa-row { display: flex; gap: 10px; margin-bottom: 10px; }
-  .qa-row input[type=text] { flex: 1; border: 1px solid var(--border); border-radius: 8px; padding: 9px 12px; font-size: 13px; background: var(--bg); }
-  .qa-row input:focus { outline: none; border-color: var(--accent); }
-  button {
-    border: 1px solid var(--accent); background: var(--accent); color: #fff;
-    border-radius: 8px; padding: 9px 18px; font-size: 13px; cursor: pointer;
-  }
-  button:hover { opacity: 0.9; }
-  button.ghost { background: transparent; color: var(--accent); }
-  button:disabled { opacity: 0.5; cursor: wait; }
-  .answer-box { border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; background: var(--bg); font-size: 13px; white-space: pre-wrap; }
-  .answer-box .src { color: var(--muted); font-size: 12px; margin-top: 6px; }
-  .complete-form { display: grid; grid-template-columns: 1fr 1fr 90px auto; gap: 10px; margin-bottom: 12px; }
-  .complete-form input, .complete-form select {
-    border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 13px; background: var(--panel);
-  }
-  .empty { color: var(--muted); font-size: 13px; padding: 20px 0; text-align: center; }
-  .loading { color: var(--muted); text-align: center; padding: 40px 0; }
-  .flow-note { font-size: 12px; color: var(--muted); margin-top: 10px; }
-  .flow-note b { color: var(--text); }
-  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } aside { position: static; } .compare { grid-template-columns: 1fr; } .compare .col.after { border-left: none; padding-left: 0; } }
+  :root { --bg:#fafafa; --panel:#fff; --border:#e4e4e7; --text:#18181b; --muted:#71717a; --accent:#2563eb; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif; background:var(--bg); color:var(--text); font-size:14px; line-height:1.6; min-height:100vh; display:flex; flex-direction:column; }
+  header { background:var(--panel); border-bottom:1px solid var(--border); padding:14px 24px; display:flex; align-items:baseline; gap:12px; }
+  header h1 { font-size:17px; font-weight:600; }
+  header span { color:var(--muted); font-size:12px; }
+  main { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:40px 20px; }
+  main h2 { font-size:22px; font-weight:600; margin-bottom:6px; }
+  main p.sub { color:var(--muted); margin-bottom:36px; }
+  .roles { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
+  .role { width:300px; background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:26px 24px; cursor:pointer; transition:border-color .15s, box-shadow .15s; text-decoration:none; color:var(--text); display:block; }
+  .role:hover { border-color:var(--accent); box-shadow:0 4px 16px rgba(37,99,235,.08); }
+  .role h3 { font-size:17px; margin-bottom:8px; }
+  .role p { color:var(--muted); font-size:13px; margin-bottom:14px; }
+  .role ul { list-style:none; }
+  .role li { font-size:13px; color:var(--text); padding:3px 0; }
+  .role li::before { content:"— "; color:var(--muted); }
+  footer { padding:16px; text-align:center; color:var(--muted); font-size:12px; }
 </style>
 </head>
 <body>
-<header>
-  <h1>SkillBridge</h1>
-  <span>企业员工智能培训与能力发展平台</span>
-</header>
-
-<div class="layout">
-  <aside>
-    <h2>员工</h2>
-    <div id="employee-list"><div class="loading">加载中</div></div>
-  </aside>
-
-  <main>
-    <section class="card" id="sec-overview" hidden>
-      <h3>员工画像 <span class="tag" id="ov-emp-meta"></span></h3>
-      <div class="hero" id="ov-stats"></div>
-      <div id="ov-skills" style="margin-top:14px"></div>
-    </section>
-
-    <section class="card" id="sec-gap" hidden>
-      <h3>能力差距分析 <span class="tag">目标岗位要求 vs 当前等级</span></h3>
-      <div id="gap-body"></div>
-    </section>
-
-    <section class="card" id="sec-rec" hidden>
-      <h3>个性化课程推荐 <span class="tag">五因子加权排序</span></h3>
-      <div id="rec-body"></div>
-    </section>
-
-    <section class="card" id="sec-plan" hidden>
-      <h3>自适应学习路径 <span class="tag">前置约束 + 每周时间预算</span></h3>
-      <div class="compare" id="plan-body"></div>
-    </section>
-
-    <section class="card" id="sec-feedback" hidden>
-      <h3>培训反馈闭环 <span class="tag">完成课程 → 画像更新 → 路径重排</span></h3>
-      <div class="complete-form">
-        <select id="fb-course"></select>
-        <input id="fb-score" type="number" min="0" max="100" value="85" placeholder="考试分数" />
-        <button id="fb-submit" onclick="submitCompletion()">登记完成</button>
-        <button class="ghost" onclick="loadOverview(currentEmployee)">刷新总览</button>
-      </div>
-      <div id="fb-result"></div>
-      <div id="fb-records" style="margin-top:12px"></div>
-    </section>
-
-    <section class="card">
-      <h3>企业知识库问答 <span class="tag">RAG 检索增强</span></h3>
-      <div class="qa-row">
-        <input type="text" id="qa-input" placeholder="例如:AI Engineer 岗位要求什么能力等级?" onkeydown="if(event.key==='Enter')askKB()" />
-        <button onclick="askKB()">提问</button>
-      </div>
-      <div id="qa-answer"></div>
-    </section>
-
-    <p class="flow-note">
-      全流程说明:<b>员工画像</b> 与 <b>能力差距</b> 由数据体系与技能归一化驱动;
-      <b>课程推荐</b> 从知识图谱按缺口召回并加权排序;
-      <b>学习路径</b> 在前置约束与每周时间预算下拓扑排期;
-      <b>培训反馈</b> 登记完成后自动更新画像并重排路径。
-    </p>
-  </main>
-</div>
-
-<script>
-let currentEmployee = null;
-let lastOverview = null;
-
-const $ = (id) => document.getElementById(id);
-
-async function api(path, opts) {
-  const res = await fetch(path, opts);
-  if (!res.ok) {
-    const detail = await res.json().catch(() => ({}));
-    throw new Error(detail.detail || res.statusText);
-  }
-  return res.json();
-}
-
-function pct(x) { return (x * 100).toFixed(1) + '%'; }
-
-async function loadEmployees() {
-  const list = await api('/api/employees');
-  const box = $('employee-list');
-  box.innerHTML = '';
-  for (const e of list) {
-    const item = document.createElement('div');
-    item.className = 'emp-item';
-    item.innerHTML = `<div class="name">${e.name}</div>
-      <div class="meta">${e.current_position} → ${e.target_position}</div>`;
-    item.onclick = () => selectEmployee(e.id, item);
-    box.appendChild(item);
-  }
-  if (list.length > 0) selectEmployee(list[0].id, box.firstChild);
-}
-
-function selectEmployee(id, el) {
-  currentEmployee = id;
-  for (const node of $('employee-list').children) node.classList.remove('active');
-  if (el) el.classList.add('active');
-  loadOverview(id);
-}
-
-async function loadOverview(id) {
-  for (const s of ['sec-overview','sec-gap','sec-rec','sec-plan','sec-feedback']) $(s).hidden = true;
-  try {
-    const data = await api(`/api/employee/${id}/overview`);
-    lastOverview = data;
-    renderOverview(data);
-  } catch (err) {
-    alert('加载失败:' + err.message);
-  }
-}
-
-function renderOverview(d) {
-  const gapB = d.gap_before, gapA = d.gap_after;
-  const rec = d.recommendations, planB = d.plan_before, planA = d.plan_after;
-
-  $('sec-overview').hidden = false;
-  $('ov-emp-meta').textContent = `${d.employee.name} · ${d.employee.department} · ${d.employee.years} 年经验`;
-  const readyB = gapB.readiness ?? 0, readyA = gapA.readiness ?? 0;
-  const delta = readyA - readyB;
-  $('ov-stats').innerHTML = `
-    <div class="stat"><div class="label">岗位准备度</div>
-      <div class="value">${pct(readyA)}</div>
-      <div class="sub">${delta >= 0.0001 ? `较基础画像 ${pct(readyB)} 提升 ${pct(delta)}` : `基础画像 ${pct(readyB)}`}</div></div>
-    <div class="stat"><div class="label">缺失技能</div>
-      <div class="value">${(gapA.gaps || gapA.missing_skills || []).length}</div>
-      <div class="sub">共 ${(gapA.gaps || []).length} 项待补</div></div>
-    <div class="stat"><div class="label">当前岗位</div>
-      <div class="value" style="font-size:15px">${d.employee.current_position}</div></div>
-    <div class="stat"><div class="label">目标岗位</div>
-      <div class="value" style="font-size:15px">${d.employee.target_position}</div></div>`;
-
-  const skills = d.profile.skills || {};
-  const names = d.skill_names || {};
-  $('ov-skills').innerHTML = Object.values(skills).map(s => {
-    const lvl = s.level ?? 0;
-    const label = names[s.skill_id] || s.skill_id;
-    return `<span class="pill ${lvl >= 3 ? 'hit' : lvl === 0 ? 'miss' : ''}">${label} ${lvl}</span>`;
-  }).join('');
-
-  $('sec-gap').hidden = false;
-  const gaps = gapA.gaps || [];
-  $('gap-body').innerHTML = gaps.length === 0 ? '<div class="empty">目标岗位技能已全部达标</div>' :
-    `<table><tr><th>技能</th><th>当前</th><th>要求</th><th>差距</th><th>重要度</th><th>缺口程度</th></tr>` +
-    gaps.map(g => {
-      const cur = g.current_level ?? 0, req = g.required_level ?? 0;
-      const ratio = req > 0 ? (req - cur) / req : 0;
-      return `<tr><td>${g.skill_name}</td><td class="num">${cur}</td><td class="num">${req}</td>
-        <td class="num delta-down">+${req - cur}</td><td class="num">${g.importance ?? '-'}</td>
-        <td><div class="bar ${ratio > 0.6 ? 'warn' : ''}"><i style="width:${Math.round(ratio*100)}%"></i></div></td></tr>`;
-    }).join('') + '</table>';
-
-  $('sec-rec').hidden = false;
-  const recs = rec.recommendations || [];
-  $('rec-body').innerHTML = recs.length === 0 ? '<div class="empty">暂无推荐</div>' :
-    `<table><tr><th>课程</th><th>评分</th><th>难度</th><th>时长</th><th>覆盖缺口</th></tr>` +
-    recs.map(r => {
-      const c = r.course || {};
-      return `<tr>
-      <td><b>${c.name ?? ''}</b><div class="reason">${(r.reasons || []).join(';')}</div></td>
-      <td class="num">${(r.score ?? 0).toFixed(3)}</td>
-      <td>${c.difficulty ?? '-'}</td><td class="num">${c.duration_minutes ?? '-'} 分钟</td>
-      <td>${(r.covered_gaps || []).map(g => `<span class="pill miss">${g.skill_name} ${g.current_level}→${g.required_level}</span>`).join('') || '-'}
-      </td></tr>`;
-    }).join('') + '</table>';
-
-  $('sec-plan').hidden = false;
-  $('plan-body').innerHTML =
-    `<div class="col"><div class="col-title">原路径(基础画像)</div>${renderPlan(planB)}</div>
-     <div class="col after"><div class="col-title">重排路径(计入培训记录)</div>${renderPlan(planA)}</div>`;
-
-  $('sec-feedback').hidden = false;
-  const sel = $('fb-course');
-  sel.innerHTML = '';
-  const pool = [...new Set([
-    ...((planA.weeks || []).flatMap(w => (w.courses || []).map(c => (c.course || {}).course_id).filter(Boolean))),
-    ...((planB.weeks || []).flatMap(w => (w.courses || []).map(c => (c.course || {}).course_id).filter(Boolean))),
-  ])];
-  for (const cid of pool) {
-    const opt = document.createElement('option');
-    opt.value = cid; opt.textContent = cid;
-    sel.appendChild(opt);
-  }
-  renderRecords(d.records || []);
-}
-
-function renderPlan(plan) {
-  const weeks = plan.weeks || [];
-  if (!weeks.length) return `<div class="empty">无需排课</div>`;
-  const allCourses = weeks.flatMap(w => w.courses || []);
-  const total = allCourses.reduce((s, c) => s + (c.minutes ?? 0), 0);
-  let html = `<div style="font-size:13px;margin-bottom:10px">${allCourses.length} 门课 · 共 ${total} 分钟 · 剪枝 ${Object.values(plan.pruned || {}).length || (plan.pruned || []).length || 0} 门</div>`;
-  for (const w of weeks) {
-    const items = (w.courses || []).map(c => {
-      const co = c.course || {};
-      return `<li><b>${co.name ?? ''}</b> <span class="meta">${c.minutes ?? ''} 分钟 · ${co.difficulty ?? ''}${c.continued ? ' · 跨周延续' : ''}</span></li>`;
-    }).join('');
-    html += `<div class="week"><div class="week-head">第 ${w.week} 周 · 预算 ${w.budget_minutes ?? 0} 分钟</div><ul>${items}</ul></div>`;
-  }
-  return html;
-}
-
-function renderRecords(records) {
-  const box = $('fb-records');
-  if (!records.length) { box.innerHTML = '<div class="empty">暂无培训记录</div>'; return; }
-  box.innerHTML = `<table><tr><th>课程</th><th>分数</th><th>结果</th><th>时间</th></tr>` +
-    records.map(r => `<tr><td>${r.course_id}</td><td class="num">${r.exam_score}</td>
-      <td>${r.passed ? '<span class="delta-up">通过</span>' : '<span class="delta-down">未通过</span>'}</td>
-      <td>${r.completed_at ?? '-'}</td></tr>`).join('') + '</table>';
-}
-
-async function submitCompletion() {
-  if (!currentEmployee) return;
-  const courseId = $('fb-course').value;
-  const score = Number($('fb-score').value);
-  const btn = $('fb-submit');
-  btn.disabled = true;
-  try {
-    const result = await api('/api/complete', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ employee_id: currentEmployee, course_id: courseId, score }),
-    });
-    const changes = (result.update?.changes || []).map(c =>
-      `<span class="pill hit">${c.skill_name ?? c.skill_id}: ${c.from_level} → ${c.to_level}</span>`).join('');
-    const suggestions = (result.update?.suggestions || []).map(s =>
-      `<div class="reason">补基础建议:${s.course_name}(${s.reason})</div>`).join('');
-    $('fb-result').innerHTML =
-      `<div class="answer-box">已登记 ${courseId}(得分 ${score})。
-       ${changes ? '<br>技能等级变化:' + changes : ''}
-       ${suggestions ? '<br>建议:' + suggestions : ''}
-       <div class="src">闭环已触发:画像刷新 → 差距重算 → 推荐刷新 → 课表重排。点击"刷新总览"查看新路径。</div></div>`;
-    await loadOverview(currentEmployee);
-  } catch (err) {
-    $('fb-result').innerHTML = `<div class="answer-box">登记失败:${err.message}</div>`;
-  } finally {
-    btn.disabled = false;
-  }
-}
-
-async function askKB() {
-  const q = $('qa-input').value.trim();
-  if (!q) return;
-  $('qa-answer').innerHTML = '<div class="loading">检索中</div>';
-  try {
-    const result = await api('/api/ask', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question: q }),
-    });
-    const chunks = result.chunks || [];
-    if (!chunks.length) { $('qa-answer').innerHTML = '<div class="answer-box">知识库中没有检索到相关内容。可先运行 python -m rag ingest 导入企业文档。</div>'; return; }
-    let html = '';
-    chunks.forEach((c, i) => {
-      const ch = c.chunk || {};
-      const heading = (ch.heading_path || []).join(' / ');
-      html += `<div class="answer-box" style="margin-bottom:8px">
-        <div><b>[${i + 1}] ${ch.doc_title ?? ''}${heading ? ' — ' + heading : ''}</b> <span class="src">来源:${(ch.source ?? '').split('/').pop()} · 综合相关度 ${pct(c.score ?? 0)}</span></div>
-        <div style="margin-top:6px">${(ch.content ?? '').replace(/</g, '&lt;')}</div></div>`;
-    });
-    $('qa-answer').innerHTML = html;
-  } catch (err) {
-    $('qa-answer').innerHTML = `<div class="answer-box">问答失败:${err.message}</div>`;
-  }
-}
-
-loadEmployees();
-</script>
+<header><h1>SkillBridge</h1><span>企业员工智能培训与能力发展平台</span></header>
+<main>
+  <h2>选择你的角色</h2>
+  <p class="sub">不同角色看到不同的工作台</p>
+  <div class="roles">
+    <a class="role" href="/employee">
+      <h3>员工</h3>
+      <p>我要提升能力、完成转岗目标</p>
+      <ul>
+        <li>我的能力画像与目标岗位</li>
+        <li>为我推荐的课程与学习计划</li>
+        <li>学习进度与培训问答</li>
+      </ul>
+    </a>
+    <a class="role" href="/hr">
+      <h3>HR 管理者</h3>
+      <p>我要掌握团队能力全貌、评估培训效果</p>
+      <ul>
+        <li>团队岗位准备度分布</li>
+        <li>团队能力缺口分析</li>
+        <li>员工培训档案与效果统计</li>
+      </ul>
+    </a>
+  </div>
+</main>
+<footer>SkillBridge v1.0 · 能力差距分析 · 个性化推荐 · 自适应学习路径 · 培训反馈闭环</footer>
 </body>
 </html>

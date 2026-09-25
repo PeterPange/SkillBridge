@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>员工工作台 — SkillBridge</title>
+<style>
+  :root { --bg:#fafafa; --panel:#fff; --border:#e4e4e7; --text:#18181b; --muted:#71717a; --accent:#2563eb; --good:#16a34a; --warn:#d97706; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif; background:var(--bg); color:var(--text); font-size:14px; line-height:1.6; }
+  header { background:var(--panel); border-bottom:1px solid var(--border); padding:12px 24px; display:flex; align-items:center; gap:14px; position:sticky; top:0; z-index:10; }
+  header h1 { font-size:16px; font-weight:600; }
+  header a.back { color:var(--muted); font-size:13px; text-decoration:none; }
+  header select { border:1px solid var(--border); border-radius:8px; padding:6px 10px; font-size:13px; background:var(--panel); }
+  .wrap { max-width:1080px; margin:0 auto; padding:20px 24px 60px; display:flex; flex-direction:column; gap:18px; }
+  .hero { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:22px 26px; display:flex; align-items:center; gap:30px; flex-wrap:wrap; }
+  .hero .who h2 { font-size:19px; font-weight:600; }
+  .hero .who p { color:var(--muted); font-size:13px; }
+  .hero .ready { margin-left:auto; text-align:right; }
+  .hero .ready .num { font-size:34px; font-weight:700; color:var(--accent); }
+  .hero .ready .label { font-size:12px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:18px; }
+  .card { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:18px 20px; }
+  .card h3 { font-size:13px; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:12px; }
+  .skill-row { display:flex; align-items:center; gap:10px; padding:5px 0; }
+  .skill-row .name { width:150px; font-size:13px; }
+  .skill-row .bars { flex:1; display:flex; gap:3px; }
+  .skill-row .bars i { width:22px; height:8px; border-radius:2px; background:var(--border); }
+  .skill-row .bars i.on { background:var(--accent); }
+  .skill-row .bars i.req { outline:1px dashed var(--muted); outline-offset:1px; }
+  .skill-row .tag { font-size:11px; color:var(--muted); width:64px; text-align:right; }
+  .skill-row .tag.met { color:var(--good); }
+  .gap-item { padding:9px 0; border-bottom:1px solid var(--border); }
+  .gap-item:last-child { border-bottom:none; }
+  .gap-item .top { display:flex; justify-content:space-between; font-size:13px; }
+  .gap-item .top b { font-weight:600; }
+  .gap-item .top .cat { color:var(--muted); font-size:12px; }
+  .gap-item .top .cat.core { color:var(--warn); }
+  .gap-item .note { color:var(--muted); font-size:12px; }
+  .course { padding:12px 0; border-bottom:1px solid var(--border); }
+  .course:last-child { border-bottom:none; }
+  .course .t { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+  .course .t b { font-size:14px; font-weight:600; }
+  .course .t a { color:var(--accent); font-size:12px; text-decoration:none; white-space:nowrap; }
+  .course .meta { color:var(--muted); font-size:12px; margin:2px 0 4px; }
+  .course .why { font-size:12px; color:var(--text); background:var(--bg); border-radius:6px; padding:7px 10px; }
+  .week { margin-bottom:10px; }
+  .week .w { font-weight:600; font-size:13px; margin-bottom:4px; color:var(--accent); }
+  .week ul { list-style:none; }
+  .week li { padding:4px 0 4px 12px; border-left:2px solid var(--border); font-size:13px; }
+  .week li span { color:var(--muted); font-size:12px; }
+  .stat-row { display:flex; gap:26px; flex-wrap:wrap; }
+  .stat .v { font-size:22px; font-weight:600; }
+  .stat .l { font-size:12px; color:var(--muted); }
+  .qa-row { display:flex; gap:10px; }
+  .qa-row input { flex:1; border:1px solid var(--border); border-radius:8px; padding:9px 12px; font-size:13px; background:var(--bg); }
+  .qa-row input:focus { outline:none; border-color:var(--accent); }
+  button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:9px 18px; font-size:13px; cursor:pointer; }
+  button:hover { opacity:.9; }
+  .answer { border:1px solid var(--border); border-radius:8px; padding:12px 14px; background:var(--bg); margin-top:10px; font-size:13px; }
+  .answer .src { color:var(--muted); font-size:11px; margin-top:4px; }
+  .complete-form { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+  .complete-form select, .complete-form input { border:1px solid var(--border); border-radius:8px; padding:8px 10px; font-size:13px; }
+  .result-box { border:1px solid var(--border); border-radius:8px; padding:12px 14px; background:var(--bg); font-size:13px; }
+  .empty { color:var(--muted); text-align:center; padding:16px 0; font-size:13px; }
+  .loading { color:var(--muted); text-align:center; padding:40px 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>员工工作台</h1>
+  <select id="who" onchange="loadHome()"></select>
+  <a class="back" href="/">切换角色</a>
+</header>
+<div class="wrap" id="wrap"><div class="loading">加载中</div></div>
+<script>
+let currentId = null;
+
+const $ = id => document.getElementById(id);
+
+async function api(path, opts) {
+  const res = await fetch(path, opts);
+  if (!res.ok) throw new Error((await res.json().catch(()=>({}))).detail || res.statusText);
+  return res.json();
+}
+
+async function init() {
+  const list = await api('/api/hr/home').catch(()=>null);
+  const members = list ? list.members : [];
+  const sel = $('who');
+  sel.innerHTML = members.map(m => `<option value="${m.employee_id}">${m.name} · ${m.current_position}</option>`).join('');
+  if (members.length) { currentId = members[0].employee_id; sel.value = currentId; loadHome(); }
+}
+
+function selectEmployee() { currentId = $('who').value; loadHome(); }
+
+async function loadHome() {
+  currentId = $('who').value || currentId;
+  if (!currentId) return;
+  $('wrap').innerHTML = '<div class="loading">加载中</div>';
+  try {
+    const d = await api(`/api/employee/me/${currentId}/home`);
+    render(d);
+  } catch (e) { $('wrap').innerHTML = `<div class="empty">加载失败:${e.message}</div>`; }
+}
+
+function bars(level, required) {
+  let html = '';
+  for (let i = 1; i <= 4; i++) {
+    const on = i <= level ? ' on' : '';
+    const req = required && i === required && i > level ? ' req' : '';
+    html += `<i class="${on}${req}"></i>`;
+  }
+  return html;
+}
+
+function render(d) {
+  const p = d.progress;
+  const nextCourses = d.plan.flatMap(w => w.courses.map(c => ({ id: c.course_id, name: c.name })));
+  const seen = new Set();
+  const unique = nextCourses.filter(c => !seen.has(c.id) && seen.add(c.id));
+  $('wrap').innerHTML = `
+  <div class="hero">
+    <div class="who">
+      <h2>${d.employee.name}</h2>
+      <p>${d.current_position} → 目标岗位:${d.target_position}</p>
+    </div>
+    <div class="ready">
+      <div class="num">${d.readiness_percent}%</div>
+      <div class="label">岗位准备度</div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>我的能力画像</h3>
+      ${d.skills.map(s => `
+        <div class="skill-row">
+          <span class="name">${s.name}</span>
+          <span class="bars">${bars(s.level, s.required_level)}</span>
+          <span class="tag ${s.status === 'met' ? 'met' : ''}">${s.status_label}</span>
+        </div>`).join('')}
+    </div>
+
+    <div class="card">
+      <h3>待提升能力</h3>
+      ${d.top_gaps.length ? d.top_gaps.map(g => `
+        <div class="gap-item">
+          <div class="top"><b>${g.skill}</b><span class="cat ${g.is_core ? 'core' : ''}">${g.summary}</span></div>
+          <div class="note">当前 ${g.current} 级,目标 ${g.required} 级 · ${g.suggestion}</div>
+        </div>`).join('') : '<div class="empty">目标岗位能力已全部达标</div>'}
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>为我推荐的课程</h3>
+      ${d.recommendations.map(r => `
+        <div class="course">
+          <div class="t"><b>${r.name}</b><a href="${r.url}" target="_blank">去学习</a></div>
+          <div class="meta">${r.difficulty_label || r.difficulty} · ${r.duration_label}${r.covers.length ? ' · 补齐:' + r.covers.join('、') : ''}</div>
+          <div class="why">${r.reasons[0] || ''}</div>
+        </div>`).join('') || '<div class="empty">暂无推荐</div>'}
+    </div>
+
+    <div class="card">
+      <h3>我的学习计划</h3>
+      ${d.plan.map(w => `
+        <div class="week">
+          <div class="w">第 ${w.week} 周</div>
+          <ul>${w.courses.map(c => `<li>${c.name} <span>(${c.minutes} 分钟${c.continued ? ' · 跨周延续' : ''})</span></li>`).join('')}</ul>
+        </div>`).join('') || '<div class="empty">暂无需排课</div>'}
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>学习进度</h3>
+      <div class="stat-row">
+        <div class="stat"><div class="v">${p.completed_count}</div><div class="l">已完成课程</div></div>
+        <div class="stat"><div class="v">${p.average_score ?? '—'}</div><div class="l">考试均分</div></div>
+        <div class="stat"><div class="v">${p.current_week} / ${p.total_weeks}</div><div class="l">计划进度(周)</div></div>
+        <div class="stat"><div class="v" style="font-size:14px;padding-top:6px">${p.next_course || '计划已全部完成'}</div><div class="l">下一门</div></div>
+      </div>
+      <div style="margin-top:16px">
+        <h3 style="margin-bottom:8px">登记课程完成</h3>
+        <div class="complete-form">
+          <select id="fb-course">${unique.map(c => `<option value="${c.id}">${c.name}</option>`).join('')}</select>
+          <input id="fb-score" type="number" min="0" max="100" value="85" style="width:90px" />
+          <button onclick="submitComplete()">提交</button>
+        </div>
+        <div id="fb-result"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>培训问答</h3>
+      <div class="qa-row">
+        <input id="qa-input" placeholder="例如:转岗培训建议几周完成?" onkeydown="if(event.key==='Enter')ask()" />
+        <button onclick="ask()">提问</button>
+      </div>
+      <div id="qa-answer"></div>
+    </div>
+  </div>`;
+}
+
+async function submitComplete() {
+  const courseId = $('fb-course').value;
+  const score = Number($('fb-score').value);
+  try {
+    const r = await api(`/api/employee/me/${currentId}/complete`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ course_id: courseId, score })
+    });
+    const changes = r.changes.map(c => `${c.skill}:${c.from_level} → ${c.to_level}`).join(' · ');
+    $('fb-result').innerHTML = `<div class="result-box">
+      ${r.passed ? '已完成并记录。' : '未通过,建议巩固后重考。'}
+      ${changes ? '<br>等级变化:' + changes : ''}
+      ${r.suggestions.map(s => `<br>建议:${s.course}(${s.reason})`).join('')}
+    </div>`;
+    setTimeout(loadHome, 800);
+  } catch (e) { $('fb-result').innerHTML = `<div class="result-box">提交失败:${e.message}</div>`; }
+}
+
+async function ask() {
+  const q = $('qa-input').value.trim();
+  if (!q) return;
+  $('qa-answer').innerHTML = '<div class="loading">思考中</div>';
+  try {
+    const r = await api('/api/knowledge/ask', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ question: q })
+    });
+    if (!r.answered) { $('qa-answer').innerHTML = '<div class="answer">知识库中暂无相关内容</div>'; return; }
+    $('qa-answer').innerHTML = r.passages.map((p,i) => `
+      <div class="answer">
+        <b>${p.doc_title}${p.heading ? ' — ' + p.heading : ''}</b>
+        <div style="margin-top:4px">${p.content.replace(/</g,'&lt;')}</div>
+        <div class="src">来源:${p.source_name}</div>
+      </div>`).join('');
+  } catch (e) { $('qa-answer').innerHTML = `<div class="answer">问答失败:${e.message}</div>`; }
+}
+
+init();
+</script>
+</body>
+</html>
