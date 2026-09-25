@@ -17,16 +17,12 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 # 预热 sentence-transformers:必须在下方业务模块导入之前完成。
-# 本地 profile/ 包会遮蔽标准库 profile(torch 导入链依赖);反过来,
-# torch 导入链会把标准库 profile 先入 sys.modules,导致本地包不可导入。
-# 顺序:先预热(torch 拿到标准库 profile)→ 弹出该缓存项 → 再导入
-# 业务模块(本地 profile 包重新接管 sys.modules)。
-import sys as _sys
-
+# 本地 profile/ 包与标准库 profile 互相遮蔽(双向),
+# skill_normalization._import_sentence_transformers 内置了免疫处理:
+# 先预热(torch 拿到标准库),再导入业务模块(本地包接管)。
 from skill_normalization.matcher import _import_sentence_transformers
 
 _import_sentence_transformers()
-_sys.modules.pop("profile", None)
 
 from feedback import build_feedback_state, build_plan_diff, record_completion
 from feedback.store import PostgresTrainingStore

@@ -97,15 +97,25 @@ class LexicalEncoder:
 
 
 def _import_sentence_transformers():
-    """导入 sentence-transformers,规避仓库占位包遮蔽标准库的问题。
+    """导入 sentence-transformers,免疫仓库 ``profile/`` 包与标准库的双向遮蔽。
 
-    从项目根目录以 ``python -m`` 方式运行时,cwd(项目根)位于 sys.path
-    首位,仓库的 ``profile/`` 占位包(阶段 2B)会遮蔽标准库 ``profile``
-    模块,导致 torch → cProfile 导入链失败。导入期间临时移除项目根
-    路径即可恢复正确解析,导入完成后原样恢复,不影响其余代码。
+    遮蔽是双向的,任一方向都会炸:
+
+    - 本地 ``profile`` 先入 ``sys.modules`` → torch 导入链拿到本地包,
+      ``profile`` 不是标准库模块 → ImportError → Embedding 降级词面编码;
+    - 标准库 ``profile`` 先入(torch 导入时)→ 业务代码
+      ``from profile.models import ...`` 拿到标准库单模块 → 不是包 →
+      ModuleNotFoundError。
+
+    解法:导入前保存并弹出当前 ``profile`` 缓存项,导入完成后弹出
+    torch 装入的标准库项,再恢复原项。两个方向的既有引用都不受影响
+    (torch 持有标准库引用,业务代码持有本地包引用)。
     """
     import sys
     from pathlib import Path
+
+    saved_profile = sys.modules.get("profile")
+    sys.modules.pop("profile", None)
 
     project_root = Path(__file__).resolve().parent.parent
     dropped: list[str] = []
@@ -128,6 +138,10 @@ def _import_sentence_transformers():
     finally:
         for entry in reversed(dropped):
             sys.path.insert(0, entry)
+        # torch 导入链装入的标准库 profile 让位:恢复调用方原有的缓存项
+        sys.modules.pop("profile", None)
+        if saved_profile is not None:
+            sys.modules["profile"] = saved_profile
     return SentenceTransformer
 
 

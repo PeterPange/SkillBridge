@@ -7,8 +7,7 @@
 Embedding 使用生产默认后端(sentence-transformers 本地模型,
 未安装/无网络时管线自动降级词面匹配);全部断言问题均已在
 两种后端下验证命中对应章节,测试在任一环境下结果一致。
-模块 fixture 会重建 RAG 两张表(测试独占开发库,真实知识库可用
-``python -m rag ingest`` 重新入库)。
+模块 fixture 在独立测试库 skillbridge_rag_test 中重建 RAG 两张表,
 """
 
 from __future__ import annotations
@@ -19,9 +18,11 @@ psycopg = pytest.importorskip("psycopg")
 
 from rag import MemoryVectorStore, PgvectorStore, RagPipeline, default_encoder  # noqa: E402
 from psycopg import errors as pg_errors  # noqa: E402
+from skillbridge.config import get_settings  # noqa: E402
 from skillbridge.db import postgres_connect  # noqa: E402
 
 TEST_DOC_ID = "rag_it_培训制度"
+TEST_DB_NAME = "skillbridge_rag_test"
 
 
 def _postgres_available() -> bool:
@@ -33,29 +34,63 @@ def _postgres_available() -> bool:
     return True
 
 
+def _test_db_connect():
+    """连接独立测试库(不存在则创建),不触碰开发库的 rag 表。
+
+    测试库与开发库同实例、同凭据,仅 dbname 不同;
+    DROP/CREATE 只影响 ``skillbridge_rag_test``。
+    """
+    admin = postgres_connect()
+    admin.autocommit = True
+    with admin.cursor() as cur:
+        cur.execute("SELECT 1 FROM pg_database WHERE datname = %s", (TEST_DB_NAME,))
+        if cur.fetchone() is None:
+            cur.execute(
+                f'CREATE DATABASE "{TEST_DB_NAME}" TEMPLATE template0 ENCODING \'utf8\''
+            )
+    admin.close()
+    s = get_settings()
+    conn = psycopg.connect(
+        host=s.postgres_host,
+        port=s.postgres_port,
+        user=s.postgres_user,
+        password=s.postgres_password,
+        dbname=TEST_DB_NAME,
+    )
+    with conn.cursor() as cur:
+        cur.execute("CREATE EXTENSION IF NOT EXISTS vector")
+    conn.commit()
+    return conn
+
+
 pytestmark = pytest.mark.skipif(
     not _postgres_available(), reason="需要 PostgreSQL + pgvector:先 make up"
 )
 
 
 # ---------------------------------------------------------------------------
-# fixture:重建 RAG 表 + 入库固定文档,模块内全部测试复用
+# fixture:独立测试库中重建 RAG 表 + 入库固定文档,模块内全部测试复用
 # ---------------------------------------------------------------------------
 
 @pytest.fixture(scope="module")
-def store() -> PgvectorStore:
-    conn = postgres_connect()
+def test_conn():
+    conn = _test_db_connect()
     with conn.cursor() as cur:
         cur.execute("DROP TABLE IF EXISTS rag_chunks")
         cur.execute("DROP TABLE IF EXISTS rag_documents")
     conn.commit()
-    store = PgvectorStore(connection=conn)
+    yield conn
+    conn.close()
+
+
+@pytest.fixture(scope="module")
+def store(test_conn):
+    store = PgvectorStore(connection=test_conn)
     yield store
     try:
         store.delete_document(TEST_DOC_ID)
     except pg_errors.UndefinedTable:
         pass  # 某个测试刚 reset 过表:无需清理
-    conn.close()
 
 
 @pytest.fixture(scope="module")
@@ -149,22 +184,21 @@ def test_delete_document(pipeline, training_policy_path):
     pipeline.ingest_file(training_policy_path, doc_id=TEST_DOC_ID)
 
 
-def test_memory_and_pgvector_agree_on_top_chunk(pipeline, training_policy_path):
+def test_memory_and_pgvector_agree_on_top_chunk(pipeline, test_conn, training_policy_path):
     """内存实现与 pgvector 对同一问题的 Top-1 判定一致(语义对齐)。"""
     memory = RagPipeline(
         encoder=pipeline.encoder, store=MemoryVectorStore(), top_k=1
     )
     memory.ingest_file(training_policy_path)
 
-    pg = RagPipeline(encoder=pipeline.encoder, store=PgvectorStore(), top_k=1)
-    try:
-        question = "新员工入职培训期是多久?"
-        memory_top = memory.query(question).chunks[0]
-        pg_top = pg.query(question).chunks[0]
-        assert memory_top.chunk.content == pg_top.chunk.content
-        assert abs(memory_top.vector_score - pg_top.vector_score) < 1e-6
-    finally:
-        pg.store.close()
+    pg = RagPipeline(
+        encoder=pipeline.encoder, store=PgvectorStore(connection=test_conn), top_k=1
+    )
+    question = "新员工入职培训期是多久?"
+    memory_top = memory.query(question).chunks[0]
+    pg_top = pg.query(question).chunks[0]
+    assert memory_top.chunk.content == pg_top.chunk.content
+    assert abs(memory_top.vector_score - pg_top.vector_score) < 1e-6
 
 
 def test_reset_allows_backend_switch(pipeline, store, training_policy_path):
