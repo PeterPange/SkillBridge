@@ -82,7 +82,7 @@ _INSERT_ASSESSMENT = sql.SQL(
 _SELECT_RECORDS = sql.SQL(
     """
     SELECT r.record_id, r.employee_id, r.course_id, r.completed_at,
-           a.exam_score, a.passed, a.level_changes, a.suggestions
+           a.exam_score, a.passed, a.level_changes, a.suggestions, r.source
     FROM training_record AS r
     JOIN assessment AS a ON a.record_id = r.record_id
     WHERE r.employee_id = %(employee_id)s
@@ -281,7 +281,7 @@ class PostgresTrainingStore:
                 passed=bool(row[5]),
                 level_changes=_changes_from_json(row[6]),
                 suggestions=_suggestions_from_json(row[7]),
-                source="postgres",
+                source=row[8] if len(row) > 8 and row[8] else "cli",
             )
             for row in rows
         ]

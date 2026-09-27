@@ -110,6 +110,7 @@ def build_employee_home(employee_id: str, *, hours: float = 4.0, weeks: int = 8)
     # 推荐卡片:评分小数吸收为顺序,理由保留纯文字
     recommendations = [
         CourseCardView(
+            course_id=r.course.course_id,
             name=r.course.name,
             difficulty=r.course.difficulty,
             duration_minutes=r.course.duration_minutes,

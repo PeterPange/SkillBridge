@@ -40,7 +40,8 @@
   .course { padding:12px 0; border-bottom:1px solid var(--border); }
   .course:last-child { border-bottom:none; }
   .course .t { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
-  .course .t b { font-size:14px; font-weight:600; }
+  .course .t b { font-size:14px; font-weight:600; cursor:pointer; }
+  .course .t b:hover { color:var(--accent); }
   .course .t a { color:var(--accent); font-size:12px; text-decoration:none; white-space:nowrap; }
   .course .meta { color:var(--muted); font-size:12px; margin:2px 0 4px; }
   .course .why { font-size:12px; color:var(--text); background:var(--bg); border-radius:6px; padding:7px 10px; }
@@ -49,6 +50,8 @@
   .week ul { list-style:none; }
   .week li { padding:4px 0 4px 12px; border-left:2px solid var(--border); font-size:13px; }
   .week li span { color:var(--muted); font-size:12px; }
+  .week li b.learn-link { cursor:pointer; }
+  .week li b.learn-link:hover { color:var(--accent); }
   .stat-row { display:flex; gap:26px; flex-wrap:wrap; }
   .stat .v { font-size:22px; font-weight:600; }
   .stat .l { font-size:12px; color:var(--muted); }
@@ -57,6 +60,7 @@
   .qa-row input:focus { outline:none; border-color:var(--accent); }
   button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:9px 18px; font-size:13px; cursor:pointer; }
   button:hover { opacity:.9; }
+  button.ghost-btn { background:transparent; color:var(--accent); }
   .answer { border:1px solid var(--border); border-radius:8px; padding:12px 14px; background:var(--bg); margin-top:10px; font-size:13px; }
   .answer .src { color:var(--muted); font-size:11px; margin-top:4px; }
   .complete-form { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
@@ -64,6 +68,30 @@
   .result-box { border:1px solid var(--border); border-radius:8px; padding:12px 14px; background:var(--bg); font-size:13px; }
   .empty { color:var(--muted); text-align:center; padding:16px 0; font-size:13px; }
   .loading { color:var(--muted); text-align:center; padding:40px 0; }
+  /* 站内学习视图 */
+  .learn-head { display:flex; align-items:center; gap:14px; margin-bottom:14px; }
+  .learn-head h2 { font-size:18px; flex:1; }
+  .learn-head .progress-label { color:var(--muted); font-size:13px; }
+  .learn-layout { display:grid; grid-template-columns:220px 1fr; gap:18px; }
+  .unit-nav { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:12px; align-self:start; }
+  .unit-nav .u { padding:7px 10px; border-radius:8px; font-size:13px; cursor:pointer; color:var(--text); display:flex; gap:6px; }
+  .unit-nav .u:hover { background:var(--bg); }
+  .unit-nav .u.active { background:var(--accent); color:#fff; }
+  .unit-nav .u.done { color:var(--good); }
+  .unit-nav .u.done.active { color:#fff; }
+  .reader { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:24px 28px; }
+  .reader h2 { font-size:17px; margin-bottom:14px; }
+  .reader p { font-size:14px; margin-bottom:12px; color:var(--text); }
+  .reader .actions { margin-top:18px; display:flex; gap:10px; }
+  .quiz-q { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:14px; }
+  .quiz-q h4 { font-size:14px; margin-bottom:10px; }
+  .quiz-q label { display:block; padding:8px 12px; border:1px solid var(--border); border-radius:8px; margin-bottom:6px; font-size:13px; cursor:pointer; }
+  .quiz-q label:hover { border-color:var(--accent); }
+  .quiz-q input { margin-right:8px; }
+  .result-big { text-align:center; padding:30px 0; }
+  .result-big .score { font-size:44px; font-weight:700; }
+  .result-big .score.pass { color:var(--good); }
+  .result-big .score.fail { color:var(--bad); }
 </style>
 </head>
 <body>
@@ -157,8 +185,8 @@ function render(d) {
       <h3>为我推荐的课程</h3>
       ${d.recommendations.map(r => `
         <div class="course">
-          <div class="t"><b>${r.name}</b><a href="${r.url}" target="_blank">去学习</a></div>
-          <div class="meta">${r.difficulty_label || r.difficulty} · ${r.duration_label}${r.covers.length ? ' · 补齐:' + r.covers.join('、') : ''}</div>
+          <div class="t"><b onclick="openCourse('${r.course_id || ''}')">${r.name}</b><a href="${r.url}" target="_blank">源站</a></div>
+          <div class="meta">${r.difficulty} · ${r.duration_label}${r.covers.length ? ' · 补齐:' + r.covers.join('、') : ''}</div>
           <div class="why">${r.reasons[0] || ''}</div>
         </div>`).join('') || '<div class="empty">暂无推荐</div>'}
     </div>
@@ -168,7 +196,7 @@ function render(d) {
       ${d.plan.map(w => `
         <div class="week">
           <div class="w">第 ${w.week} 周</div>
-          <ul>${w.courses.map(c => `<li>${c.name} <span>(${c.minutes} 分钟${c.continued ? ' · 跨周延续' : ''})</span></li>`).join('')}</ul>
+          <ul>${w.courses.map(c => `<li><b class="learn-link" onclick="openCourse('${c.course_id}')">${c.name}</b> <span>(${c.minutes} 分钟${c.continued ? ' · 跨周延续' : ''})</span></li>`).join('')}</ul>
         </div>`).join('') || '<div class="empty">暂无需排课</div>'}
     </div>
   </div>
@@ -239,6 +267,117 @@ async function ask() {
         <div class="src">来源:${p.source_name}</div>
       </div>`).join('');
   } catch (e) { $('qa-answer').innerHTML = `<div class="answer">问答失败:${e.message}</div>`; }
+}
+
+// ─── 站内学习 ───────────────────────────────────────
+let learnState = null;  // {courseId, view, currentUnit}
+
+async function openCourse(courseId) {
+  if (!courseId || !currentId) return;
+  $('wrap').innerHTML = '<div class="loading">加载课程内容</div>';
+  try {
+    const view = await api(`/api/employee/me/${currentId}/courses/${courseId}`);
+    learnState = { courseId, view, currentUnit: 0 };
+    for (let i = 0; i < view.units.length; i++) {
+      if (!view.units[i].completed) { learnState.currentUnit = i; break; }
+    }
+    renderLearning();
+  } catch (e) {
+    $('wrap').innerHTML = `<div class="empty">${e.message}<br><button onclick="loadHome()" style="margin-top:10px">返回工作台</button></div>`;
+  }
+}
+
+function renderLearning() {
+  const { view, currentUnit } = learnState;
+  const unit = view.units[currentUnit];
+  const allDone = view.completed_units === view.total_units;
+  $('wrap').innerHTML = `
+  <div class="learn-head">
+    <button class="ghost-btn" onclick="loadHome()">返回</button>
+    <h2>${view.course_name}</h2>
+    <span class="progress-label">已学 ${view.completed_units} / ${view.total_units} 单元${view.already_passed ? ' · 已通过结业' : ''}</span>
+  </div>
+  <div class="learn-layout">
+    <div class="unit-nav">
+      ${view.units.map((u, i) => `
+        <div class="u ${i === currentUnit ? 'active' : ''} ${u.completed ? 'done' : ''}" onclick="switchUnit(${i})">
+          ${u.completed ? '✓ ' : ''}${i + 1}. ${u.title.slice(0, 14)}
+        </div>`).join('')}
+      ${allDone && !view.already_passed ? `<button style="width:100%;margin-top:10px" onclick="startQuiz()">开始结业测验</button>` : ''}
+      ${view.already_passed ? '<div class="empty" style="padding:8px 0">已完成本课程</div>' : ''}
+    </div>
+    <div class="reader">
+      <h2>${unit.title}</h2>
+      ${unit.paragraphs.map(p => `<p>${p.replace(/</g, '&lt;')}</p>`).join('')}
+      <div class="actions">
+        ${!unit.completed ? `<button onclick="completeUnit(${currentUnit})">完成本单元</button>` : '<span style="color:var(--good);font-size:13px">本单元已完成</span>'}
+        ${currentUnit > 0 ? '<button class="ghost-btn" onclick="switchUnit(' + (currentUnit - 1) + ')">上一单元</button>' : ''}
+        ${currentUnit < view.units.length - 1 ? `<button class="ghost-btn" onclick="switchUnit(${currentUnit + 1})">下一单元</button>` : ''}
+      </div>
+    </div>
+  </div>`;
+}
+
+function switchUnit(i) { learnState.currentUnit = i; renderLearning(); }
+
+async function completeUnit(i) {
+  const unit = learnState.view.units[i];
+  try {
+    const r = await api(`/api/employee/me/${currentId}/courses/${learnState.courseId}/units/${unit.index}/complete`, { method: 'POST' });
+    learnState.view.completed_units = r.completed_units;
+    learnState.view.units[i].completed = true;
+    learnState.view.quiz_unlocked = r.quiz_unlocked;
+    if (i + 1 < learnState.view.units.length) { learnState.currentUnit = i + 1; }
+    renderLearning();
+  } catch (e) { alert('标记失败:' + e.message); }
+}
+
+async function startQuiz() {
+  $('wrap').innerHTML = '<div class="loading">生成结业测验</div>';
+  try {
+    const q = await api(`/api/employee/me/${currentId}/courses/${learnState.courseId}/quiz`);
+    learnState.quiz = q;
+    renderQuiz();
+  } catch (e) { $('wrap').innerHTML = `<div class="empty">${e.message}</div>`; }
+}
+
+function renderQuiz() {
+  const q = learnState.quiz;
+  $('wrap').innerHTML = `
+  <div class="learn-head">
+    <button class="ghost-btn" onclick="openCourse('${learnState.courseId}')">返回课程</button>
+    <h2>结业测验</h2>
+    <span class="progress-label">达标线 ${q.pass_threshold} 分 · 通过后自动登记</span>
+  </div>
+  ${q.questions.map((question, qi) => `
+    <div class="quiz-q">
+      <h4>${qi + 1}. ${question.question}</h4>
+      ${question.options.map((opt, oi) => `<label><input type="radio" name="q${qi}" value="${oi}" />${opt}</label>`).join('')}
+    </div>`).join('')}
+  <button onclick="submitQuiz()">提交答卷</button>`;
+}
+
+async function submitQuiz() {
+  const q = learnState.quiz;
+  const answers = q.questions.map((_, qi) => {
+    const checked = document.querySelector(`input[name=q${qi}]:checked`);
+    return checked ? Number(checked.value) : -1;
+  });
+  try {
+    const r = await api(`/api/employee/me/${currentId}/courses/${learnState.courseId}/quiz/submit`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ answers })
+    });
+    const changes = r.changes.map(c => `${c.skill}:${c.from_level} → ${c.to_level}`).join(' · ');
+    $('wrap').innerHTML = `
+    <div class="result-big">
+      <div class="score ${r.passed ? 'pass' : 'fail'}">${r.score} 分</div>
+      <p style="margin:10px 0">答对 ${r.correct}/${r.total} · ${r.message}</p>
+      ${changes ? `<p style="color:var(--good)">能力提升:${changes}</p>` : ''}
+      ${r.suggestions.map(s => `<p style="color:var(--warn)">建议:${s.course}(${s.reason})</p>`).join('')}
+      <div style="margin-top:20px"><button onclick="loadHome()">返回工作台</button></div>
+    </div>`;
+  } catch (e) { alert('提交失败:' + e.message); }
 }
 
 init();

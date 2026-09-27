@@ -25,6 +25,7 @@ from crawler.bilibili import DEFAULT_KEYWORDS, BilibiliSearcher, parse_search_re
 logger = logging.getLogger("crawler")
 
 KNOWLEDGE_DIR = Path(DEFAULT_DATA_DIR).parent / "knowledge"
+LEARNING_DIR = Path(DEFAULT_DATA_DIR).parent / "learning"
 
 
 def _slugify(text: str) -> str:
@@ -110,6 +111,59 @@ def run_video(*, keywords: list[str], pages: int, out_dir: Path) -> int:
     return 0
 
 
+def run_units(*, limit: int | None, delay: float, out_dir: Path) -> int:
+    """抓取课程单元内容(站内学习材料):模块页取单元链接 → 逐单元取正文。
+
+    产出每门课一个 Markdown(标题级结构,与 RAG 分块对齐),
+    供 Web 端「站内学习」功能渲染课程内容。
+    """
+    from crawler.mslearn import parse_unit_content, parse_unit_links
+
+    courses = load_course_urls(Path(DEFAULT_DATA_DIR), limit=limit)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    fetcher = Fetcher(delay_seconds=delay)
+
+    ok = fail = skip = 0
+    for course in courses:
+        target = out_dir / f"{course['course_id']}-{_slugify(course['name'])}.md"
+        if target.exists():
+            skip += 1
+            continue
+        module = fetcher.fetch(course["url"])
+        if not module.ok:
+            print(f"[失败] {course['course_id']} 模块页:{module.error}")
+            fail += 1
+            continue
+        units = parse_unit_links(module.body)
+        if not units:
+            print(f"[跳过] {course['course_id']} 模块页无单元链接(可能改版)")
+            fail += 1
+            continue
+        parts = [f"# {course['name']}"]
+        unit_ok = 0
+        for unit in units:
+            unit_url = course["url"].rstrip("/") + "/" + unit["href"]
+            page = fetcher.fetch(unit_url)
+            if not page.ok:
+                continue
+            try:
+                content = parse_unit_content(page.body)
+            except ValueError:
+                continue
+            parts.append(f"## {content['title']}")
+            parts.extend(content["paragraphs"])
+            unit_ok += 1
+        if unit_ok == 0:
+            print(f"[失败] {course['course_id']} 全部单元解析失败")
+            fail += 1
+            continue
+        target.write_text("\n\n".join(parts) + "\n", encoding="utf-8")
+        ok += 1
+        print(f"[完成] {course['course_id']} {unit_ok}/{len(units)} 单元 → {target.name}")
+    print(f"单元抓取结束:成功 {ok},跳过 {skip},失败 {fail}")
+    return 0 if fail == 0 else 2
+
+
 def run_ingest(*, doc_dir: Path) -> int:
     """把爬取产物喂给 RAG 知识库。"""
     from rag.pipeline import RagPipeline
@@ -149,6 +203,11 @@ def main(argv: list[str] | None = None) -> int:
     p_run.add_argument("--delay", type=float, default=1.5, help="请求间隔秒数(默认 1.5)")
     p_run.add_argument("--out", type=Path, default=KNOWLEDGE_DIR, help="输出目录")
 
+    p_units = sub.add_parser("run-units", help="抓取课程单元正文(站内学习材料)")
+    p_units.add_argument("--limit", type=int, default=None, help="只抓前 N 门")
+    p_units.add_argument("--delay", type=float, default=1.0, help="请求间隔秒数")
+    p_units.add_argument("--out", type=Path, default=LEARNING_DIR, help="输出目录")
+
     p_cat = sub.add_parser("run-catalog", help="拉取 MS Learn 官方目录(AI 模块,含教材式单元目录)")
     p_cat.add_argument("--limit", type=int, default=None, help="最多产出 N 个模块文档")
     p_cat.add_argument("--out", type=Path, default=KNOWLEDGE_DIR, help="输出目录")
@@ -167,6 +226,8 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if args.command == "run":
         return run_crawl(limit=args.limit, delay=args.delay, out_dir=args.out)
+    if args.command == "run-units":
+        return run_units(limit=args.limit, delay=args.delay, out_dir=args.out)
     if args.command == "run-catalog":
         return run_catalog(limit=args.limit, out_dir=args.out)
     if args.command == "run-video":

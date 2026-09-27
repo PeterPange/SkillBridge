@@ -56,7 +56,7 @@ def complete_course(employee_id: str, req: CompleteRequest) -> dict:
     ]
     suggestions = [
         {"course": s.course_name, "reason": s.reason}
-        for s in result.update.suggestions
+        for s in result.record.suggestions
     ]
     return {
         "recorded": True,

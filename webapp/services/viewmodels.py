@@ -51,6 +51,7 @@ class GapView:
 class CourseCardView:
     """推荐课程卡片(隐藏评分小数,保留可解释理由)。"""
 
+    course_id: str
     name: str
     difficulty: str
     duration_minutes: int

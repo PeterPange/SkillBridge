@@ -24,6 +24,7 @@ sys.modules.pop("profile", None)
 from webapp.api import employee as employee_api  # noqa: E402
 from webapp.api import hr as hr_api  # noqa: E402
 from webapp.api import knowledge as knowledge_api  # noqa: E402
+from webapp.api import learning as learning_api  # noqa: E402
 
 _STATIC = Path(__file__).parent / "static"
 
@@ -34,6 +35,7 @@ def create_app() -> FastAPI:
     app.include_router(employee_api.router)
     app.include_router(hr_api.router)
     app.include_router(knowledge_api.router)
+    app.include_router(learning_api.router)
 
     @app.get("/")
     def index() -> FileResponse:

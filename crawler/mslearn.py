@@ -17,6 +17,10 @@ _H1 = re.compile(r"<h1[^>]*>(.*?)</h1>", re.S)
 _META_DESCRIPTION = re.compile(r'<meta\s+name="description"\s+content="([^"]*)"', re.S)
 _H2 = re.compile(r"<h2[^>]*>(.*?)</h2>", re.S)
 _TAG = re.compile(r"<[^>]+>")
+_UNIT_LINK = re.compile(
+    r'<a class="unit-title[^"]*"[^>]*href="([\w-]+)"[^>]*>([^<]+)</a>'
+)
+_MAIN = re.compile(r"<main[^>]*>")
 
 
 def _strip_tags(fragment: str) -> str:
@@ -80,3 +84,39 @@ def parse_mslearn_module_safe(
         return {"ok": True, "doc": doc}
     except ValueError as exc:
         return {"ok": False, "error": str(exc)}
+
+
+def parse_unit_links(html: str) -> list[dict[str, str]]:
+    """从模块页提取单元链接(相对路径)与标题。
+
+    模块页的单元导航为服务端渲染,链接是相对路径
+    (如 ``3-computer-vision``),需拼在模块 URL 后。
+    """
+    return [
+        {"href": href, "title": _strip_tags(title).strip()}
+        for href, title in _UNIT_LINK.findall(html)
+    ]
+
+
+def parse_unit_content(html: str) -> dict[str, Any]:
+    """解析单元页正文:主区域标题 + 有效段落。
+
+    页面家具(Was this page helpful 等)通过长度与位置过滤;
+    解析失败抛 :class:`ValueError`。
+    """
+    main_match = _MAIN.search(html)
+    if not main_match:
+        raise ValueError("单元页缺少主内容区")
+    main_html = html[main_match.start() :]
+    h1 = _H1.search(main_html)
+    if not h1 or not _strip_tags(h1.group(1)):
+        raise ValueError("单元页缺少标题")
+    title = _strip_tags(h1.group(1))
+    paragraphs = [
+        _strip_tags(p)
+        for p in re.findall(r"<p[^>]*>(.*?)</p>", main_html, re.S)
+    ]
+    paragraphs = [p for p in paragraphs if len(p) >= 40][:12]
+    if not paragraphs:
+        raise ValueError("单元页没有有效正文段落")
+    return {"title": title, "paragraphs": paragraphs}
