@@ -125,6 +125,11 @@ function render(d) {
   </div>
 
   <div class="card">
+    <h3>技能测评统计</h3>
+    <div id="asm-stats"><div class="empty">加载中</div></div>
+  </div>
+
+  <div class="card">
     <h3>政策与知识问答</h3>
     <div class="qa-row">
       <input id="qa-input" placeholder="例如:转岗培训的报销政策是什么?" onkeydown="if(event.key==='Enter')ask()" />
@@ -154,6 +159,29 @@ async function ask() {
 }
 
 load();
+
+async function loadAssessmentStats() {
+  try {
+    const d = await api('/api/hr/assessments');
+    if (!d.total) {
+      $('asm-stats').innerHTML = '<div class="empty">暂无测评记录,员工可在工作台发起技能测评</div>';
+      return;
+    }
+    $('asm-stats').innerHTML = `
+      <div class="stats" style="grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px">
+        <div class="stat" style="border:none;padding:6px"><div class="v" style="font-size:20px">${d.total}</div><div class="l">累计测评</div></div>
+        <div class="stat" style="border:none;padding:6px"><div class="v" style="font-size:20px">${d.average_score}</div><div class="l">平均分</div></div>
+        <div class="stat" style="border:none;padding:6px"><div class="v" style="font-size:20px">${d.pass_rate}%</div><div class="l">通过率</div></div>
+      </div>
+      ${d.by_skill.map(s => `
+        <div class="gap-row">
+          <span class="name">${s.skill}</span>
+          <span class="bar"><i style="width:${s.pass_rate}%"></i></span>
+          <span class="num">${s.attempts} 次 · 均分 ${s.average}</span>
+        </div>`).join('')}`;
+  } catch (e) { $('asm-stats').innerHTML = `<div class="empty">${e.message}</div>`; }
+}
+loadAssessmentStats();
 </script>
 </body>
 </html>

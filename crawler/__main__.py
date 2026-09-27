@@ -223,6 +223,8 @@ def main(argv: list[str] | None = None) -> int:
     p_list = sub.add_parser("list", help="列出已抓取文档")
     p_list.add_argument("--dir", type=Path, default=KNOWLEDGE_DIR, help="文档目录")
 
+    p_idx = sub.add_parser("index", help="构建资源索引(resources.json:视频/教材/文档 + 技能标签)")
+
     args = parser.parse_args(argv)
     if args.command == "run":
         return run_crawl(limit=args.limit, delay=args.delay, out_dir=args.out)
@@ -239,6 +241,12 @@ def main(argv: list[str] | None = None) -> int:
         return run_video(keywords=keywords, pages=args.pages, out_dir=args.out)
     if args.command == "ingest":
         return run_ingest(doc_dir=args.dir)
+    if args.command == "index":
+        from crawler.indexer import write_index
+
+        count = write_index()
+        print(f"资源索引已构建:{count} 条 → {Path(DEFAULT_DATA_DIR) / 'resources.json'}")
+        return 0
     return run_list(doc_dir=args.dir)
 
 

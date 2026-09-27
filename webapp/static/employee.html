@@ -222,6 +222,20 @@ function render(d) {
     </div>
 
     <div class="card">
+      <h3>学习资源中心 <span class="tag" id="res-count"></span></h3>
+      <div id="res-body"><div class="empty">加载中</div></div>
+    </div>
+
+    <div class="card">
+      <h3>技能测评 <span class="tag">度量能力 · 联动推荐</span></h3>
+      <div id="asm-skills"><div class="empty">加载中</div></div>
+      <div id="asm-history"></div>
+      <div id="asm-quiz"></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
       <h3>培训问答</h3>
       <div class="qa-row">
         <input id="qa-input" placeholder="例如:转岗培训建议几周完成?" onkeydown="if(event.key==='Enter')ask()" />
@@ -230,6 +244,8 @@ function render(d) {
       <div id="qa-answer"></div>
     </div>
   </div>`;
+  loadResources();
+  loadAssessments();
 }
 
 async function submitComplete() {
@@ -269,9 +285,93 @@ async function ask() {
   } catch (e) { $('qa-answer').innerHTML = `<div class="answer">问答失败:${e.message}</div>`; }
 }
 
+// ─── 资源中心 + 技能测评 ────────────────────────────
+async function loadResources() {
+  try {
+    const d = await api(`/api/employee/me/${currentId}/resources`);
+    $('res-count').textContent = `视频 ${d.counts.video || 0} · 教材 ${d.counts.module || 0} · 文档 ${d.counts.document || 0}`;
+    const card = r => `
+      <div class="course">
+        <div class="t"><b>${r.title}</b><a href="${r.url}" target="_blank">打开</a></div>
+        <div class="meta">${r.type_label}${r.meta['UP主'] ? ' · ' + r.meta['UP主'] : ''}${r.meta['时长'] ? ' · ' + r.meta['时长'] : ''}${r.meta['难度'] ? ' · ' + r.meta['难度'] : ''}${r.meta['单元数'] ? ' · ' + r.meta['单元数'] + ' 单元' : ''}</div>
+        ${r.skills.length ? `<div class="why">关联技能:${r.skills.join('、')}</div>` : ''}
+      </div>`;
+    let html = '';
+    if (d.recommended.length) {
+      html += `<p style="font-size:12px;color:var(--muted);margin-bottom:8px">按你的能力缺口推荐</p>`;
+      html += d.recommended.slice(0, 4).map(card).join('');
+    }
+    const tabs = [
+      ['video', '视频'], ['module', '教材'], ['document', '文档'],
+    ];
+    for (const [type, label] of tabs) {
+      const list = d[type === 'video' ? 'videos' : type === 'module' ? 'modules' : 'documents'] || [];
+      if (!list.length) continue;
+      html += `<p style="font-size:12px;color:var(--muted);margin:10px 0 4px">全部${label}(${list.length})</p>`;
+      html += list.slice(0, 3).map(card).join('');
+    }
+    $('res-body').innerHTML = html || '<div class="empty">暂无资源(先运行爬虫)</div>';
+  } catch (e) { $('res-body').innerHTML = `<div class="empty">${e.message}</div>`; }
+}
+
+let asmState = null;  // {skillId, quiz}
+
+async function loadAssessments() {
+  try {
+    const d = await api(`/api/employee/me/${currentId}/assessments`);
+    const skills = d.skills || [];
+    $('asm-skills').innerHTML = skills.length ? skills.slice(0, 6).map(s => `
+      <div class="gap-item">
+        <div class="top"><b>${s.skill_name}</b>
+          <span class="cat">当前 ${s.current_level} 级 · ${s.course_count} 门课可考${s.last_score != null ? ' · 最近 ' + s.last_score + ' 分' : ''}</span></div>
+        <button class="ghost-btn" style="margin-top:6px;padding:5px 12px;font-size:12px" onclick="startAssessment('${s.skill_id}')">开始测评</button>
+      </div>`).join('') : '<div class="empty">暂无可测评技能</div>';
+    const history = d.history || [];
+    $('asm-history').innerHTML = history.length ? `
+      <p style="font-size:12px;color:var(--muted);margin-top:12px">测评历史(Evidence)</p>` +
+      history.slice(0, 4).map(h => `<div class="reason">${h.skill_name}:${h.score} 分(${h.verdict_label})</div>`).join('') : '';
+  } catch (e) { $('asm-skills').innerHTML = `<div class="empty">${e.message}</div>`; }
+}
+
+async function startAssessment(skillId) {
+  $('asm-quiz').innerHTML = '<div class="empty">出题中</div>';
+  try {
+    const q = await api(`/api/employee/me/${currentId}/assessments/${skillId}/quiz`);
+    asmState = { skillId, quiz: q };
+    $('asm-quiz').innerHTML = `
+      ${q.questions.map((question, qi) => `
+      <div class="quiz-q">
+        <h4>${qi + 1}. ${question.question}</h4>
+        ${question.options.map((opt, oi) => `<label><input type="radio" name="asm${qi}" value="${oi}" />${opt}</label>`).join('')}
+      </div>`).join('')}
+      <button onclick="submitAssessment()">提交测评</button>`;
+    $('asm-quiz').scrollIntoView({ behavior: 'smooth' });
+  } catch (e) { $('asm-quiz').innerHTML = `<div class="empty">${e.message}</div>`; }
+}
+
+async function submitAssessment() {
+  const answers = asmState.quiz.questions.map((_, qi) => {
+    const checked = document.querySelector(`input[name=asm${qi}]:checked`);
+    return checked ? Number(checked.value) : -1;
+  });
+  try {
+    const r = await api(`/api/employee/me/${currentId}/assessments/${asmState.skillId}/submit`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ answers })
+    });
+    $('asm-quiz').innerHTML = `
+      <div class="result-big">
+        <div class="score ${r.verdict !== 'failed' ? 'pass' : 'fail'}">${r.score} 分</div>
+        <p>${r.skill_name} · ${r.verdict_label} · 答对 ${r.correct}/${r.total}</p>
+        <p style="color:var(--muted)">${r.message}</p>
+        ${r.recommended_courses.length ? `<p style="color:var(--warn)">推荐课程:${r.recommended_courses.join('、')}</p>` : ''}
+      </div>`;
+    loadAssessments();
+  } catch (e) { alert('提交失败:' + e.message); }
+}
+
 // ─── 站内学习 ───────────────────────────────────────
 let learnState = null;  // {courseId, view, currentUnit}
-
 async function openCourse(courseId) {
   if (!courseId || !currentId) return;
   $('wrap').innerHTML = '<div class="loading">加载课程内容</div>';

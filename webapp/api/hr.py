@@ -1,4 +1,4 @@
-"""HR 端 API:团队总览 / 缺口排行 / 成员档案 / 培训效果。"""
+"""HR 端 API:团队总览 / 缺口排行 / 成员档案 / 培训效果 / 测评统计。"""
 
 from __future__ import annotations
 
@@ -26,3 +26,11 @@ def hr_home() -> dict:
         return obj
 
     return convert(view)
+
+
+@router.get("/assessments")
+def hr_assessments() -> dict:
+    """团队技能测评统计:总量 / 均分 / 通过率 / 分技能统计。"""
+    from webapp.services.assessment_service import team_assessment_stats
+
+    return team_assessment_stats()
