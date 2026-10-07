@@ -8,10 +8,17 @@
   :root { --bg:#fafafa; --panel:#fff; --border:#e4e4e7; --text:#18181b; --muted:#71717a; --accent:#2563eb; --good:#16a34a; --warn:#d97706; --bad:#dc2626; }
   * { box-sizing:border-box; margin:0; padding:0; }
   body { font-family:-apple-system,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif; background:var(--bg); color:var(--text); font-size:14px; line-height:1.6; }
-  header { background:var(--panel); border-bottom:1px solid var(--border); padding:12px 24px; display:flex; align-items:center; gap:14px; position:sticky; top:0; z-index:10; }
+  header { background:var(--panel); border-bottom:1px solid var(--border); padding:0 24px; position:sticky; top:0; z-index:20; }
+  .header-row { display:flex; align-items:center; gap:14px; padding:12px 0; }
   header h1 { font-size:16px; font-weight:600; }
   header a.back { color:var(--muted); font-size:13px; text-decoration:none; margin-left:auto; }
-  .wrap { max-width:1080px; margin:0 auto; padding:20px 24px 60px; display:flex; flex-direction:column; gap:18px; }
+  nav.tabs { display:flex; gap:4px; overflow-x:auto; }
+  nav.tabs button { border:none; background:transparent; color:var(--muted); padding:10px 16px; font-size:14px; cursor:pointer; border-bottom:2px solid transparent; white-space:nowrap; border-radius:0; }
+  nav.tabs button:hover { color:var(--text); opacity:1; }
+  nav.tabs button.active { color:var(--accent); border-bottom-color:var(--accent); font-weight:600; }
+  .wrap { max-width:1080px; margin:0 auto; padding:20px 24px 80px; }
+  .page { display:none; flex-direction:column; gap:18px; }
+  .page.active { display:flex; }
   .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; }
   .stat { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:16px 20px; }
   .stat .v { font-size:28px; font-weight:700; }
@@ -37,11 +44,12 @@
   .gap-row .name { width:170px; font-size:13px; font-weight:500; }
   .gap-row .name .core { color:var(--warn); font-size:11px; }
   .gap-row .bar { flex:1; }
-  .gap-row .num { width:90px; text-align:right; color:var(--muted); font-size:12px; }
+  .gap-row .num { width:110px; text-align:right; color:var(--muted); font-size:12px; }
   .qa-row { display:flex; gap:10px; }
   .qa-row input { flex:1; border:1px solid var(--border); border-radius:8px; padding:9px 12px; font-size:13px; background:var(--bg); }
   .qa-row input:focus { outline:none; border-color:var(--accent); }
-  button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:9px 18px; font-size:13px; cursor:pointer; }
+  button.btn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:9px 18px; font-size:13px; cursor:pointer; }
+  button.btn:hover { opacity:.9; }
   .answer { border:1px solid var(--border); border-radius:8px; padding:12px 14px; background:var(--bg); margin-top:10px; font-size:13px; }
   .answer .src { color:var(--muted); font-size:11px; margin-top:4px; }
   .loading { color:var(--muted); text-align:center; padding:40px 0; }
@@ -52,10 +60,29 @@
 </style>
 </head>
 <body>
-<header><h1>HR 管理台</h1><a class="back" href="/">切换角色</a></header>
-<div class="wrap" id="wrap"><div class="loading">加载中</div></div>
+<header>
+  <div class="header-row">
+    <h1>HR 管理台</h1>
+    <a class="back" href="/">切换角色</a>
+  </div>
+  <nav class="tabs" id="tabs">
+    <button data-tab="overview" class="active" onclick="switchTab('overview')">团队总览</button>
+    <button data-tab="members" onclick="switchTab('members')">员工档案</button>
+    <button data-tab="training" onclick="switchTab('training')">培训效果</button>
+    <button data-tab="assessment" onclick="switchTab('assessment')">测评统计</button>
+    <button data-tab="qa" onclick="switchTab('qa')">政策问答</button>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="page active" id="page-overview"><div class="loading">加载中</div></div>
+  <div class="page" id="page-members"></div>
+  <div class="page" id="page-training"></div>
+  <div class="page" id="page-assessment"></div>
+  <div class="page" id="page-qa"></div>
+</div>
 <script>
 const $ = id => document.getElementById(id);
+let hrData = null;
 
 async function api(path, opts) {
   const res = await fetch(path, opts);
@@ -63,16 +90,23 @@ async function api(path, opts) {
   return res.json();
 }
 
-async function load() {
-  try {
-    const d = await api('/api/hr/home');
-    render(d);
-  } catch (e) { $('wrap').innerHTML = `<div class="empty">加载失败:${e.message}</div>`; }
+function switchTab(name) {
+  for (const b of $('tabs').children) b.classList.toggle('active', b.dataset.tab === name);
+  for (const p of document.querySelectorAll('.page')) p.classList.remove('active');
+  $('page-' + name).classList.add('active');
+  if (name === 'assessment' && !$('page-assessment').innerHTML) loadAssessmentStats();
 }
 
-function render(d) {
-  const t = d.training;
-  $('wrap').innerHTML = `
+async function load() {
+  try {
+    hrData = await api('/api/hr/home');
+    renderOverview(); renderMembers(); renderTraining(); renderQA();
+  } catch (e) { $('page-overview').innerHTML = `<div class="empty">加载失败:${e.message}</div>`; }
+}
+
+function renderOverview() {
+  const d = hrData;
+  $('page-overview').innerHTML = `
   <div class="stats">
     <div class="stat"><div class="v">${d.team_size}</div><div class="l">在培员工</div></div>
     <div class="stat"><div class="v">${d.average_readiness}%</div><div class="l">团队平均准备度</div></div>
@@ -83,32 +117,34 @@ function render(d) {
 
   <div class="grid">
     <div class="card">
-      <h3>团队能力缺口排行</h3>
+      <h3>团队能力缺口排行 <span class="tag">核心技能缺口建议优先安排资源</span></h3>
       ${d.top_team_gaps.map(g => `
         <div class="gap-row">
           <span class="name">${g.skill}${g.is_core ? ' <span class="core">核心</span>' : ''}</span>
           <span class="bar"><i style="width:${g.coverage_percent}%"></i></span>
           <span class="num">${g.lacking_count}/${g.team_size} 人待补</span>
         </div>`).join('') || '<div class="empty">暂无缺口数据</div>'}
-      <p style="color:var(--muted);font-size:12px;margin-top:10px">进度条为团队覆盖率;核心技能缺口建议优先安排培训资源。</p>
     </div>
 
     <div class="card">
-      <h3>培训效果</h3>
-      <div class="stats" style="grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px">
-        <div class="stat" style="border:none;padding:6px"><div class="v" style="font-size:20px">${t.total_completions}</div><div class="l">累计完成</div></div>
-        <div class="stat" style="border:none;padding:6px"><div class="v" style="font-size:20px">${t.pass_rate ?? '—'}${t.pass_rate != null ? '%' : ''}</div><div class="l">通过率</div></div>
-        <div class="stat" style="border:none;padding:6px"><div class="v" style="font-size:20px">${t.average_score ?? '—'}</div><div class="l">考试均分</div></div>
+      <h3>培训概况</h3>
+      <div class="stats" style="grid-template-columns:repeat(3,1fr);gap:10px">
+        <div class="stat" style="border:none;padding:6px"><div class="v" style="font-size:20px">${d.training.total_completions}</div><div class="l">累计完成</div></div>
+        <div class="stat" style="border:none;padding:6px"><div class="v" style="font-size:20px">${d.training.pass_rate ?? '—'}${d.training.pass_rate != null ? '%' : ''}</div><div class="l">通过率</div></div>
+        <div class="stat" style="border:none;padding:6px"><div class="v" style="font-size:20px">${d.training.average_score ?? '—'}</div><div class="l">考试均分</div></div>
       </div>
-      <h3 style="margin-bottom:6px">最近动态</h3>
-      <ul class="recent">
-        ${t.recent.map(r => `<li>${r.employee} 完成 ${r.course_id} · ${r.score} 分 ${r.passed ? '' : '(未通过)'}<span>${(r.at || '').slice(0, 10)}</span></li>`).join('') || '<li class="empty">暂无培训记录</li>'}
+      <ul class="recent" style="margin-top:12px">
+        ${d.training.recent.slice(0, 5).map(r => `<li>${r.employee} 完成 ${r.course_id} · ${r.score} 分 ${r.passed ? '' : '(未通过)'}<span>${(r.at || '').slice(0, 10)}</span></li>`).join('') || '<li class="empty">暂无培训记录</li>'}
       </ul>
     </div>
-  </div>
+  </div>`;
+}
 
+function renderMembers() {
+  const d = hrData;
+  $('page-members').innerHTML = `
   <div class="card">
-    <h3>员工培训档案</h3>
+    <h3>员工培训档案 <span class="tag">${d.team_size} 人</span></h3>
     <table>
       <tr><th>员工</th><th>部门</th><th>当前 → 目标岗位</th><th>准备度</th><th>状态</th><th>已完成</th><th>考试均分</th></tr>
       ${d.members.map(m => `
@@ -122,21 +158,60 @@ function render(d) {
           <td>${m.average_score ?? '—'}</td>
         </tr>`).join('')}
     </table>
-  </div>
+  </div>`;
+}
 
-  <div class="card">
-    <h3>技能测评统计</h3>
-    <div id="asm-stats"><div class="empty">加载中</div></div>
+function renderTraining() {
+  const t = hrData.training;
+  $('page-training').innerHTML = `
+  <div class="stats">
+    <div class="stat"><div class="v">${t.total_completions}</div><div class="l">累计完成课程</div></div>
+    <div class="stat"><div class="v">${t.pass_rate ?? '—'}${t.pass_rate != null ? '%' : ''}</div><div class="l">结业通过率</div></div>
+    <div class="stat"><div class="v">${t.average_score ?? '—'}</div><div class="l">考试平均分</div></div>
   </div>
-
   <div class="card">
-    <h3>政策与知识问答</h3>
+    <h3>最近培训动态</h3>
+    <ul class="recent">
+      ${t.recent.map(r => `<li>${r.employee} 完成 ${r.course_id} · ${r.score} 分 ${r.passed ? '' : '(未通过)'}<span>${(r.at || '').slice(0, 10)}</span></li>`).join('') || '<li class="empty">暂无培训记录</li>'}
+    </ul>
+  </div>`;
+}
+
+function renderQA() {
+  $('page-qa').innerHTML = `
+  <div class="card">
+    <h3>政策与知识问答 <span class="tag">企业知识库检索</span></h3>
     <div class="qa-row">
       <input id="qa-input" placeholder="例如:转岗培训的报销政策是什么?" onkeydown="if(event.key==='Enter')ask()" />
-      <button onclick="ask()">提问</button>
+      <button class="btn" onclick="ask()">提问</button>
     </div>
     <div id="qa-answer"></div>
   </div>`;
+}
+
+async function loadAssessmentStats() {
+  try {
+    const d = await api('/api/hr/assessments');
+    if (!d.total) {
+      $('page-assessment').innerHTML = '<div class="card"><div class="empty">暂无测评记录,员工可在工作台发起技能测评</div></div>';
+      return;
+    }
+    $('page-assessment').innerHTML = `
+    <div class="stats">
+      <div class="stat"><div class="v">${d.total}</div><div class="l">累计测评</div></div>
+      <div class="stat"><div class="v">${d.average_score}</div><div class="l">平均分</div></div>
+      <div class="stat"><div class="v">${d.pass_rate}%</div><div class="l">通过率</div></div>
+    </div>
+    <div class="card">
+      <h3>分技能测评统计</h3>
+      ${d.by_skill.map(s => `
+        <div class="gap-row">
+          <span class="name">${s.skill}</span>
+          <span class="bar"><i style="width:${s.pass_rate}%"></i></span>
+          <span class="num">${s.attempts} 次 · 均分 ${s.average}</span>
+        </div>`).join('')}
+    </div>`;
+  } catch (e) { $('page-assessment').innerHTML = `<div class="empty">${e.message}</div>`; }
 }
 
 async function ask() {
@@ -159,29 +234,6 @@ async function ask() {
 }
 
 load();
-
-async function loadAssessmentStats() {
-  try {
-    const d = await api('/api/hr/assessments');
-    if (!d.total) {
-      $('asm-stats').innerHTML = '<div class="empty">暂无测评记录,员工可在工作台发起技能测评</div>';
-      return;
-    }
-    $('asm-stats').innerHTML = `
-      <div class="stats" style="grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px">
-        <div class="stat" style="border:none;padding:6px"><div class="v" style="font-size:20px">${d.total}</div><div class="l">累计测评</div></div>
-        <div class="stat" style="border:none;padding:6px"><div class="v" style="font-size:20px">${d.average_score}</div><div class="l">平均分</div></div>
-        <div class="stat" style="border:none;padding:6px"><div class="v" style="font-size:20px">${d.pass_rate}%</div><div class="l">通过率</div></div>
-      </div>
-      ${d.by_skill.map(s => `
-        <div class="gap-row">
-          <span class="name">${s.skill}</span>
-          <span class="bar"><i style="width:${s.pass_rate}%"></i></span>
-          <span class="num">${s.attempts} 次 · 均分 ${s.average}</span>
-        </div>`).join('')}`;
-  } catch (e) { $('asm-stats').innerHTML = `<div class="empty">${e.message}</div>`; }
-}
-loadAssessmentStats();
 </script>
 </body>
 </html>
