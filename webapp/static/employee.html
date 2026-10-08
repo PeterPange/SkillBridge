@@ -203,6 +203,11 @@ function renderRoute() {
 }
 window.addEventListener('hashchange', renderRoute);
 
+// 侧边栏菜单点击 → 路由跳转
+for (const item of document.querySelectorAll('.menu-item')) {
+  item.addEventListener('click', () => navigate(item.dataset.route));
+}
+
 function lazyLoad(route) {
   if (route === 'resources') loadResources();
   if (route === 'assessment') loadAssessments();

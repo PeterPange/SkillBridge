@@ -136,6 +136,11 @@ function renderRoute() {
 }
 window.addEventListener('hashchange', renderRoute);
 
+// 侧边栏菜单点击 → 路由跳转
+for (const item of document.querySelectorAll('.menu-item')) {
+  item.addEventListener('click', () => navigate(item.dataset.route));
+}
+
 async function load() {
   try {
     hrData = await api('/api/hr/home');
